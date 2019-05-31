@@ -6,6 +6,11 @@
 *********************************************************************/
 #ifndef MENU_HPP
 #define MENU_HPP
+#include "Board.hpp"
+#include <sstream>
+using std::cin;
+using std::cout;
+using std::endl;
 
 class Menu
 {
