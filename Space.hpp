@@ -4,6 +4,9 @@
 ** Date:  May 30 2019
 ** Description: Board header file 
 *********************************************************************/
+#ifndef SPACE_HPP
+#define SPACE_HPP
+
 class Space
 {
 private:
@@ -17,3 +20,5 @@ public:
 //abstract class
 //pure virtual functions
 };
+
+#endif
