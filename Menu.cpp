@@ -10,6 +10,27 @@ Menu::Menu()
 {
   
 }
+int Menu::inputValidation(int min, int max)
+{
+  double input;
+  bool repeatEntry = true;
+  char errorTest;
+  string inputLine;
+  while (repeatEntry) {
+      getline(cin, inputLine);
+      std::stringstream lineStream(inputLine);
+      if (!(lineStream >> input)) {
+          cout << "Input was not a number. Please try again." << endl;
+      } else if ((input < min) || (input > max)) {
+          cout << "Input out of range. Please try again." << endl;
+      } else if (input - static_cast<int>(input) != 0) {
+          cout << "Input with decimals and not an integer. Please try again." << endl;
+      } else if (lineStream >> errorTest) {
+          cout << "Input with extra symbols and/or characters. Please try again." << endl;
+      } else {
+          repeatEntry = false;
+      }  
+}
 void Menu::welcomeMenu()
 {
   cout << "Welcome to Triad Town! " << endl;
