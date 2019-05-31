@@ -28,7 +28,6 @@ public:
   void displayTwFive();
   void printHidden();
   void printFull();
-  void randomOffer();
   void printSack();
   void deleteItem();
   void feedBears();
