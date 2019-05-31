@@ -47,9 +47,6 @@ void Board::printHidden()
 void Board::printFull()
 {
 }
-void Board::randomOffer()
-{
-}
 void Board::printSack()
 {
 }
