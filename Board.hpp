@@ -6,6 +6,10 @@
 *********************************************************************/
 #ifndef BOARD_HPP
 #define BOARD_HPP
+#include "Space.hpp"
+#include "Mountain.hpp"
+#include "Forest.hpp"
+#include "Coast.hpp"
 
 class Board
 {
