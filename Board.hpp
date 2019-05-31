@@ -1,5 +1,5 @@
 /*********************************************************************
-** Program name: Final Project - Collect Three Loot and Shoot
+** Program name: Final Project - Triad Town Loot and Shoot
 ** Author: Sariah Bunnell 
 ** Date:  May 30 2019
 ** Description: Board header file 
