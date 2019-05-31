@@ -5,11 +5,22 @@
 ** Description:  Menu class implementation file 
 *********************************************************************/
 #include "Menu.hpp"
-
+/*********************************************************************
+** Function: Menu constructor
+** Description: initializes values
+** Parameters: None
+** Returns: None
+*********************************************************************/
 Menu::Menu()
 {
   
 }
+/*********************************************************************
+** Function: inputValidation
+** Description: validates user input for numerical range
+** Parameters: int minimum, int maximum
+** Returns: validated integer
+*********************************************************************/
 int Menu::inputValidation(int min, int max)
 {
   double input;
@@ -31,6 +42,12 @@ int Menu::inputValidation(int min, int max)
           repeatEntry = false;
       }  
 }
+/*********************************************************************
+** Function: welcomeMenu
+** Description: announces welcome and game objective
+** Parameters: None
+** Returns: None
+*********************************************************************/
 void Menu::welcomeMenu()
 {
   cout << "Welcome to Triad Town! " << endl;
@@ -43,6 +60,13 @@ void Menu::welcomeMenu()
        << "you must own a fleet of ships. " << endl;
   cout << "Not to worry. Triad Town has everything you need! " << endl;
 }
+/*********************************************************************
+** Function: gameRulesB
+** Description: explains 'shoot' aspect of game - dangers that affect
+** user
+** Parameters: None
+** Returns: None
+*********************************************************************/
 void Menu::gameRulesB()
 {
   cout << "The most important thing to know about Triad Town \n"
@@ -54,6 +78,12 @@ void Menu::gameRulesB()
        << "three eggs. Eggs look like this on the map: o " << endl;
   cout << "Bears look like this: & " << endl;
 } 
+/*********************************************************************
+** Function: gameRulesM
+** Description: explains Mountain level objective
+** Parameters: None
+** Returns: None
+*********************************************************************/
 void Menu::gameRulesM()
 {
   cout << "The first task is to collect enough food for your voyage. " << endl;
@@ -62,7 +92,13 @@ void Menu::gameRulesM()
        << "to last your fleet for many months. You must get three barrels or \n"
        << "your men and yourself may starve. The only place to find trout are \n"
        << "in the mountains. But beware of bears..." << endl;
-}   
+}
+/*********************************************************************
+** Function: gameRulesF
+** Description: explains Forest level objective
+** Parameters: None
+** Returns: None
+*********************************************************************/
 void Menu::gameRulesF()
 {
   cout << "The next task is to collect enough wood for boat repairs. " << endl;
@@ -71,6 +107,12 @@ void Menu::gameRulesF()
   cout << "The best place to find wood is in the forest. Remember to \n"
        << "collect 3 per barrel, and be on the lookout for bears... " << endl;
 }
+/*********************************************************************
+** Function: gameRulesC
+** Description: explains Coast level objective
+** Parameters: None
+** Returns: None
+*********************************************************************/
 void Menu::gameRulesC()
 {
   cout << "The third and final task is to collect sailors. " << endl;
@@ -81,6 +123,12 @@ void Menu::gameRulesC()
        << "of the sea. They look like this on the map: + " << endl;
   cout << "Remember to keep a wary eye out for bears... " << endl;
 }
+/*********************************************************************
+** Function: explainKnapsack
+** Description: explains the container and keep/drop idea to user
+** Parameters: None
+** Returns: None
+*********************************************************************/
 void Menu::explainKnapsack()
 {
   cout << "You have a knapsack that you carry with you. " << endl;
@@ -96,6 +144,12 @@ void Menu::explainKnapsack()
        << "just made a salmon! And so on, and so on... " << endl;
   cout << "Don't forget! You only have room for 6 items. " << endl;
 }
+/*********************************************************************
+** Function: explainExtras
+** Description: explains extra tools and location of items to user
+** Parameters: None
+** Returns: None
+*********************************************************************/
 void Menu::explainExtras()
 {
   cout << "There are a few helpful tools you may come across." << endl;
@@ -104,34 +158,73 @@ void Menu::explainExtras()
   cout << "Alchemy crystals are very rare and can transform \n"
        << "any other two items ON THE MAP into something \n"
        << "greater. They must be dropped on the map in \n"
-       << "order to use them. " << endl;
+       << "order to use them. Found only near mountains." << endl;
   cout << "The other tool is a flashlight. This allows you \n"
        << "to see a wider view of the landscape. Flashlights \n"
        << "are also pretty rare, so carefully consider the \n"
-       << "best places to use them. " << endl;
+       << "best places to use them. Found in forests." << endl;
 }
+/*********************************************************************
+** Function: gamePlay
+** Description: calls Board class functions to run game
+** Parameters: 
+** Returns: 
+*********************************************************************/
 void Menu::gamePlay()
 {
   //call board functions here
 }
+/*********************************************************************
+** Function: levelMPassed
+** Description: returns true if player beat the level and gained 
+** objective, otherwise returns false
+** Parameters: None
+** Returns: true or false
+*********************************************************************/
 bool Menu::levelMPassed()
 {
   //return true if Mountain has 3 barrels, else false
 }
+/*********************************************************************
+** Function: levelFPassed
+** Description: returns true if player beat the level and gained 
+** objective, otherwise returns false
+** Parameters: None
+** Returns: true or false
+*********************************************************************/
 bool Menu::levelFPassed()
 {
 
 }
+/*********************************************************************
+** Function: levelCPassed
+** Description: returns true if player beat the level and gained 
+** objective, otherwise returns false
+** Parameters: None
+** Returns: true or false
+*********************************************************************/
 bool Menu::levelCPassed()
 {
 
 }
+/*********************************************************************
+** Function: exitMenu
+** Description: asks user if they would like to play again or quit
+** Parameters: None
+** Returns: None
+*********************************************************************/
 void Menu::exitMenu()
 {
   cout << Would you like to: " << endl;
   cout << "1. Play again? " << endl;
   cout << "2. Exit the game? " << endl;
-}  
+} 
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
 void Menu::callBoard()
 {
 }
