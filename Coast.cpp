@@ -31,19 +31,19 @@ int Coast::randomOffer()
   int random = (rand() % 4) + 1;
   if (random == 1)
   {
-    //sailor
+    return 1;//sailor
   }
   else if (random == 2)
   {
-    //egg
+    return 2;//egg
   }
   else if (random == 3)
   {
-    //extra space
+    return 3;//extra space
   }
   else 
   {
-     //sailor
+     return 4;//sailor
   }
 }
 /*********************************************************************
