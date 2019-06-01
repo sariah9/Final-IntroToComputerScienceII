@@ -6,13 +6,17 @@
 *********************************************************************/
 #include "Board.hpp"
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: board constructor
+** Description: initializes values and creates new instances of each 
+** level
+** Parameters: None
+** Returns: None
 *********************************************************************/
 Board::Board()
 {
+  mtnPtr = new Mountain;
+  forestPtr = new Forest;
+  coastPtr = new Coast;
 }
 /*********************************************************************
 ** Function:
