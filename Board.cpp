@@ -93,8 +93,15 @@ void Board::moveUser()
 *********************************************************************/
 void Board::displayNine()
 {
-  mtnPtr->boardPopulate();
-  
+ for(int x = 12; x > 0; x--)
+  {
+    for (int y = 9; y > 0; y--)
+    {
+      map[y][x] = mtnPtr->boardPopulate();
+      cout << map[x][y];
+    }
+  }
+  cout << endl;
 }
 /*********************************************************************
 ** Function:
@@ -137,8 +144,9 @@ void Board::printFull()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void Board::printSack()
+void Board::printSack(queue<char> copy)
 {
+  
 }
 /*********************************************************************
 ** Function:
@@ -167,6 +175,7 @@ void Board::feedBears()
 void offerItem(int)
 void keep()
 {
+  knapSack.push(ch);
 }
 /*********************************************************************
 ** Function:
