@@ -220,11 +220,36 @@ void Menu::exitMenu()
   cout << "2. Exit the game? " << endl;
 } 
 /*********************************************************************
-** Function:
+** Function: 
 ** Description: 
 ** Parameters:
 ** Returns: 
 *********************************************************************/
 void Menu::callBoard()
 {
+}
+/*********************************************************************
+** Function: bearsMenu()
+** Description: announces when there are bears and asks user to
+** choose salmon or death
+** Parameters: None
+** Returns: None
+*********************************************************************/
+void Menu::bearsMenu()
+{
+  cout << "There are bears nearby. You can either: " << endl;
+  cout << "1. Throw a salmon from your knapsack. " << endl;
+  cout << "2. Be eaten yourself. " << endl;
+}
+/*********************************************************************
+** Function: keepOrDropMenu()
+** Description: prompts user to choose to keep or drop random items
+** Parameters: None
+** Returns: None
+*********************************************************************/
+void Menu::keepOrDropMenu()
+{
+  cout << "You may choose what to do with this item." << endl;
+  cout << "1. Keep the item in the sack." << endl;
+  cout << "2. Drop the item. " << endl;
 }
