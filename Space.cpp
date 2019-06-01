@@ -17,9 +17,9 @@ Space::Space()
   down = NULL;
   right = NULL;
   left = NULL;
-  for (int y = 0; y < 3; y++)
+  for (int y = 0; y < 2; y++)
   {
-    for (int x = 0; x < 3; x++)
+    for (int x = 0; x < 2; x++)
     {
       gridMove[y][x] = ' ';
     }
