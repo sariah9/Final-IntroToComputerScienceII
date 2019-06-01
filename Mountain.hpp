@@ -13,7 +13,7 @@ private:
 public:
 void words(); override
 int randomOffer(); override
-void boardPopulate(); override
+void boardPopulate(int); override
 };
 
 #endif
