@@ -47,7 +47,7 @@ char map[9][12];
   Space* forestPtr;
   Space* coastPtr;
   queue<char> knapSack;
-  queue<int> barrels;
+  int barrels[9];
   Space* user;
 
 -moveUser()
@@ -181,8 +181,14 @@ void drop()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void foodBarrels()
+void addBarrels()
 {
+  int food = 1;
+  barrels.push(food);
+  int wood = 2;
+  barrels.push(wood);
+  int sailor = 3;
+  barrels.push(sailor)
 }
 /*********************************************************************
 ** Function:
@@ -210,4 +216,7 @@ void sailorBarrels()
 *********************************************************************/
 void countBarrels()
 {
+  while (!barrels.empty())
+  {
+    barrels.pop
 }
