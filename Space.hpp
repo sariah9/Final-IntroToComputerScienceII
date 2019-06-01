@@ -22,7 +22,7 @@ public:
   ~Space();
   virtual void words();
   virtual void randomOffer();
-  virtual void boardPopulate();
+  virtual void boardPopulate(int);
 };
 
 #endif
