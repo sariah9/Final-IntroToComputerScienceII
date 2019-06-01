@@ -14,7 +14,7 @@
 class Board
 {
 private:
-  map[9][12];
+  char map[9][12];
   Space* mtnPtr;
   Space* forestPtr;
   Space* coastPtr;
