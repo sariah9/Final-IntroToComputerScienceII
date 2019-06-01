@@ -10,6 +10,8 @@
 #include "Mountain.hpp"
 #include "Forest.hpp"
 #include "Coast.hpp"
+#include <queue>
+using std::queue;
 
 class Board
 {
@@ -19,11 +21,12 @@ private:
   Space* forestPtr;
   Space* coastPtr;
   queue<char> knapSack;
+  queue<int> barrels;
+  Space* user;
 public:
   Board();
   ~Board();
   void moveUser();
-  void boardPopulate();
   void displayNine();
   void printHidden();
   void printFull();
@@ -36,6 +39,7 @@ public:
   void foodBarrels();
   void woodBarrels();
   void sailorBarrels();
+  void countBarrels();
 };
 
 #endif
