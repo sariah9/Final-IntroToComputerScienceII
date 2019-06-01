@@ -6,10 +6,11 @@
 *********************************************************************/
 #include "Space.hpp"
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: Space constructor
+** Description: initializes pointers to NULL and fills 3 x 3 grid 
+** space with blank spaces
+** Parameters: None
+** Returns: None
 *********************************************************************/
 Space::Space()
 {
@@ -25,6 +26,12 @@ Space::Space()
     }
   }
 }
+/*********************************************************************
+** Function: Space destructor
+** Description: sets pointers back to NULL
+** Parameters: None
+** Returns: None
+*********************************************************************/
 Space::~Space()
 {
 up = NULL;
