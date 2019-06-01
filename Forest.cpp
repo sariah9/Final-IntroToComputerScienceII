@@ -6,10 +6,10 @@
 *********************************************************************/
 #include "Forest.hpp"
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: words
+** Description: introduction to the Forest level
+** Parameters: None
+** Returns: None
 *********************************************************************/
 void Forest::words()
 {
@@ -20,26 +20,39 @@ void Forest::words()
        << "cool breath and seek out \n"
        << "any wood that may be near. " << endl;
 }
-void Forest::randomOffer()
+/*********************************************************************
+** Function: randomOffer
+** Description: randomly generates items for the Forest level
+** Parameters: None
+** Returns: int that represents item
+*********************************************************************/
+int Forest::randomOffer()
 {
   int random = (rand() % 4) + 1;
   if (random == 1)
   {
-    //wood
+    return 1;//wood
   }
   else if (random == 2)
   {
-    //egg
+    return 2;//egg
   }
   else if (random == 3)
   {
-    //crystal
+    return 3;//crystal
   }
   else 
   {
-     //wood
+    return 4;//wood
   }
 }
+/*********************************************************************
+** Function: boardPopulate
+** Description: randomly fills 3 x 3 grid with pathway and items and 
+** bears
+** Parameters: int that represents which move the player is on
+** Returns: None
+*********************************************************************/
 void Forest::boardPopulate(int move)
 {
   const char bear = '&';
