@@ -20,9 +20,9 @@ public:
   Space* left;
   Space();
   ~Space();
-  virtual void words();
-  virtual void randomOffer();
-  virtual void boardPopulate(int);
+  virtual void words() = 0;
+  virtual void randomOffer() = 0;
+  virtual void boardPopulate(int) = 0;
 };
 
 #endif
