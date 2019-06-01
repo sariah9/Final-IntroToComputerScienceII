@@ -6,6 +6,7 @@
 *********************************************************************/
 #ifndef COAST_HPP
 #define COAST_HPP
+#include "Space.hpp"
 
 class Coast : public Space
 {
