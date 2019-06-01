@@ -20,7 +20,7 @@ void Forest::words()
        << "cool breath and seek out \n"
        << "any wood that may be near. " << endl;
 }
-void Forest:: randomOffer()
+void Forest::randomOffer()
 {
   int random = (rand() % 4) + 1;
   if (random == 1)
