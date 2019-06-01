@@ -11,6 +11,9 @@ class Coast : public Space
 {
 private:
 public:
+void words(); override
+void randomOffer(); override
+void boardPopulate(); override
 };
 
 #endif
