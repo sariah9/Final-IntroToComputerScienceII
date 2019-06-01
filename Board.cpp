@@ -6,7 +6,7 @@
 *********************************************************************/
 #include "Board.hpp"
 /*********************************************************************
-** Function: board constructor
+** Function: Board constructor
 ** Description: initializes values and creates new instances of each 
 ** level
 ** Parameters: None
@@ -14,18 +14,27 @@
 *********************************************************************/
 Board::Board()
 {
-  mtnPtr = new Mountain;
-  forestPtr = new Forest;
-  coastPtr = new Coast;
+  mtnPtr = NULL;
+  forestPtr = NULL;
+  coastPtr = NULL;
+  user = NULL;
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: Board destructor
+** Description: frees memory 
+** Parameters: None
+** Returns: None
 *********************************************************************/
 Board::~Board()
 {
+  while (!knapSack.empty())
+  {
+    knapSack.pop();
+  }
+  while (!barrels.empty())
+  {
+    barrels.pop();
+  }
 }
 /*********************************************************************
 ** Function:
@@ -33,13 +42,14 @@ Board::~Board()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
--constructor
-  -STL barrel of food
-  -STL barrel of wood
-  -STL barrel of sailors
-  Space* user //keeps track of user
--destructor 
-  -.pop all barrels STL
+char map[9][12];
+  Space* mtnPtr;
+  Space* forestPtr;
+  Space* coastPtr;
+  queue<char> knapSack;
+  queue<int> barrels;
+  Space* user;
+
 -moveUser()
   -need a way to keep track of where user is... 
 -displayNine()
@@ -84,31 +94,120 @@ Board::~Board()
   -if yes .push
 void Board::moveUser()
 {
+  int move = 0;
+  
+  mtnPtr = new Mountain;
+  forestPtr = new Forest;
+  coastPtr = new Coast;
 }
-void Board::boardPopulate()
-{
-}
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
 void Board::displayNine()
 {
+  mtnPtr->boardPopulate();
+  
 }
-void Board::displayTwFive()
-{
-}
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
 void Board::printHidden()
 {
 }
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
 void Board::printFull()
 {
 }
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
 void Board::printSack()
 {
 }
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
 void Board::deleteItem()
 {
 }
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
 void Board::feedBears()
 {
 }
-void Board::keepOrDropMenu()
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
+void offerItem(int)
+void keep()
+{
+}
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
+void drop()
+{
+}
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
+void foodBarrels()
+{
+}
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
+void woodBarrels()
+{
+}
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
+void sailorBarrels()
+{
+}
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
+void countBarrels()
 {
 }
