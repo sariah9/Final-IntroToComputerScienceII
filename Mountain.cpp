@@ -6,10 +6,10 @@
 *********************************************************************/
 #include "Mountain.hpp"
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: words
+** Description: introduction to the beginning of Mountain level
+** Parameters: None
+** Returns: None
 *********************************************************************/
 void Mountain::words()
 {
@@ -18,32 +18,46 @@ void Mountain::words()
        << "the sounds of waterfalls and eagles!" << endl;
   cout << "A perfect day for a trout hunt. " << endl;
 }
-void Mountain::randomOffer()
+/*********************************************************************
+** Function: randomOffer
+** Description: offers items specific to Mountain level
+** Parameters: None
+** Returns: int that represents item
+*********************************************************************/
+int Mountain::randomOffer()
 {
   int random = (rand() % 4) + 1;
   if (random == 1)
   {
-    //trout
+    return 1;//trout
   }
   else if (random == 2)
   {
-    //egg
+    return 2;//egg
   }
   else if (random == 3)
   {
-    //flashlight
+    return 3;//flashlight
   }
   else 
   {
-    //trout
+    return 4;//trout
   }
 }
+/*********************************************************************
+** Function: boardPopulate
+** Description: fills each 3 x 3 space with pathway and randomly 
+** chosen items and bears
+** Parameters: None
+** Returns: None
+*********************************************************************/
 void Mountain::boardPopulate(int move)
 {
   const char bear = '&';
   const char path = ' ';
   const char trout = '%';
   const char egg = 'o';
+  //int b = 0, t = 0, e = 0;
   if (move == 4)
   {
     gridMove[0][1] = path;
