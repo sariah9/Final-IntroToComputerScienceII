@@ -31,10 +31,6 @@ Board::~Board()
   {
     knapSack.pop();
   }
-  while (!barrels.empty())
-  {
-    barrels.pop();
-  }
 }
 /*********************************************************************
 ** Function:
@@ -50,8 +46,6 @@ char map[9][12];
   int barrels[9];
   Space* user;
 
--moveUser()
-  -need a way to keep track of where user is... 
 -displayNine()
   -prints out linked 3x3 grid 
 -printHidden()
@@ -83,15 +77,6 @@ char map[9][12];
   -check surrounding grid for 2+ of item
   -if yes
     -offerItem(int item)
--foodBarrels()
-  -STL queue of trout barrels
-  -if yes .push
--woodBarrels()
-  -STL queue of trout barrels
-  -if yes .push
--sailorBarrels()
-  -STL queue of trout barrels
-  -if yes .push
 void Board::moveUser()
 {
   int move = 0;
@@ -119,6 +104,15 @@ void Board::displayNine()
 *********************************************************************/
 void Board::printHidden()
 {
+  for(int x = 0; x < 12; x++)
+  {
+    for (int y = 0; y < 9; y++)
+    {
+      map[y][x] = ' ';
+      cout << map[x][y];
+    }
+  }
+  cout << endl;
 }
 /*********************************************************************
 ** Function:
@@ -128,6 +122,14 @@ void Board::printHidden()
 *********************************************************************/
 void Board::printFull()
 {
+   for(int x = 0; x < 12; x++)
+  {
+    for (int y = 0; y < 9; y++)
+    {
+      cout << map[x][y];
+    }
+  }
+  cout << endl;
 }
 /*********************************************************************
 ** Function:
@@ -181,14 +183,11 @@ void drop()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void addBarrels()
+void addBarrels(int item)
 {
-  int food = 1;
-  barrels.push(food);
-  int wood = 2;
-  barrels.push(wood);
-  int sailor = 3;
-  barrels.push(sailor)
+  int food = 0;
+  int wood = 0;
+  int sailor = 0;
 }
 /*********************************************************************
 ** Function:
@@ -216,7 +215,4 @@ void sailorBarrels()
 *********************************************************************/
 void countBarrels()
 {
-  while (!barrels.empty())
-  {
-    barrels.pop
 }
