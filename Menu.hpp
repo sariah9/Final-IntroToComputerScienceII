@@ -32,6 +32,8 @@ public:
   bool levelCPassed();
   void exitMenu();
   void callBoard();
+  void bearsMenu();
+  void keepOrDropMenu();
 };
 
 #endif
