@@ -12,8 +12,8 @@ class Coast : public Space
 private:
 public:
 void words(); override
-void randomOffer(); override
-void boardPopulate(); override
+int randomOffer(); override
+void boardPopulate(int); override
 };
 
 #endif
