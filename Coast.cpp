@@ -6,10 +6,10 @@
 *********************************************************************/
 #include "Coast.hpp"
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: words
+** Description: introduction to the Coast level
+** Parameters: None
+** Returns: None
 *********************************************************************/
 void Coast::words()
 {
@@ -20,7 +20,13 @@ void Coast::words()
        << "crab. Under a sunny, cloudless \n"
        << "sky, you begin to look for sailors. " << endl;
 }
-void Coast::randomOffer()
+/*********************************************************************
+** Function: randomOffer
+** Description: randomly generates items specific to Coast level
+** Parameters: None
+** Returns: int that represents item
+*********************************************************************/
+int Coast::randomOffer()
 {
   int random = (rand() % 4) + 1;
   if (random == 1)
@@ -40,6 +46,13 @@ void Coast::randomOffer()
      //sailor
   }
 }
+/*********************************************************************
+** Function: boardPopulate
+** Description: randomly fills 3 x 3 grid with pathway and items and 
+** bears
+** Parameters: int that represents which move the player is on
+** Returns: None
+*********************************************************************/
 void Coast::boardPopulate(int move)
 {
   const char bear = '&';
