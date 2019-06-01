@@ -25,13 +25,17 @@ public:
   void moveUser();
   void boardPopulate();
   void displayNine();
-  void displayTwFive();
   void printHidden();
   void printFull();
   void printSack();
   void deleteItem();
   void feedBears();
-  void keepOrDropMenu();
+  void offerItem(int);
+  void keep();
+  void drop();
+  void foodBarrels();
+  void woodBarrels();
+  void sailorBarrels();
 };
 
 #endif
