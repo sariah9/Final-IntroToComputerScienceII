@@ -6,19 +6,23 @@
 *********************************************************************/
 #ifndef SPACE_HPP
 #define SPACE_HPP
+#include <iostream>
+#include <cstdlib>
 
 class Space
 {
-private:
-Space* up;
-Space* down;
-Space* right;
-Space* left;
+protected:
+  Space* up;
+  Space* down;
+  Space* right;
+  Space* left;
+  char gridMove[3][3];
 public:
   Space();
   ~Space();
-//abstract class
-//pure virtual functions
+  virtual void words();
+  virtual void randomOffer();
+  virtual void boardPopulate();
 };
 
 #endif
