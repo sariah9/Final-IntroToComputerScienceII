@@ -12,12 +12,12 @@
 class Space
 {
 protected:
+  char gridMove[3][3];
+public:
   Space* up;
   Space* down;
   Space* right;
   Space* left;
-  char gridMove[3][3];
-public:
   Space();
   ~Space();
   virtual void words();
