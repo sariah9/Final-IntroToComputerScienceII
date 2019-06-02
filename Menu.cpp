@@ -13,9 +13,6 @@
 *********************************************************************/
 Menu::Menu()
 {
-  foodBarrel = 0;
-  woodBarrel = 0;
-  sailorBarrel = 0;
 }
 /*********************************************************************
 ** Function: inputValidation
@@ -175,60 +172,6 @@ void Menu::explainExtras()
 void Menu::gamePlay()
 {
   //call board functions here
-}
-/*********************************************************************
-** Function: levelMPassed
-** Description: returns true if player beat the level and gained 
-** objective, otherwise returns false
-** Parameters: None
-** Returns: true or false
-*********************************************************************/
-bool Menu::levelMPassed()
-{
-  if (foodBarrel == 3)
-  {
-    return true;
-  }
-  else 
-  {
-    return false;
-  }
-}
-/*********************************************************************
-** Function: levelFPassed
-** Description: returns true if player beat the level and gained 
-** objective, otherwise returns false
-** Parameters: None
-** Returns: true or false
-*********************************************************************/
-bool Menu::levelFPassed()
-{
-  if (woodBarrel == 3)
-  {
-    return true;
-  }
-  else 
-  {
-    return false;
-  }
-}
-/*********************************************************************
-** Function: levelCPassed
-** Description: returns true if player beat the level and gained 
-** objective, otherwise returns false
-** Parameters: None
-** Returns: true or false
-*********************************************************************/
-bool Menu::levelCPassed()
-{
-  if (sailorBarrel == 3)
-  {
-    return true;
-  }
-  else 
-  {
-    return false;
-  }
 }
 /*********************************************************************
 ** Function: exitMenu
