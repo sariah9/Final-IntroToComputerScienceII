@@ -21,7 +21,7 @@ private:
   Space* forestPtr;
   Space* coastPtr;
   queue<char> knapSack;
-  int barrels[9];
+  int foodBarrel, woodBarrel, sailorBarrel;
   Space* user;
 public:
   Board();
@@ -36,9 +36,9 @@ public:
   void offerItem(int);
   void keep();
   void drop();
-  void foodBarrels();
-  void woodBarrels();
-  void sailorBarrels();
+  bool levelMPassed();
+  bool levelFPassed();
+  bool levelCPassed();
   void countBarrels();
 };
 
