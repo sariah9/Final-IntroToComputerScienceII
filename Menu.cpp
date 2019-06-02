@@ -13,7 +13,9 @@
 *********************************************************************/
 Menu::Menu()
 {
-  
+  foodBarrel = 0;
+  woodBarrel = 0;
+  sailorBarrel = 0;
 }
 /*********************************************************************
 ** Function: inputValidation
@@ -183,7 +185,14 @@ void Menu::gamePlay()
 *********************************************************************/
 bool Menu::levelMPassed()
 {
-  //return true if Mountain has 3 barrels, else false
+  if (foodBarrel == 3)
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
 }
 /*********************************************************************
 ** Function: levelFPassed
@@ -194,7 +203,14 @@ bool Menu::levelMPassed()
 *********************************************************************/
 bool Menu::levelFPassed()
 {
-
+  if (woodBarrel == 3)
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
 }
 /*********************************************************************
 ** Function: levelCPassed
@@ -205,7 +221,14 @@ bool Menu::levelFPassed()
 *********************************************************************/
 bool Menu::levelCPassed()
 {
-
+  if (sailorBarrel == 3)
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
 }
 /*********************************************************************
 ** Function: exitMenu
