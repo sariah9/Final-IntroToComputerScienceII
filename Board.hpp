@@ -21,7 +21,6 @@ private:
   Space* forestPtr;
   Space* coastPtr;
   queue<char> knapSack;
-  int foodBarrel, woodBarrel, sailorBarrel;
   Space* user;
 public:
   Board();
