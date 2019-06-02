@@ -218,7 +218,7 @@ void Board::addBarrels(int item)
 *********************************************************************/
 bool Board::levelMPassed()
 {
-  if (foodBarrel == 3)
+  if (mtnPtr->getItems() == 3)
   {
     return true;
   }
@@ -236,7 +236,7 @@ bool Board::levelMPassed()
 *********************************************************************/
 bool Board::levelFPassed()
 {
-  if (woodBarrel == 3)
+  if ( == 3)
   {
     return true;
   }
@@ -254,7 +254,7 @@ bool Board::levelFPassed()
 *********************************************************************/
 bool Board::levelCPassed()
 {
-  if (sailorBarrel == 3)
+  if ( == 3)
   {
     return true;
   }
