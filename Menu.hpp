@@ -28,9 +28,6 @@ public:
   void explainKnapsack();
   void explainExtras();
   void gamePlay();
-  bool levelMPassed();
-  bool levelFPassed();
-  bool levelCPassed();
   void exitMenu();
   void callBoard();
   void bearsMenu();
