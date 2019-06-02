@@ -183,8 +183,8 @@ void Board::feedBears()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void offerItem(int)
-void keep()
+void Board::offerItem(int)
+void Board::keep()
 {
   knapSack.push(ch);
 }
@@ -194,7 +194,7 @@ void keep()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void drop()
+void Board::drop()
 {
 }
 /*********************************************************************
@@ -203,36 +203,63 @@ void drop()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void addBarrels(int item)
+void Board::addBarrels(int item)
 {
   int food = 0;
   int wood = 0;
   int sailor = 0;
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: levelMPassed
+** Description: returns true if player beat the level and gained 
+** objective, otherwise returns false
+** Parameters: None
+** Returns: true or false
 *********************************************************************/
-void woodBarrels()
+bool Board::levelMPassed()
 {
+  if (foodBarrel == 3)
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: levelFPassed
+** Description: returns true if player beat the level and gained 
+** objective, otherwise returns false
+** Parameters: None
+** Returns: true or false
 *********************************************************************/
-void sailorBarrels()
+bool Board::levelFPassed()
 {
+  if (woodBarrel == 3)
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: levelCPassed
+** Description: returns true if player beat the level and gained 
+** objective, otherwise returns false
+** Parameters: None
+** Returns: true or false
 *********************************************************************/
-void countBarrels()
+bool Board::levelCPassed()
 {
+  if (sailorBarrel == 3)
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
 }
