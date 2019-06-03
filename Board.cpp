@@ -128,15 +128,15 @@ void Board::printFull()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void Board::printSack(queue<char> copy)
+void Board::printSack()
 {
-  if (copy.empty())
+  if (isEmpty())
   {
     cout << "No values yet. " << endl;
   }
   else
   {
-    while (!copy.empty())
+    while (!isEmpty())
     { 
       cout << copy.front() << " ";
       copy.pop();
