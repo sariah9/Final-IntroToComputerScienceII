@@ -11,8 +11,6 @@
 #include "Forest.hpp"
 #include "Coast.hpp"
 #include "Knapsack.hpp"
-#include <queue>
-using std::queue;
 
 class Board
 {
@@ -21,7 +19,6 @@ private:
   Space* mtnPtr;
   Space* forestPtr;
   Space* coastPtr;
-  queue<char> knapSack;
   Space* user;
   Knapsack* front;
   Knapsack* rear;
