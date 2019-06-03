@@ -166,14 +166,38 @@ void Board::printSack()
   else
   {
     cout << "Knapsack items: ";
-    while (itemPtr->next != front)
-    {
+    do {
       if (itemPtr->itemNum == 1)
-      cout << itemPtr->itemNum << " ";
+      {
+        cout << "One " << t << endl;
+      }
+      else if (itemPtr->itemNum == 2)
+      {
+        cout "One " << w << endl;
+      }
+      else if (itemPtr->itemNum == 3)
+      {
+        cout "One " << s << endl;
+      }
+      else if (itemPtr->itemNum == 4)
+      {
+        cout "One " << f << endl;
+      }
+      else if (itemPtr->itemNum == 5)
+      {
+        cout "One " << c << endl;
+      }
+      else if (itemPtr->itemNum == 6)
+      {
+        cout "One " << e << endl;
+      }
+      else 
+      {
+        cout << "One " << salm << endl;
+      }
       itemPtr = itemPtr->next;
     }
-    cout << nodePtr->val << endl;
-  }
+  }  while (itemPtr != front);
 }
 /*********************************************************************
 ** Function:
