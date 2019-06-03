@@ -20,6 +20,14 @@ Board::Board()
   user = nullptr;
   front = nullptr;
   rear = nullptr;
+  s = "sailor";
+  t = "trout";
+  w = "wood";
+  f = "flashlight";
+  c = "crystal";
+  e = "egg";
+  salm = "salmon";
+  b = "bear";
 }
 /*********************************************************************
 ** Function: Board destructor
@@ -265,9 +273,9 @@ void Board::feedBears()
 ** Returns: 
 *********************************************************************/
 void Board::offerItem(int)
-void Board::keep()
+void Board::keep(int item)
 {
-  knapSack.push(ch);
+  addToSack(item);
 }
 /*********************************************************************
 ** Function:
