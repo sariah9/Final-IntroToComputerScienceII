@@ -11,6 +11,11 @@
 #include "Forest.hpp"
 #include "Coast.hpp"
 #include "Knapsack.hpp"
+#include <string>
+using std::string;
+using std::cin;
+using std::cout;
+using std::endl;
 
 class Board
 {
@@ -22,6 +27,14 @@ private:
   Space* user;
   Knapsack* front;
   Knapsack* rear;
+  string s = "sailor";
+  string t = "trout";
+  string w = "wood";
+  string f = "flashlight";
+  string c = "crystal";
+  string e = "egg";
+  string salm = "salmon";
+  string b = "bear";
 public:
   Board();
   ~Board();
