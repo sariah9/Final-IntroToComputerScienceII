@@ -172,6 +172,11 @@ void Menu::explainExtras()
 void Menu::gamePlay()
 {
   //call board functions here
+  //after keepOrDropMenu()
+  //ask which item they would like to keep/drop
+  //if keep call play.keep(choice);
+  //if drop call play.deleteItem(choice);
+  //then play.drop(choice)
 }
 /*********************************************************************
 ** Function: exitMenu
