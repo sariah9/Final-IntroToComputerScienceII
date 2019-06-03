@@ -14,10 +14,12 @@
 *********************************************************************/
 Board::Board()
 {
-  mtnPtr = NULL;
-  forestPtr = NULL;
-  coastPtr = NULL;
-  user = NULL;
+  mtnPtr = nullptr;
+  forestPtr = nullptr;
+  coastPtr = nullptr;
+  user = nullptr;
+  front = nullptr;
+  rear = nullptr;
 }
 /*********************************************************************
 ** Function: Board destructor
@@ -27,9 +29,13 @@ Board::Board()
 *********************************************************************/
 Board::~Board()
 {
-  while (!knapSack.empty())
+  Knapsack* garbage = front;
+  while (garbage != nullptr)
   {
-    knapSack.pop();
+    front = front->next;
+    garbage->next = nullptr;
+    delete garbage;
+    garbage = front;
   }
 }
 /*********************************************************************
@@ -38,49 +44,27 @@ Board::~Board()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-char map[9][12];
-  Space* mtnPtr;
-  Space* forestPtr;
-  Space* coastPtr;
-  queue<char> knapSack;
-  int barrels[9];
-  Space* user;
-
--displayNine()
-  -prints out linked 3x3 grid 
--printHidden()
-  -prints faux grid with only the path
-  -or whole board with blank spaces
--printFull()
-  -used for testing and at the end
-  -prints whole board that is correct
--printSack()
-  -display items in knapSack
-  -traverse queue front to back
--deleteItem(int chosen)
-  -delete specific item depending on parameter
-  -use searching method in book
-  -used when user drops item
-  -maybe offer delete item too?
--feedBears()
-  -call deleteItem -parameter salmon
-  -delete bear characters
--offerItem(int item)
-  -depending on argument, offer enumerated item
-  -if yes
-    -keep
-  -if no
-    -drop()
--keep()
-  -enqueue item into knapsack queue
--drop()
-  -check surrounding grid for 2+ of item
-  -if yes
-    -offerItem(int item)
+bool Board::isEmpty()
+{
+  if (front == nullptr)
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
+}
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
 void Board::moveUser()
 {
   int move = 0;
-  
+  //somehow set user to mtnPtr->left or forest->right
   mtnPtr = new Mountain;
   forestPtr = new Forest;
   coastPtr = new Coast;
