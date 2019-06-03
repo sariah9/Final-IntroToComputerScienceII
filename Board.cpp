@@ -275,7 +275,16 @@ void Board::feedBears()
 void Board::offerItem(int)
 void Board::keep(int item)
 {
+  if ()
+  {  //item is the same as two others in the knapsack
+    deleteItem(item);
+    deleteItem(item);
+    barrels++;
+  }
+  else
+  {
   addToSack(item);
+  }
 }
 /*********************************************************************
 ** Function:
@@ -307,7 +316,7 @@ void Board::addBarrels(int item)
 *********************************************************************/
 bool Board::levelMPassed()
 {
-  if (mtnPtr->getItems() == 3)
+  if (foodBarrels >= 3)
   {
     return true;
   }
@@ -325,7 +334,7 @@ bool Board::levelMPassed()
 *********************************************************************/
 bool Board::levelFPassed()
 {
-  if ( == 3)
+  if (woodBarrels >= 3)
   {
     return true;
   }
@@ -343,7 +352,7 @@ bool Board::levelFPassed()
 *********************************************************************/
 bool Board::levelCPassed()
 {
-  if ( == 3)
+  if (sailorBarrels >= 3)
   {
     return true;
   }
