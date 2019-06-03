@@ -207,6 +207,27 @@ void Board::printSack()
 *********************************************************************/
 void Board::deleteItem()
 {
+  Knapsack* nodePtr = head;
+  if (isEmpty())
+  {
+    cout << "Sorry. Your sack is empty. " << endl;
+  }
+  else
+  {
+    if (front->next == front)
+    {
+      delete nodePtr;
+      front = nullptr;
+      rear = nullptr;
+    }
+    else
+    {
+      rear->next = head->next;
+      head = head->next;
+      delete nodePtr;
+    }
+  }
+  nodePtr = nullptr;
 }
 /*********************************************************************
 ** Function:
