@@ -205,7 +205,7 @@ void Board::printSack()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void Board::deleteItem()
+void Board::deleteItem(int item)
 {
   Knapsack* nodePtr = head;
   if (isEmpty())
@@ -216,15 +216,35 @@ void Board::deleteItem()
   {
     if (front->next == front)
     {
-      delete nodePtr;
-      front = nullptr;
-      rear = nullptr;
+      if (front->itemNum == item)
+      {
+        delete nodePtr;
+        front = nullptr;
+        rear = nullptr;
+      }
     }
     else
     {
-      rear->next = head->next;
-      head = head->next;
-      delete nodePtr;
+      if (front->itemNum == item)
+      {
+        front = front->next;
+        delete nodePtr;
+        rear->next = front;
+      }
+      else 
+      {
+        Knapsack* prevPtr = nodePtr;
+        while (nodePtr->next != front && nodePtr->itemNum != item)
+        {
+          prevPtr = nodePtr;
+          nodePtr = nodePtr->next;
+        }
+        if (nodePtr->itemNum == item)
+        {
+          prevPtr->next = nodePtr->next;
+          delete nodePtr;
+        }
+      }
     }
   }
   nodePtr = nullptr;
