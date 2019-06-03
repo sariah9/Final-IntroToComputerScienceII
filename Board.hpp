@@ -27,14 +27,14 @@ private:
   Space* user;
   Knapsack* front;
   Knapsack* rear;
-  string s = "sailor";
-  string t = "trout";
-  string w = "wood";
-  string f = "flashlight";
-  string c = "crystal";
-  string e = "egg";
-  string salm = "salmon";
-  string b = "bear";
+  string s;
+  string t;
+  string w;
+  string f;
+  string c;
+  string e;
+  string salm;
+  string b;
 public:
   Board();
   ~Board();
