@@ -43,8 +43,9 @@ public:
   void displayNine();
   void printHidden();
   void printFull();
+  void addToSack(int);
   void printSack();
-  void deleteItem();
+  void deleteItem(int);
   void feedBears();
   void offerItem(int);
   void keep();
