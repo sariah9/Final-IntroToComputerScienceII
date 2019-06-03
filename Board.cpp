@@ -123,6 +123,34 @@ void Board::printFull()
   cout << endl;
 }
 /*********************************************************************
+** Function: addToSack
+** Description: adding items to circular queue Knapsack
+** Parameters:
+** Returns: 
+*********************************************************************/
+void Board::addToSack(int val)
+{
+  Knapsack* newPtr = new Knapsack(val);
+  if (isEmpty())
+  {
+    front = newPtr;
+    front->next = front;
+    rear = front;
+  }
+  else if (front->next == front)
+  {
+    front->next = newPtr;
+    rear = newPtr;
+    rear->next = front;
+  }   
+  else
+  {
+    rear->next = newPtr;
+    rear = newPtr;
+    rear->next = front;
+  }
+}
+/*********************************************************************
 ** Function:
 ** Description: 
 ** Parameters:
@@ -130,17 +158,21 @@ void Board::printFull()
 *********************************************************************/
 void Board::printSack()
 {
+  Knapsack* itemPtr = front;
   if (isEmpty())
   {
     cout << "No values yet. " << endl;
   }
   else
   {
-    while (!isEmpty())
-    { 
-      cout << copy.front() << " ";
-      copy.pop();
+    cout << "Knapsack items: ";
+    while (itemPtr->next != front)
+    {
+      if (itemPtr->itemNum == 1)
+      cout << itemPtr->itemNum << " ";
+      itemPtr = itemPtr->next;
     }
+    cout << nodePtr->val << endl;
   }
 }
 /*********************************************************************
