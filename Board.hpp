@@ -10,6 +10,7 @@
 #include "Mountain.hpp"
 #include "Forest.hpp"
 #include "Coast.hpp"
+#include "Knapsack.hpp"
 #include <queue>
 using std::queue;
 
@@ -22,9 +23,12 @@ private:
   Space* coastPtr;
   queue<char> knapSack;
   Space* user;
+  Knapsack* front;
+  Knapsack* rear;
 public:
   Board();
   ~Board();
+  bool isEmpty();
   void moveUser();
   void displayNine();
   void printHidden();
