@@ -48,7 +48,7 @@ public:
   void deleteItem(int);
   void feedBears();
   void offerItem(int);
-  void keep();
+  void keep(int);
   void drop();
   bool levelMPassed();
   bool levelFPassed();
