@@ -297,22 +297,100 @@ int Board::offerItem()
   }
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: keep
+** Description: adds item to knapsack and then checks if sack has 
+** triples
+** Parameters: int item
+** Returns: None
 *********************************************************************/
 void Board::keep(int item)
 {
-  if ()
-  {  //item is the same as two others in the knapsack
-    deleteItem(item);
-    deleteItem(item);
-    barrels++;
-  }
-  else
-  {
   addToSack(item);
+  checkKnapsack();
+}
+/*********************************************************************
+** Function: drop
+** Description: calculates whether dropped item makes a triple and 
+** calls other functions or increments objectives accordingly
+** Parameters: int item
+** Returns: int that is used to determine user message
+*********************************************************************/
+int Board::drop(int item)
+{
+  int boardItem = user->getItems();
+  int boardEggs = user->getEggs();
+  int boardBears = user->getBears();
+  deleteItem(item);
+  if (item == 1 || item == 2 || item == 3)
+  {
+    if (boardItem >= 2)
+    {
+      if (levelFPassed())
+      {
+        crew++;
+      }
+      else if (levelMPassed())
+      {
+        barrel++;
+      }
+      else
+      {
+        boat++;
+      }
+      return 1;
+    }
+    else 
+    {
+      return 0;
+    }
+  }
+  else if (item == 5)
+  {
+    if (boardItem >= 2)
+    {
+      if (levelFPassed())
+      {
+        crew++;
+      }
+      else if (levelMPassed())
+      {
+        barrel++;
+      }
+      else
+      {
+        boat++;
+      }
+      return 1;
+    }
+    else if (boardEggs >= 2)
+    {
+      addToSack(7);
+      return 2;
+    }
+    else 
+    {
+      return 0;
+    }
+  }
+  else if (item == 6)
+  {
+    if (boardEggs >= 2)
+    {
+      addToSack(7);
+      return 2;
+    }
+    else 
+    {
+      return 0;
+    }
+  }
+  else if (item == 7)
+  {
+    return 3;
+  }
+  else 
+  {
+    return 0;
   }
 }
 /*********************************************************************
@@ -321,18 +399,8 @@ void Board::keep(int item)
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void Board::drop()
+void Board::checkKnapsack()
 {
-}
-/*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
-*********************************************************************/
-int Board::checkKnapsack()
-{
-  //check for three items that match in Knapsack
   int troutNum = 0, woodNum = 0, sailorNum = 0;
   int eggNum = 0, salmonNum = 0;
   Knapsack* itemPtr = front;
@@ -368,23 +436,44 @@ int Board::checkKnapsack()
   }  while (itemPtr != front);
   if (troutNum >= 3)
   {
-    return 1;
+    boat++;
+    cout << "You made a boat! " << endl;
+    deleteItem(1);
+    deleteItem(1);
+    deleteItem(1);
   }
   else if (woodNum >= 3)
   {
-    return 1;
+    barrel++;
+    cout << "You made a barrel! " << endl;
+    deleteItem(2);
+    deleteItem(2);
+    deleteItem(2);
   }
   else if (sailorNum >= 3)
   {
-    return 1;
+    crew++;
+    cout << "You made a crew! " << endl;
+    deleteItem(3);
+    deleteItem(3);
+    deleteItem(3);
   }
   else if (eggNum >= 3)
   {
-    return 2;
+    addToSack(7);
+    cout << "You made a salmon! " << endl;
+    deleteItem(6);
+    deleteItem(6);
+    deleteItem(6);
   }
   else if (salmonNum >= 3)
   {
-    return 3;
+    user->setSalmon(3);
+    cout << "You gained bear immunity! " << endl;
+    cout << "Bears will no longer be a hazard to you. " << endl;
+    deleteItem(7);
+    deleteItem(7);
+    deleteItem(7);
   }
 }
 /*********************************************************************
@@ -396,7 +485,7 @@ int Board::checkKnapsack()
 *********************************************************************/
 bool Board::levelMPassed()
 {
-  if (foodBarrels >= 3)
+  if (boat >= 3)
   {
     return true;
   }
@@ -414,7 +503,7 @@ bool Board::levelMPassed()
 *********************************************************************/
 bool Board::levelFPassed()
 {
-  if (woodBarrels >= 3)
+  if (barrel >= 3)
   {
     return true;
   }
@@ -432,7 +521,7 @@ bool Board::levelFPassed()
 *********************************************************************/
 bool Board::levelCPassed()
 {
-  if (sailorBarrels >= 3)
+  if (crew >= 3)
   {
     return true;
   }
