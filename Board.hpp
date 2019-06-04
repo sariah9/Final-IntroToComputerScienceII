@@ -51,10 +51,11 @@ public:
   void offerItem(int);
   void keep(int);
   void drop();
+  void checkKnapsack();
   bool levelMPassed();
   bool levelFPassed();
   bool levelCPassed();
-  void countBarrels();
+  bool bearImmunity();
 };
 
 #endif
