@@ -14,6 +14,9 @@ private:
 public:
 void words(); override
 void boardPopulate(int); override
+int getEggs(); override
+int getItems(); override
+int getBears(); override
 };
 
 #endif
