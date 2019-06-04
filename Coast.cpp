@@ -106,10 +106,23 @@ int Coast::getEggs()
 {
   return eggCount;
 }
+/*********************************************************************
+** Function: getItems 
+** Description: returns number of sailors placed on board for each 
+** move
+** Parameters: None
+** Returns: int itemCount
+*********************************************************************/
 int Coast::getItems()
 {
   return itemCount;
 }
+/*********************************************************************
+** Function: getBears
+** Description: returns number of bears on board for each move
+** Parameters: None
+** Returns: int bearCount
+*********************************************************************/
 int Coast::getBears()
 {
   return bearCount;
