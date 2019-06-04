@@ -7,7 +7,6 @@
 #ifndef SPACE_HPP
 #define SPACE_HPP
 #include <iostream>
-#include <cstdlib>
 
 class Space
 {
