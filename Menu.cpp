@@ -209,7 +209,7 @@ void Menu::callBoard()
 void Menu::bearsMenu()
 {
   cout << "There are bears nearby. You can either: " << endl;
-  cout << "1. Throw a salmon from your knapsack. " << endl;
+  cout << "1. Throw a salmon to the bears. " << endl;
   cout << "2. Be eaten yourself. " << endl;
 }
 /*********************************************************************
