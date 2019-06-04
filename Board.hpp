@@ -48,7 +48,7 @@ public:
   void printSack();
   void deleteItem(int);
   void feedBears();
-  void offerItem(int);
+  void offerItem();
   void keep(int);
   void drop();
   void checkKnapsack();
