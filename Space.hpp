@@ -13,6 +13,9 @@ class Space
 {
 protected:
   char gridMove[3][3];
+  int eggCount;
+  int itemCount;
+  int bearCount;
 public:
   Space* up;
   Space* down;
@@ -22,6 +25,9 @@ public:
   ~Space();
   virtual void words() = 0;
   virtual void boardPopulate(int) = 0;
+  virtual int getEggs() = 0;
+  virtual int getItems() = 0;
+  virtual int getBears() = 0;
 };
 
 #endif
