@@ -33,6 +33,9 @@ void Coast::boardPopulate(int move)
   const char path = ' ';
   const char sailor = '+';
   const char egg = 'o';
+  bearCount = 0;
+  itemCount = 0;
+  eggCount = 0;
   if (move == 1)
   {
     gridMove[2][1] = path;
