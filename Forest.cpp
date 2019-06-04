@@ -147,6 +147,12 @@ int Forest::getItems()
 {
   return itemCount;
 }
+/*********************************************************************
+** Function: getBears
+** Description: returns number of bears on board for each move
+** Parameters: None
+** Returns: int bearCount
+*********************************************************************/
 int Forest::getBears()
 {
   return bearCount;
