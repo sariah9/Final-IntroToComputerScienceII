@@ -127,3 +127,20 @@ int Coast::getBears()
 {
   return bearCount;
 }
+/*********************************************************************
+** Function: bearImmunity
+** Description: returns true or false if user has collected 3+ salmon
+** Parameters: int base that determines whether true
+** Returns: true or false
+*********************************************************************/
+bool Coast::bearImmunity(int base)
+{
+  if (base == 1)
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
+}
