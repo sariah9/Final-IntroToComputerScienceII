@@ -21,32 +21,6 @@ void Coast::words()
        << "sky, you begin to look for sailors. " << endl;
 }
 /*********************************************************************
-** Function: randomOffer
-** Description: randomly generates items specific to Coast level
-** Parameters: None
-** Returns: int that represents item
-*********************************************************************/
-int Coast::randomOffer()
-{
-  int random = (rand() % 4) + 1;
-  if (random == 1)
-  {
-    return 1;//sailor
-  }
-  else if (random == 2)
-  {
-    return 2;//egg
-  }
-  else if (random == 3)
-  {
-    return 3;//extra space
-  }
-  else 
-  {
-     return 4;//sailor
-  }
-}
-/*********************************************************************
 ** Function: boardPopulate
 ** Description: randomly fills 3 x 3 grid with pathway and items and 
 ** bears
