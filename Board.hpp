@@ -37,6 +37,7 @@ private:
   string b;
   bool bearsNearby;
   int boat, barrel, crew;
+  int sackSize;
 public:
   Board();
   ~Board();
