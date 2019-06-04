@@ -29,6 +29,9 @@ Board::Board()
   salm = "salmon";
   b = "bear";
   bearsNearby = true;
+  boat = 0;
+  barrel = 0;
+  crew = 0;
 }
 /*********************************************************************
 ** Function: Board destructor
