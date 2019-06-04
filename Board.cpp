@@ -327,11 +327,62 @@ void Board::drop()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void Board::checkKnapsack(int item)
+int Board::checkKnapsack()
 {
   //check for three items that match in Knapsack
-  //if 3 7's bear immunity
-  //if 3 other items, barrel++
+  int troutNum = 0, woodNum = 0, sailorNum = 0;
+  int eggNum = 0, salmonNum = 0;
+  Knapsack* itemPtr = front;
+  if (isEmpty())
+  {
+    cout << "No values yet. " << endl;
+  }
+  else
+  {
+    do {
+      if (itemPtr->itemNum == 1)
+      {
+        troutNum++;
+      }
+      else if (itemPtr->itemNum == 2)
+      {
+        woodNum++;
+      }
+      else if (itemPtr->itemNum == 3)
+      {
+        sailorNum++;
+      }
+      else if (itemPtr->itemNum == 6)
+      {
+        eggNum++;
+      }
+      else if (itemPtr->itemNum == 7)
+      {
+        salmonNum++;
+      }
+      itemPtr = itemPtr->next;
+    }
+  }  while (itemPtr != front);
+  if (troutNum >= 3)
+  {
+    return 1;
+  }
+  else if (woodNum >= 3)
+  {
+    return 1;
+  }
+  else if (sailorNum >= 3)
+  {
+    return 1;
+  }
+  else if (eggNum >= 3)
+  {
+    return 2;
+  }
+  else if (salmonNum >= 3)
+  {
+    return 3;
+  }
 }
 /*********************************************************************
 ** Function: levelMPassed
