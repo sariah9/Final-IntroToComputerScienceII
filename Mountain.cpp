@@ -18,32 +18,7 @@ void Mountain::words()
        << "the sounds of waterfalls and eagles!" << endl;
   cout << "A perfect day for a trout hunt. " << endl;
 }
-/*********************************************************************
-** Function: randomOffer
-** Description: offers items specific to Mountain level
-** Parameters: None
-** Returns: int that represents item
-*********************************************************************/
-int Mountain::randomOffer()
-{
-  int random = (rand() % 4) + 1;
-  if (random == 1)
-  {
-    return 1;//trout
-  }
-  else if (random == 2)
-  {
-    return 2;//egg
-  }
-  else if (random == 3)
-  {
-    return 3;//flashlight
-  }
-  else 
-  {
-    return 4;//trout
-  }
-}
+
 /*********************************************************************
 ** Function: boardPopulate
 ** Description: fills each 3 x 3 space with pathway and randomly 
@@ -57,7 +32,9 @@ void Mountain::boardPopulate(int move)
   const char path = ' ';
   const char trout = '%';
   const char egg = 'o';
-  //int b = 0, t = 0, e = 0;
+  bearCount = 0;
+  itemCount = 0, 
+  eggCount = 0;
   if (move == 4)
   {
     gridMove[0][1] = path;
@@ -69,19 +46,25 @@ void Mountain::boardPopulate(int move)
       if (random == 1)
       { 
         gridMove[y][0] = bear;
+        bearCount++;
       }
       else if (random == 2)
       {
         gridMove[y][0] = egg;
+        eggCount++;
       }
       else 
       {
         gridMove[y][0] = trout;
+        itemCount++;
       }
     }
     gridMove[0][2] = bear;
+    bearCount++;
     gridMove[2][1] = trout;
+    itemCount++;
     gridMove[2][2] = trout;
+    itemCount++;
   }
   else 
   {
@@ -96,16 +79,31 @@ void Mountain::boardPopulate(int move)
         if (random == 1)
         { 
           gridMove[y][x] = bear;
+          bearCount++;
         }
         else if (random == 2)
         {
           gridMove[y][x] = egg;
+          eggCount++;
         }
         else 
         {
           gridMove[y][x] = trout;
+          itemCount++;
         }
       }
     }
   }
+}
+int Mountain::getEggs()
+{
+  return eggCount;
+}
+int Mountain::getItems()
+{
+  return itemCount;
+}
+int Mountain::getBears()
+{
+  return bearCount;
 }
