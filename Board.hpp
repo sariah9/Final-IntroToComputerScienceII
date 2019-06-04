@@ -48,7 +48,6 @@ public:
   void addToSack(int);
   void printSack();
   void deleteItem(int);
-  void feedBears();
   void offerItem();
   void keep(int);
   int drop(int);
