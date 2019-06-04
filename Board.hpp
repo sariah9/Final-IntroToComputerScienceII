@@ -51,7 +51,7 @@ public:
   void feedBears();
   void offerItem();
   void keep(int);
-  void drop();
+  int drop(int);
   void checkKnapsack();
   bool levelMPassed();
   bool levelFPassed();
