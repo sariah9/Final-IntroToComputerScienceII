@@ -46,8 +46,16 @@ void Coast::boardPopulate(int move)
       int random = (rand() % 3) + 1;
       if (random == 1)
       { 
-        gridMove[y][2] = bear;
-        bearCount++;
+        if (bearImmunity())
+        { 
+          gridMove[y][2] = sailor;
+          itemCount++;
+        }
+        else 
+        {
+          gridMove[y][2] = bear;
+          bearCount++;
+        }
       }
       else if (random == 2)
       {
@@ -79,8 +87,16 @@ void Coast::boardPopulate(int move)
         int random = (rand() % 3) + 1;
         if (random == 1)
         { 
-          gridMove[y][x] = bear;
-          bearCount++;
+          if (bearImmunity())
+          { 
+            gridMove[y][x] = trout;
+            itemCount++;
+          }
+          else 
+          {
+            gridMove[y][x] = bear;
+            bearCount++;
+          }
         }
         else if (random == 2)
         {
