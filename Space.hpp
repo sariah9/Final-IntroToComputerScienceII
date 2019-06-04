@@ -21,7 +21,6 @@ public:
   Space();
   ~Space();
   virtual void words() = 0;
-  virtual int randomOffer() = 0;
   virtual void boardPopulate(int) = 0;
 };
 
