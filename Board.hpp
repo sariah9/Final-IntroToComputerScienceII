@@ -11,6 +11,7 @@
 #include "Forest.hpp"
 #include "Coast.hpp"
 #include "Knapsack.hpp"
+#include <cstdlib>
 #include <string>
 using std::string;
 using std::cin;
