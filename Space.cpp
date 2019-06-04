@@ -8,7 +8,7 @@
 /*********************************************************************
 ** Function: Space constructor
 ** Description: initializes pointers to NULL and fills 3 x 3 grid 
-** space with blank spaces
+** space with blank spaces and sets count ints to 0
 ** Parameters: None
 ** Returns: None
 *********************************************************************/
@@ -25,6 +25,9 @@ Space::Space()
       gridMove[y][x] = ' ';
     }
   }
+  bearCount = 0;
+  itemCount = 0;
+  eggCount = 0;
 }
 /*********************************************************************
 ** Function: Space destructor
