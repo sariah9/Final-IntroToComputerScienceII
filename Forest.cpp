@@ -137,6 +137,12 @@ int Forest::getEggs()
 {
   return eggCount;
 }
+/*********************************************************************
+** Function: getItems 
+** Description: returns number of wood placed on board for each move
+** Parameters: None
+** Returns: int itemCount
+*********************************************************************/
 int Forest::getItems()
 {
   return itemCount;
