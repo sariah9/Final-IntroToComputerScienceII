@@ -16,6 +16,7 @@ protected:
   int eggCount;
   int itemCount;
   int bearCount;
+  int salmonCount;
 public:
   Space* up;
   Space* down;
