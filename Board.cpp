@@ -267,15 +267,6 @@ void Board::deleteItem(int item)
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void Board::feedBears()
-{
-}
-/*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
-*********************************************************************/
 int Board::offerItem()
 {
   int random = (rand() % 4) + 1;
@@ -386,6 +377,7 @@ int Board::drop(int item)
   }
   else if (item == 7)
   {
+    bearsNearby = false;
     return 3;
   }
   else 
