@@ -55,7 +55,6 @@ public:
   bool levelMPassed();
   bool levelFPassed();
   bool levelCPassed();
-  bool bearImmunity();
 };
 
 #endif
