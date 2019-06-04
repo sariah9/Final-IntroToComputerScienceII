@@ -115,6 +115,12 @@ int Mountain::getItems()
 {
   return itemCount;
 }
+/*********************************************************************
+** Function: getBears
+** Description: returns number of bears on board for each move
+** Parameters: None
+** Returns: int bearCount
+*********************************************************************/
 int Mountain::getBears()
 {
   return bearCount;
