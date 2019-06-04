@@ -36,7 +36,7 @@ private:
   string salm;
   string b;
   bool bearsNearby;
-  int hull, deck, mast;
+  int boat, barrel, crew;
 public:
   Board();
   ~Board();
