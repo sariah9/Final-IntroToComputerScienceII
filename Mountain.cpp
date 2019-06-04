@@ -95,6 +95,12 @@ void Mountain::boardPopulate(int move)
     }
   }
 }
+/*********************************************************************
+** Function: getEggs
+** Description: returns number of eggs on board for each move
+** Parameters: None
+** Returns: int eggCount
+*********************************************************************/
 int Mountain::getEggs()
 {
   return eggCount;
