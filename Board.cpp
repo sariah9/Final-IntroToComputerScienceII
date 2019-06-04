@@ -32,6 +32,7 @@ Board::Board()
   boat = 0;
   barrel = 0;
   crew = 0;
+  sackSize = 0;
 }
 /*********************************************************************
 ** Function: Board destructor
@@ -143,24 +144,35 @@ void Board::printFull()
 *********************************************************************/
 void Board::addToSack(int val)
 {
-  Knapsack* newPtr = new Knapsack(val);
-  if (isEmpty())
+  if (sackSize > 6)
   {
-    front = newPtr;
-    front->next = front;
-    rear = front;
+    cout << "Sorry. There's no more space in your bag." << endl;
+    cout << "You can only carry 6 items." << endl;
   }
-  else if (front->next == front)
-  {
-    front->next = newPtr;
-    rear = newPtr;
-    rear->next = front;
-  }   
   else
   {
-    rear->next = newPtr;
-    rear = newPtr;
-    rear->next = front;
+    Knapsack* newPtr = new Knapsack(val);
+    if (isEmpty())
+    {
+      front = newPtr;
+      front->next = front;
+      rear = front;
+      sackSize++;
+    }
+    else if (front->next == front)
+    {
+      front->next = newPtr;
+      rear = newPtr;
+      rear->next = front;
+      sackSize++;
+    }   
+    else
+    {
+      rear->next = newPtr;
+      rear = newPtr;
+      rear->next = front;
+      sackSize++;
+    }
   }
 }
 /*********************************************************************
@@ -234,6 +246,7 @@ void Board::deleteItem(int item)
         delete nodePtr;
         front = nullptr;
         rear = nullptr;
+        sackSize--;
       }
     }
     else
@@ -243,6 +256,7 @@ void Board::deleteItem(int item)
         front = front->next;
         delete nodePtr;
         rear->next = front;
+        sackSize--;
       }
       else 
       {
@@ -256,6 +270,7 @@ void Board::deleteItem(int item)
         {
           prevPtr->next = nodePtr->next;
           delete nodePtr;
+          sackSize--;
         }
       }
     }
