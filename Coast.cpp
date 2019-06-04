@@ -44,19 +44,25 @@ void Coast::boardPopulate(int move)
       if (random == 1)
       { 
         gridMove[y][2] = bear;
+        bearCount++;
       }
       else if (random == 2)
       {
         gridMove[y][2] = egg;
+        eggCount++;
       }
       else 
       {
         gridMove[y][2] = sailor;
+        itemCount++;
       }
     }
     gridMove[0][0] = egg;
+    eggCount++;
     gridMove[2][0] = sailor;
+    itemCount++;
     gridMove[0][1] = sailor;
+    itemCount++;
   }
   else 
   {
@@ -71,16 +77,31 @@ void Coast::boardPopulate(int move)
         if (random == 1)
         { 
           gridMove[y][x] = bear;
+          bearCount++;
         }
         else if (random == 2)
         {
           gridMove[y][x] = egg;
+          eggCount++;
         }
         else 
         {
           gridMove[y][x] = sailor;
+          itemCount++;
         }
       }
     }
   }
+}
+int Coast::getEggs()
+{
+  return eggCount;
+}
+int Coast::getItems()
+{
+  return itemCount;
+}
+int Coast::getBears()
+{
+  return bearCount;
 }
