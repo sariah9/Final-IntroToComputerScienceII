@@ -105,6 +105,12 @@ int Mountain::getEggs()
 {
   return eggCount;
 }
+/*********************************************************************
+** Function: getItems 
+** Description: returns number of trout placed on board for each move
+** Parameters: None
+** Returns: int itemCount
+*********************************************************************/
 int Mountain::getItems()
 {
   return itemCount;
