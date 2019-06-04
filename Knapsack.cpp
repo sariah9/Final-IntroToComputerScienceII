@@ -5,13 +5,24 @@
 ** Description: Knapsack struct implementation file
 *********************************************************************/
 #include "Knapsack.hpp"
-
+/*********************************************************************
+** Function: Knapsack constructor
+** Description: initializes pointers to null
+** Parameters: int value that changes itemNum
+** Returns: None
+*********************************************************************/
 KnapSack::Knapsack(int value)
 {
-  next = NULL;
+  next = nullptr;
   itemNum = value;
 }
+/*********************************************************************
+** Function: Knapsack destructor
+** Description: sets next to null
+** Parameters: None
+** Returns: None
+*********************************************************************/
 Knapsack::~Knapsack()
 {
-  next = NULL;
+  next = nullptr;
 }
