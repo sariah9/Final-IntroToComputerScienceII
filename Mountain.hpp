@@ -17,6 +17,7 @@ void boardPopulate(int); override
 int getEggs(); override
 int getItems(); override
 int getBears(); override 
+bool bearImmunity(int); override
 };
 
 #endif
