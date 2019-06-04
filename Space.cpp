@@ -14,10 +14,10 @@
 *********************************************************************/
 Space::Space()
 {
-  up = NULL;
-  down = NULL;
-  right = NULL;
-  left = NULL;
+  up = nullptr;
+  down = nullptr;
+  right = nullptr;
+  left = nullptr;
   for (int y = 0; y < 2; y++)
   {
     for (int x = 0; x < 2; x++)
@@ -38,8 +38,8 @@ Space::Space()
 *********************************************************************/
 Space::~Space()
 {
-up = NULL;
-down = NULL;
-right = NULL;
-left = NULL;
+up = nullptr;
+down = nullptr;
+right = nullptr;
+left = nullptr;
 }
