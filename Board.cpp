@@ -302,11 +302,11 @@ void Board::drop()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void Board::addBarrels(int item)
+void Board::checkKnapsack(int item)
 {
-  int food = 0;
-  int wood = 0;
-  int sailor = 0;
+  //check for three items that match in Knapsack
+  //if 3 7's bear immunity
+  //if 3 other items, barrel++
 }
 /*********************************************************************
 ** Function: levelMPassed
