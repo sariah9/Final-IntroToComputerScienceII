@@ -75,6 +75,7 @@ bool Board::isEmpty()
 *********************************************************************/
 void Board::moveUser()
 {
+  //change bearsNearby = true;
   int move = 0;
   //somehow set user to mtnPtr->left or forest->right
   mtnPtr = new Mountain;
@@ -514,6 +515,27 @@ bool Board::levelFPassed()
 bool Board::levelCPassed()
 {
   if (crew >= 3)
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
+}
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
+bool Board::feedBears()
+{
+  if (bearsNearby == false)
+  {
+    return true;
+  }
+  else if (user->getBears() == 0)
   {
     return true;
   }
