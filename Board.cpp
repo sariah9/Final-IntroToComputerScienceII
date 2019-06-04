@@ -273,7 +273,32 @@ void Board::feedBears()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void Board::offerItem(int)
+int Board::offerItem()
+{
+  int random = (rand() % 4) + 1;
+  if (random == 1)
+  {
+    return 1;//item
+  }
+  else if (random == 2)
+  {
+    return 2;//egg
+  }
+  else if (random == 3)
+  {
+    return 3;//extra 
+  }
+  else 
+  {
+     return 4;//item
+  }
+}
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
 void Board::keep(int item)
 {
   if ()
