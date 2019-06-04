@@ -46,8 +46,16 @@ void Forest::boardPopulate(int move)
       int random = (rand() % 3) + 1;
       if (random == 1)
       { 
-        gridMove[0][x] = bear;
-        bearCount++;
+        if (bearImmunity())
+        {
+          gridMove[0][x] = wood;
+          itemCount++;
+        }
+        else
+        {
+          gridMove[0][x] = bear;
+          bearCount++;
+        }
       }
       else if (random == 2)
       {
@@ -60,8 +68,16 @@ void Forest::boardPopulate(int move)
         itemCount++;
       }
     }
-    gridMove[1][0] = bear;
-    bearCount++;
+    if (bearImmunity())
+    {
+      gridMove[1][0] = egg;
+      itemCount++;
+    }
+    else
+    {
+      gridMove[1][0] = bear;
+      bearCount++;
+    }
     gridMove[2][0] = wood;
     itemCount++;
     gridMove[2][2] = wood;
@@ -77,8 +93,16 @@ void Forest::boardPopulate(int move)
       int random = (rand() % 3) + 1;
       if (random == 1)
       { 
-        gridMove[y][2] = bear;
-        bearCount++;
+       if (bearImmunity())
+        {
+          gridMove[y][2] = wood;
+          itemCount++;
+        }
+        else
+        {
+          gridMove[y][2] = bear;
+          bearCount++;
+        }
       }
       else if (random == 2)
       {
