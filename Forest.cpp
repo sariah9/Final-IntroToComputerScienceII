@@ -33,6 +33,9 @@ void Forest::boardPopulate(int move)
   const char path = ' ';
   const char wood = '#';
   const char egg = 'o';
+  eggCount = 0;
+  itemCount = 0;
+  bearCount = 0;
   if (move == 1)
   {
     gridMove[2][1] = path;
