@@ -125,3 +125,20 @@ int Mountain::getBears()
 {
   return bearCount;
 }
+/*********************************************************************
+** Function: bearImmunity
+** Description: returns true or false if user has collected 3+ salmon
+** Parameters: None
+** Returns: true or false
+*********************************************************************/
+bool Coast::bearImmunity()
+{
+  if (salmonCount >= 3)
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
+}
