@@ -35,6 +35,7 @@ private:
   string e;
   string salm;
   string b;
+  bool bearsNearby;
 public:
   Board();
   ~Board();
