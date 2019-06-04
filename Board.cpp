@@ -48,10 +48,10 @@ Board::~Board()
   }
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: isEmpty
+** Description: returns true when there are no items in the Knapsack
+** Parameters: None
+** Returns: true or false
 *********************************************************************/
 bool Board::isEmpty()
 {
@@ -134,8 +134,8 @@ void Board::printFull()
 /*********************************************************************
 ** Function: addToSack
 ** Description: adding items to circular queue Knapsack
-** Parameters:
-** Returns: 
+** Parameters: int val that will be equal to itemNum
+** Returns: None
 *********************************************************************/
 void Board::addToSack(int val)
 {
