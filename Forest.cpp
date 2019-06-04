@@ -110,8 +110,16 @@ void Forest::boardPopulate(int move)
         int random = (rand() % 3) + 1;
         if (random == 1)
         { 
-          gridMove[y][x] = bear;
-          bearCount++;
+          if (bearImmunity())
+          {
+            gridMove[y][x] = wood;
+            itemCount++;
+          }
+          else
+          {
+            gridMove[y][x] = bear;
+            bearCount++;
+          }
         }
         else if (random == 2)
         {
@@ -156,4 +164,21 @@ int Forest::getItems()
 int Forest::getBears()
 {
   return bearCount;
+}
+/*********************************************************************
+** Function: bearImmunity
+** Description: returns true or false if user has collected 3+ salmon
+** Parameters: int base that determines whether true
+** Returns: true or false
+*********************************************************************/
+bool Forest::bearImmunity()
+{
+  if (salmonCount >=3)
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
 }
