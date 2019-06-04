@@ -17,22 +17,6 @@ int main()
     start.explainExtras();
     start.gameRulesM();
     start.gamePlay();
-    if (start.levelMPassed())
-    {
-      start.gameRulesF();
-    }
-    else if (start.levelFPassed())
-    {
-      start.gameRulesC();
-    }
-    else if (start.levelCPassed())
-    {
-      start.win();
-    }
-    else
-    {
-      start.lose();
-    }
     start.exitMenu();
     choice = start.inputValidation(1, 2);
   } while (choice != 2);
