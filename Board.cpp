@@ -28,6 +28,7 @@ Board::Board()
   e = "egg";
   salm = "salmon";
   b = "bear";
+  bearsNearby = true;
 }
 /*********************************************************************
 ** Function: Board destructor
