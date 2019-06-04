@@ -28,6 +28,7 @@ public:
   virtual int getEggs() = 0;
   virtual int getItems() = 0;
   virtual int getBears() = 0;
+  virtual bool bearImmunity(int) = 0;
 };
 
 #endif
