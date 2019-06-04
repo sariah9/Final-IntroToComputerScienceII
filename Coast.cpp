@@ -96,6 +96,12 @@ void Coast::boardPopulate(int move)
     }
   }
 }
+/*********************************************************************
+** Function: getEggs
+** Description: returns number of eggs on board for each move
+** Parameters: None
+** Returns: int eggCount
+*********************************************************************/
 int Coast::getEggs()
 {
   return eggCount;
