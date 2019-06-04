@@ -28,6 +28,7 @@ Space::Space()
   bearCount = 0;
   itemCount = 0;
   eggCount = 0;
+  salmonCount = 0;
 }
 /*********************************************************************
 ** Function: Space destructor
