@@ -126,12 +126,22 @@ int Mountain::getBears()
   return bearCount;
 }
 /*********************************************************************
+** Function: setSalmon
+** Description: setter that allows Board class to change salmonCount
+** Parameters: int growth that is added to salmonCount
+** Returns: None
+*********************************************************************/
+void Mountain::setSalmon(int growth)
+{
+  salmonCount = salmonCount + growth;
+}
+/*********************************************************************
 ** Function: bearImmunity
 ** Description: returns true or false if user has collected 3+ salmon
 ** Parameters: None
 ** Returns: true or false
 *********************************************************************/
-bool Coast::bearImmunity()
+bool Mountain::bearImmunity()
 {
   if (salmonCount >= 3)
   {
