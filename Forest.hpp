@@ -13,8 +13,10 @@ class Forest : public Space
 private:
 public:
 void words(); override
-int randomOffer(); override
 void boardPopulate(int); override
+int getEggs(); override
+int getItems(); override
+int getBears(); override 
 };
 
 #endif
