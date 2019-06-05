@@ -20,6 +20,7 @@ using std::endl;
 class Board
 {
 private:
+  char boardMap[9][12];
   Space* mtnPtr;
   Space* forestPtr;
   Space* coastPtr;
