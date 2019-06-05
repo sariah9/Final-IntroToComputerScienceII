@@ -16,6 +16,7 @@ class Menu
 {
 private:
   Board play;
+  int itemType;
 public:
   Menu();
   int inputValidation(int, int);
