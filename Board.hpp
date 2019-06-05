@@ -52,7 +52,7 @@ public:
   void deleteItem(int);
   void offerItem();
   void keep(int);
-  int drop(int);
+  void drop(int);
   void checkKnapsack();
   bool levelMPassed();
   bool levelFPassed();
