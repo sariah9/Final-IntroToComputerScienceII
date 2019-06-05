@@ -195,7 +195,7 @@ void Menu::gamePlay()
       {
         cout << "Good choice..." << endl;
         play.drop(7);
-        play.randomOffer();
+        listItems();
         keepOrDropMenu();
         moveUser(move);
         move++;
@@ -229,8 +229,39 @@ void Menu::exitMenu()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void Menu::callBoard()
+void Menu::lose(int type)
 {
+  if (play.levelCPassed())
+  {
+    cout << "Congratulations!! You've won the game!!" << endl;
+    cout << "You have a ship with a hull, deck, and mast!" << endl;
+    cout << "Plus, you have enough sailors for a crew, enough \n"
+         << "trout to eat, and enough wood for repairs! " << endl;
+    cout << "Now, get ready... Your dream adventure awaits... " << endl;
+  }
+  else if (play.levelFPassed())
+  {
+    cout << "Congratulations! You collected enough wood for three barrels!" << endl;
+    cout << "That's enough for a deck..." << endl;
+  }
+  else if (play.levelMPassed())
+  {
+    cout << "Congratulations! You collected enough trout for three boats!" << endl;
+    cout << "That's enough for a hull..." << endl;
+  }
+  else 
+  {
+    if (type == 1)
+    {
+      cout << "You were eaten by bears and are now, unfortunately, dead..." << endl;
+      cout << "You had a brave adventurer's funeral. RIP." << endl;
+    }
+    else
+    {
+      cout << "Oh no! You have been unsuccessful in your mission." << endl;
+      cout << "You did not collect enough items in the time allowed. " << endl;
+    }
+  }
 }
 /*********************************************************************
 ** Function: 
@@ -240,6 +271,37 @@ void Menu::callBoard()
 *********************************************************************/
 void Menu::listItems()
 {
+  int item = play.randomOffer();
+  cout << "You found an item! " << endl;
+  if (item == 1)
+  {
+    if (play.levelFPassed())
+    {
+      cout << "It's a sailor!" << endl;
+    }
+    else if (play.levelMPassed())
+    {
+      cout << "It's some wood!" << endl;
+    }
+    else 
+    {
+      cout << "It's a trout!" << endl;
+    }
+  }
+  else if (item == 2)
+  {
+    if (play.levelMPassed())
+    {
+      cout << "It's a flashlight!" << endl;
+    }
+    else 
+    {
+      cout << "It's a crystal!" << endl;
+    }
+  }
+  else if (item == 3)
+  {
+  }
 }
 /*********************************************************************
 ** Function: bearsMenu()
