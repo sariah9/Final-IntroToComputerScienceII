@@ -133,8 +133,8 @@ void Board::displayNine(int move)
     {
       for (int y = 6; y < 8; y++)
       {
-        map[y][x] = 
-        cout << map[y][x];
+        boardMap[y][x] = Space::map[y][x];
+        cout << boardMap[y][x];
       }
     }
     cout << endl;
@@ -145,7 +145,8 @@ void Board::displayNine(int move)
     {
       for (int y = 6; y < 8; y++)
       {
-        cout << map[y][x];
+        boardMap[y][x] = Space::map[y][x];
+        cout << boardMap[y][x];
       }
     }
     cout << endl;
@@ -156,7 +157,8 @@ void Board::displayNine(int move)
     {
       for (int y = 6; y < 8; y++)
       {
-        cout << map[y][x];
+        boardMap[y][x] = Space::map[y][x];
+        cout << boardMap[y][x];
       }
     }
     cout << endl;
@@ -167,7 +169,8 @@ void Board::displayNine(int move)
     {
       for (int y = 6; y < 8; y++)
       {
-        cout << map[y][x];
+        boardMap[y][x] = Space::map[y][x];
+        cout << boardMap[y][x];
       }
     }
     cout << endl;
@@ -178,7 +181,8 @@ void Board::displayNine(int move)
     {
       for (int y = 3; y < 5; y++)
       {
-        cout << map[y][x];
+        boardMap[y][x] = Space::map[y][x];
+        cout << boardMap[y][x];
       }
     }
     cout << endl;
@@ -189,7 +193,8 @@ void Board::displayNine(int move)
     {
       for (int y = 3; y < 5; y++)
       {
-        cout << map[y][x];
+        boardMap[y][x] = Space::map[y][x];
+        cout << boardMap[y][x];
       }
     }
     cout << endl;
@@ -200,7 +205,8 @@ void Board::displayNine(int move)
     {
       for (int y = 3; y < 5; y++)
       {
-        cout << map[y][x];
+        boardMap[y][x] = Space::map[y][x];
+        cout << boardMap[y][x];
       }
     }
     cout << endl;
@@ -211,7 +217,8 @@ void Board::displayNine(int move)
     {
       for (int y = 3; y < 5; y++)
       {
-        cout << map[y][x];
+        boardMap[y][x] = Space::map[y][x];
+        cout << boardMap[y][x];
       }
     }
     cout << endl;
@@ -222,7 +229,8 @@ void Board::displayNine(int move)
     {
       for (int y = 0; y < 2; y++)
       {
-        cout << map[y][x];
+        boardMap[y][x] = Space::map[y][x];
+        cout << boardMap[y][x];
       }
     }
     cout << endl;
@@ -233,7 +241,8 @@ void Board::displayNine(int move)
     {
       for (int y = 0; y < 2; y++)
       {
-        cout << map[y][x];
+        boardMap[y][x] = Space::map[y][x];
+        cout << boardMap[y][x];
       }
     }
     cout << endl;
@@ -244,7 +253,20 @@ void Board::displayNine(int move)
     {
       for (int y = 0; y < 2; y++)
       {
-        cout << map[y][x];
+        boardMap[y][x] = Space::map[y][x];
+        cout << boardMap[y][x];
+      }
+    }
+    cout << endl;
+  }
+  else if (move == 11)
+  {
+    for(int x = 0; x < 2; x++)
+    {
+      for (int y = 0; y < 2; y++)
+      {
+        boardMap[y][x] = Space::map[y][x];
+        cout << boardMap[y][x];
       }
     }
     cout << endl;
@@ -262,8 +284,8 @@ void Board::printHidden()
   {
     for (int y = 0; y < 8; y++)
     {
-      map[x][y] = ' ';
-      cout << map[x][y];
+      boardMap = ' ';
+      cout << boardMap[x][y];
     }
   }
   cout << endl;
@@ -280,7 +302,7 @@ void Board::printFull()
   {
     for (int y = 0; y < 8; y++)
     {
-      cout << map[x][y];
+      cout << boardMap[x][y];
     }
   }
   cout << endl;
