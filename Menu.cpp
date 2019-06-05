@@ -183,49 +183,43 @@ void Menu::gamePlay()
   play.beginPlay(1);
   play.printKnapsack();
   do {
-    if (play.feedBears())
-    {
-      listItems();
-      keepOrDropMenu();
-      choice = inputValidation(1, 2);
-      if (choice == 1)
-      {
-        play.keep(itemType);
-      }
-      else 
-      {
-        play.drop(itemType);
-      }
-      moveUser(numMoves);
-      numMoves++;
-    }
-    else
-    { 
-      bearsMenu();
-      choice = inputValidation(1, 2);
-      if (choice == 1)
-      {
-        cout << "Good choice..." << endl;
-        play.drop(7);
-        listItems();
-        keepOrDropMenu();
-        choice = inputValidation(1, 2);
-        if (choice == 1)
-        {
-          play.keep(itemType);
-        }
-        else 
-        {
-          play.drop(itemType);
-        }
-        moveUser(numMoves);
-        numMoves++;
-      }
-      else 
-      {
-        lose(1);
-      }
-    } while (numMoves < 11);
+    callBoard();
+    } while (numMoves < 4);
+  if (play.levelMPassed())
+  {
+    lose(3);
+    play.beginPlay(2);
+    play.printKnapsack();
+    do {
+      callBoard();
+    } while (numMoves < 8);
+  }
+  else 
+  {
+    lose(2);
+  }
+  if (play.levelFPassed())
+  {
+    lose(3);
+    play.beginPlay(3);
+    play.printKnapsack();
+    do {
+      callBoard();
+    } while (numMoves < 12); 
+  }
+  else 
+  {
+    lose(2);
+  }  
+  if (play.levelCPassed())
+  {
+    lose(3);
+    play.printFull();
+  }
+  else 
+  {
+    lose(2);
+  }    
 }
 /*********************************************************************
 ** Function: exitMenu
@@ -245,6 +239,54 @@ void Menu::exitMenu()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
+void Menu::callBoard()
+{
+  if (play.feedBears())
+  {
+    listItems();
+    keepOrDropMenu();
+    choice = inputValidation(1, 2);
+    if (choice == 1)
+    {
+      play.keep(itemType);
+    }
+    else 
+    {
+      play.drop(itemType);
+    }
+    moveUser(numMoves);
+    numMoves++;
+    play.displayNine(numMoves);
+  }
+  else
+  { 
+    bearsMenu();
+    choice = inputValidation(1, 2);
+    if (choice == 1)
+    {
+      cout << "Good choice..." << endl;
+      play.drop(7);
+      listItems();
+      keepOrDropMenu();
+      choice = inputValidation(1, 2);
+      if (choice == 1)
+      {
+        play.keep(itemType);
+      }
+      else 
+      {
+        play.drop(itemType);
+      }
+      moveUser(numMoves);
+      numMoves++;
+      play.displayNine(numMoves);
+    }
+    else 
+    {
+      lose(1);
+    }
+  }
+}
 void Menu::lose(int type)
 {
   move = 11;
@@ -288,7 +330,7 @@ void Menu::lose(int type)
 *********************************************************************/
 void Menu::listItems()
 {
-  int item = play.randomOffer();
+  int item = play.offerItem();
   cout << "You found an item! " << endl;
   if (item == 1)
   {
