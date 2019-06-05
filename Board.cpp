@@ -50,6 +50,31 @@ Board::~Board()
     delete garbage;
     garbage = front;
   }
+  Space* garbage = mtnPtr;
+  for (int i = 0; i < 4; i++)
+  {
+    mtnPtr = mtnPtr->left;
+    garbage->left = nullptr;
+    delete garbage;
+    garbage = mtnPtr;
+  }
+  garbage = forestPtr;
+  for (int j = 0; j < 4; j++)
+  {
+    forestPtr = forestPtr->right;
+    garbage->right = nullptr;
+    delete garbage;
+    garbage = forestPtr;
+  }
+  garbage = coastPtr;
+  for (int k = 0; k < 4; k++)
+  {
+    coastPtr = coastPtr->left;
+    garbage->left = nullptr;
+    delete garbage;
+    garbage = coastPtr;
+  }
+  user = nullptr;
 }
 /*********************************************************************
 ** Function: isEmpty
@@ -76,12 +101,17 @@ bool Board::isEmpty()
 *********************************************************************/
 void Board::moveUser()
 {
-  //change bearsNearby = true;
+  if (user->bearImmunity())
+  {
+    bearsNearby = false;
+  }
+  else 
+  {
+    bearsNearby = true;
+  }
   int move = 0;
-  //somehow set user to mtnPtr->left or forest->right
-  mtnPtr = new Mountain;
-  forestPtr = new Forest;
-  coastPtr = new Coast;
+  user = user->left;
+  user->getBears();
 }
 /*********************************************************************
 ** Function:
@@ -118,6 +148,9 @@ void Board::linkSpaces()
     coastPtr = coastPtr->left;
     coastPtr->boardPopulate(k);
   }
+  coastPtr = forestPtr->up;
+  forestPtr = mtnPtr->up;
+  mtnPtr = user;
 }
 /*********************************************************************
 ** Function:
