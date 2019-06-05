@@ -158,6 +158,55 @@ void Forest::boardPopulate(int move)
       }
     }
   }
+  makeMap(gridMove[3][3], move);
+}
+
+void Forest::makeMap(char mapArr[3][3], int set)
+{
+  if (set == 1)
+  {
+    for(int x = 0; x < 2; x++)
+    {
+      for (int y = 3; y < 5; y++)
+      {
+        map[y][x] = mapArr[3][3];
+      }
+    }
+    cout << endl;
+  }
+  else if (set == 2)
+  {
+    for(int x = 3; x < 5; x++)
+    {
+      for (int y = 3; y < 5; y++)
+      {
+        map[y][x] = mapArr[3][3];
+      }
+    }
+    cout << endl;
+  }
+  else if (set == 3)
+  {
+    for(int x = 6; x < 8; x++)
+    {
+      for (int y = 3; y < 5; y++)
+      {
+        map[y][x] = mapArr[3][3];
+      }
+    }
+    cout << endl;
+  }
+  else if (set == 4)
+  {
+    for(int x = 9; x < 11; x++)
+    {
+      for (int y = 3; y < 5; y++)
+      {
+        map[y][x] = mapArr[3][3];
+      }
+    }
+    cout << endl;
+  }
 }
 /*********************************************************************
 ** Function: getEggs
