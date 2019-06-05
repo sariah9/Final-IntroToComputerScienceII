@@ -93,52 +93,30 @@ void Board::linkSpaces()
 {
   mtnPtr = new Mountain();
   user = mtnPtr;
-  for(int x = 9; x < 11; x++)
-  {
-    for (int y = 6; y < 8; y++)
-    {
-      map[y][x] = user->boardPopulate();
-    }
-  }
-  for (int i = 0; i < 2; i++)
+  user->boardPopulate(1);
+  for (int i = 2; i < 4; i++)
   {
     mtnPtr->left = new Mountain();
     mtnPtr = mtnPtr->left;
-    for(int x = 8; x > 0; x--)
-    {
-      for (int y = 6; y < 8; y++)
-      {
-        map[y][x] = mtnPtr->boardPopulate();
-      }
-    }
+    mtnPtr->boardPopulate(i);
   }
   forestPtr = mtnPtr->up;
   forestPtr = new Forest();
-  for(int x = 0; x < 2; x++)
-  {
-    for (int y = 3; y < 5; y++)
-    {
-      map[y][x] = forestPtr->boardPopulate();
-    }
-  }
-  //something with printing and such
-  for (int j = 0; j < 2; j++)
+  forestPtr->boardPopulate(1);
+  for (int j = 2; j < 4; j++)
   {
     forestPtr->right = new Forest();
     forestPtr = forestPtr->right;
-    forestPtr->boardPopulate();
-    //print copy
+    forestPtr->boardPopulate(j);
   }
   coastPtr = forestPtr->up;
   coastPtr = new Coast();
-  coastPtr->boardPopulate();
-  //something with printing and such
-  for (int k = 0; k < 2; k++)
+  coastPtr->boardPopulate(1);
+  for (int k = 2; k < 4; k++)
   {
     coastPtr->left = new Coast();
     coastPtr = coastPtr->left;
-    coastPtr->boardPopulate();
-    //print copy
+    coastPtr->boardPopulate(k);
   }
 }
 /*********************************************************************
@@ -155,6 +133,7 @@ void Board::displayNine(int move)
     {
       for (int y = 6; y < 8; y++)
       {
+        map[y][x] = 
         cout << map[y][x];
       }
     }
