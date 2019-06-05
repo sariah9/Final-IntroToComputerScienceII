@@ -104,12 +104,23 @@ void Board::linkSpaces()
   {
     mtnPtr->left = new Mountain();
     mtnPtr = mtnPtr->left;
-    mtnPtr->boardPopulate();
-    //print copy
+    for(int x = 8; x > 0; x--)
+    {
+      for (int y = 6; y < 8; y++)
+      {
+        map[y][x] = mtnPtr->boardPopulate();
+      }
+    }
   }
   forestPtr = mtnPtr->up;
   forestPtr = new Forest();
-  forestPtr->boardPopulate();
+  for(int x = 0; x < 2; x++)
+  {
+    for (int y = 3; y < 5; y++)
+    {
+      map[y][x] = forestPtr->boardPopulate();
+    }
+  }
   //something with printing and such
   for (int j = 0; j < 2; j++)
   {
@@ -144,14 +155,121 @@ void Board::displayNine(int move)
     {
       for (int y = 6; y < 8; y++)
       {
-        cout << map[x][y];
+        cout << map[y][x];
       }
     }
     cout << endl;
   }
   else if (move == 1)
   {
-    
+    for(int x = 6; x < 8; x++)
+    {
+      for (int y = 6; y < 8; y++)
+      {
+        cout << map[y][x];
+      }
+    }
+    cout << endl;
+  }
+  else if (move == 2)
+  {
+    for(int x = 3; x < 5; x++)
+    {
+      for (int y = 6; y < 8; y++)
+      {
+        cout << map[y][x];
+      }
+    }
+    cout << endl;
+  }
+  else if (move == 3)
+  {
+    for(int x = 0; x < 2; x++)
+    {
+      for (int y = 6; y < 8; y++)
+      {
+        cout << map[y][x];
+      }
+    }
+    cout << endl;
+  }
+  else if (move == 4)
+  {
+    for(int x = 0; x < 2; x++)
+    {
+      for (int y = 3; y < 5; y++)
+      {
+        cout << map[y][x];
+      }
+    }
+    cout << endl;
+  }
+  else if (move == 5)
+  {
+    for(int x = 3; x < 5; x++)
+    {
+      for (int y = 3; y < 5; y++)
+      {
+        cout << map[y][x];
+      }
+    }
+    cout << endl;
+  }
+  else if (move == 6)
+  {
+    for(int x = 6; x < 8; x++)
+    {
+      for (int y = 3; y < 5; y++)
+      {
+        cout << map[y][x];
+      }
+    }
+    cout << endl;
+  }
+  else if (move == 7)
+  {
+    for(int x = 9; x < 11; x++)
+    {
+      for (int y = 3; y < 5; y++)
+      {
+        cout << map[y][x];
+      }
+    }
+    cout << endl;
+  }
+  else if (move == 8)
+  {
+    for(int x = 9; x < 11; x++)
+    {
+      for (int y = 0; y < 2; y++)
+      {
+        cout << map[y][x];
+      }
+    }
+    cout << endl;
+  }
+  else if (move == 9)
+  {
+    for(int x = 6; x < 8; x++)
+    {
+      for (int y = 0; y < 2; y++)
+      {
+        cout << map[y][x];
+      }
+    }
+    cout << endl;
+  }
+  else if (move == 10)
+  {
+    for(int x = 3; x < 5; x++)
+    {
+      for (int y = 0; y < 2; y++)
+      {
+        cout << map[y][x];
+      }
+    }
+    cout << endl;
+  }
 }
 /*********************************************************************
 ** Function:
