@@ -89,17 +89,69 @@ void Board::moveUser()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void Board::displayNine()
+void Board::linkSpaces()
 {
- for(int x = 12; x > 0; x--)
+  mtnPtr = new Mountain();
+  user = mtnPtr;
+  for(int x = 9; x < 11; x++)
   {
-    for (int y = 9; y > 0; y--)
+    for (int y = 6; y < 8; y++)
     {
-      map[y][x] = mtnPtr->boardPopulate();
-      cout << map[x][y];
+      map[y][x] = user->boardPopulate();
     }
   }
-  cout << endl;
+  for (int i = 0; i < 2; i++)
+  {
+    mtnPtr->left = new Mountain();
+    mtnPtr = mtnPtr->left;
+    mtnPtr->boardPopulate();
+    //print copy
+  }
+  forestPtr = mtnPtr->up;
+  forestPtr = new Forest();
+  forestPtr->boardPopulate();
+  //something with printing and such
+  for (int j = 0; j < 2; j++)
+  {
+    forestPtr->right = new Forest();
+    forestPtr = forestPtr->right;
+    forestPtr->boardPopulate();
+    //print copy
+  }
+  coastPtr = forestPtr->up;
+  coastPtr = new Coast();
+  coastPtr->boardPopulate();
+  //something with printing and such
+  for (int k = 0; k < 2; k++)
+  {
+    coastPtr->left = new Coast();
+    coastPtr = coastPtr->left;
+    coastPtr->boardPopulate();
+    //print copy
+  }
+}
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
+void Board::displayNine(int move)
+{
+  if (move == 0)
+  {
+    for(int x = 9; x < 11; x++)
+    {
+      for (int y = 6; y < 8; y++)
+      {
+        cout << map[x][y];
+      }
+    }
+    cout << endl;
+  }
+  else if (move == 1)
+  {
+    
 }
 /*********************************************************************
 ** Function:
@@ -109,11 +161,11 @@ void Board::displayNine()
 *********************************************************************/
 void Board::printHidden()
 {
-  for(int x = 0; x < 12; x++)
+  for(int x = 0; x < 11; x++)
   {
-    for (int y = 0; y < 9; y++)
+    for (int y = 0; y < 8; y++)
     {
-      map[y][x] = ' ';
+      map[x][y] = ' ';
       cout << map[x][y];
     }
   }
@@ -127,9 +179,9 @@ void Board::printHidden()
 *********************************************************************/
 void Board::printFull()
 {
-   for(int x = 0; x < 12; x++)
+  for(int x = 0; x < 11; x++)
   {
-    for (int y = 0; y < 9; y++)
+    for (int y = 0; y < 8; y++)
     {
       cout << map[x][y];
     }
@@ -558,4 +610,13 @@ bool Board::feedBears()
   {
     return false;
   }
+}
+/*********************************************************************
+** Function:
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
+void Board::beginPlay()
+{
 }
