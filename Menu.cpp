@@ -72,7 +72,7 @@ void Menu::gameRulesB()
        << "is that there are bears living in the area. They \n"
        << "prefer salmon, but they will happily eat you. " << endl;
   cout << "Best to distract them with a tasty salmon. One \n"
-       << "salmon will feed 3 bears, and three salmon will \n"
+       << "salmon will feed many bears, and three salmon will \n"
        << "give you bear immunity! Salmon are made by collecting \n"
        << "three eggs. Eggs look like this on the map: o " << endl;
   cout << "Bears look like this: & " << endl;
@@ -87,9 +87,9 @@ void Menu::gameRulesM()
 {
   cout << "The first task is to collect enough food for your voyage. " << endl;
   cout << "This is done by collecting trout. Trout look like this on the map: % " << endl;
-  cout << "Three trout make a barrel of food, and three barrels will be enough \n"
-       << "to last your fleet for many months. You must get three barrels or \n"
-       << "your men and yourself may starve. The only place to find trout are \n"
+  cout << "Three trout make a boat, and three boats will be enough \n"
+       << "to make a hull. You must get three boats or your men and \n"
+       << "yourself can't make a ship. The only place to find trout are \n"
        << "in the mountains. But beware of bears..." << endl;
 }
 /*********************************************************************
@@ -104,7 +104,7 @@ void Menu::gameRulesF()
   cout << "This is accomplished by collecting enough wood for three \n"
        << "barrels. Three wood fill one barrel. Wood looks like this: # " << endl;
   cout << "The best place to find wood is in the forest. Remember to \n"
-       << "collect 3 per barrel, and be on the lookout for bears... " << endl;
+       << "collect 3 barrels for a deck, and be on the lookout for bears... " << endl;
 }
 /*********************************************************************
 ** Function: gameRulesC
@@ -117,7 +117,8 @@ void Menu::gameRulesC()
   cout << "The third and final task is to collect sailors. " << endl;
   cout << "That's right, you need some savvy swashbuckling \n"
        << "seafarers. You guessed it, you will ultimately \n"
-       << "need nine sailors - three per barrel of sailors. " << endl;
+       << "need nine sailors - three per crew of sailors. " << endl;
+  cout << "Three crew make a mast, and that's very important! " << endl;
   cout << "Sailors always hang around the coast, dreaming \n"
        << "of the sea. They look like this on the map: + " << endl;
   cout << "Remember to keep a wary eye out for bears... " << endl;
@@ -134,13 +135,13 @@ void Menu::explainKnapsack()
   cout << "This knapsack has brought you much good fortune.\n"
        << "It holds six items, which you can use to collect \n"
        << "items necessary for your journey. You can either \n"
-       << "collect 3 items in the knapsack to make a barrel, \n"
+       << "collect 3 items in the knapsack to make a new item, \n"
        << "or drop an item on the ground from your knapsack. " << endl;
   cout << "If you drop a trout on the ground and there are \n"
        << "at least two other trout on the map, this will \n"
-       << "make a barrel of trout. If you drop an egg and \n"
-       << "there are at least two other eggs on the map you \n"
-       << "just made a salmon! And so on, and so on... " << endl;
+       << "make a boat. If you drop an egg and there are \n"
+       << "at least two other eggs on the map, you just \n"
+       << "made a salmon! And so on, and so on... " << endl;
   cout << "Don't forget! You only have room for 6 items. " << endl;
 }
 /*********************************************************************
@@ -171,11 +172,43 @@ void Menu::explainExtras()
 *********************************************************************/
 void Menu::gamePlay()
 {
+  int move = 0;
+  int choice = 0;
+  int 
+  play.linkSpaces();
+  play.printHidden();
+  play.displayNine();
+  play.printFull(); //testing only-- should be commented out
+  play.beginPlay(1);
+  play.printKnapsack();
+  do {
+    if (play.feedBears())
+    {
+      play.moveUser(move);
+      move++;
+    }
+    else
+    { 
+      bearsMenu();
+      choice = inputValidation(1, 2);
+      if (choice == 1)
+      {
+        cout << "Good choice..." << endl;
+        play.drop(7);
+        play.randomOffer();
+        keepOrDropMenu();
+        moveUser(move);
+        move++;
+      }
+      else 
+      {
+        lose(1);
+      }
   //call board functions here
-  //after keepOrDropMenu()
+  keepOrDropMenu();
   //ask which item they would like to keep/drop
-  //if keep call play.keep(choice);
-  //if drop call play.deleteItem(choice);
+  play.keep(choice);
+  play.deleteItem(choice);
   //then play.drop(choice)
 }
 /*********************************************************************
@@ -197,6 +230,15 @@ void Menu::exitMenu()
 ** Returns: 
 *********************************************************************/
 void Menu::callBoard()
+{
+}
+/*********************************************************************
+** Function: 
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
+void Menu::listItems()
 {
 }
 /*********************************************************************
