@@ -7,12 +7,15 @@
 #include "Menu.hpp"
 /*********************************************************************
 ** Function: Menu constructor
-** Description: initializes values
+** Description: initializes value itemType to 0 - others are trout:1,
+** wood:2, sailor:3, flashlight:4, crystal:5, egg:6, salmon:7
 ** Parameters: None
 ** Returns: None
 *********************************************************************/
 Menu::Menu()
 {
+  itemType = 0;
+  move = 0;
 }
 /*********************************************************************
 ** Function: inputValidation
@@ -172,19 +175,28 @@ void Menu::explainExtras()
 *********************************************************************/
 void Menu::gamePlay()
 {
-  int move = 0;
   int choice = 0;
-  int 
   play.linkSpaces();
   play.printHidden();
-  play.displayNine();
+  play.displayNine(move);
   play.printFull(); //testing only-- should be commented out
   play.beginPlay(1);
   play.printKnapsack();
   do {
     if (play.feedBears())
     {
-      play.moveUser(move);
+      listItems();
+      keepOrDropMenu();
+      choice = inputValidation(1, 2);
+      if (choice == 1)
+      {
+        play.keep(itemType);
+      }
+      else 
+      {
+        play.drop(itemType);
+      }
+      moveUser(move);
       move++;
     }
     else
@@ -197,6 +209,15 @@ void Menu::gamePlay()
         play.drop(7);
         listItems();
         keepOrDropMenu();
+        choice = inputValidation(1, 2);
+        if (choice == 1)
+        {
+          play.keep(itemType);
+        }
+        else 
+        {
+          play.drop(itemType);
+        }
         moveUser(move);
         move++;
       }
@@ -204,12 +225,7 @@ void Menu::gamePlay()
       {
         lose(1);
       }
-  //call board functions here
-  keepOrDropMenu();
-  //ask which item they would like to keep/drop
-  play.keep(choice);
-  play.deleteItem(choice);
-  //then play.drop(choice)
+    } while (move < 11);
 }
 /*********************************************************************
 ** Function: exitMenu
@@ -231,6 +247,7 @@ void Menu::exitMenu()
 *********************************************************************/
 void Menu::lose(int type)
 {
+  move = 11;
   if (play.levelCPassed())
   {
     cout << "Congratulations!! You've won the game!!" << endl;
@@ -278,29 +295,41 @@ void Menu::listItems()
     if (play.levelFPassed())
     {
       cout << "It's a sailor!" << endl;
+      itemType = 3;
     }
     else if (play.levelMPassed())
     {
       cout << "It's some wood!" << endl;
+      itemType = 2;
     }
     else 
     {
       cout << "It's a trout!" << endl;
-    }
-  }
-  else if (item == 2)
-  {
-    if (play.levelMPassed())
-    {
-      cout << "It's a flashlight!" << endl;
-    }
-    else 
-    {
-      cout << "It's a crystal!" << endl;
+      itemType = 1;
     }
   }
   else if (item == 3)
   {
+    if (play.levelFPassed())
+    {
+      cout << "It's a salmon!" << endl;
+      itemType = 7;
+    }
+    else if (play.levelMPassed())
+    {
+      cout << "It's a flashlight!" << endl;
+      itemType = 4;
+    }
+    else 
+    {
+      cout << "It's a crystal!" << endl;
+      itemType = 5;
+    }
+  }
+  else if (item == 2)
+  {
+    cout << "It's an egg!" << endl;
+    itemType = 6;
   }
 }
 /*********************************************************************
