@@ -119,6 +119,11 @@ void Mountain::boardPopulate(int move)
     }
   }
 }
+
+void Mountain::makeMap(char mapArr[][], int set)
+{
+  
+}
 /*********************************************************************
 ** Function: getEggs
 ** Description: returns number of eggs on board for each move
