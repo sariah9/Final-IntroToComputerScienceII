@@ -18,6 +18,7 @@ protected:
   int bearCount;
   int salmonCount;
 public:
+  map[9][12];
   Space* up;
   Space* down;
   Space* right;
@@ -26,6 +27,7 @@ public:
   ~Space();
   virtual void words() = 0;
   virtual void boardPopulate(int) = 0;
+  virtual void makeMap(char mapArr[3][3], int) = 0;
   virtual int getEggs() = 0;
   virtual int getItems() = 0;
   virtual int getBears() = 0;
