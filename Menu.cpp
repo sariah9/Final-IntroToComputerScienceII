@@ -15,7 +15,7 @@
 Menu::Menu()
 {
   itemType = 0;
-  move = 0;
+  numMoves = 0;
 }
 /*********************************************************************
 ** Function: inputValidation
@@ -178,7 +178,7 @@ void Menu::gamePlay()
   int choice = 0;
   play.linkSpaces();
   play.printHidden();
-  play.displayNine(move);
+  play.displayNine(numMoves);
   play.printFull(); //testing only-- should be commented out
   play.beginPlay(1);
   play.printKnapsack();
@@ -196,8 +196,8 @@ void Menu::gamePlay()
       {
         play.drop(itemType);
       }
-      moveUser(move);
-      move++;
+      moveUser(numMoves);
+      numMoves++;
     }
     else
     { 
@@ -218,14 +218,14 @@ void Menu::gamePlay()
         {
           play.drop(itemType);
         }
-        moveUser(move);
-        move++;
+        moveUser(numMoves);
+        numMoves++;
       }
       else 
       {
         lose(1);
       }
-    } while (move < 11);
+    } while (numMoves < 11);
 }
 /*********************************************************************
 ** Function: exitMenu
