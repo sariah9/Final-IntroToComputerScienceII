@@ -28,7 +28,6 @@ Board::Board()
   e = "egg";
   salm = "salmon";
   b = "bear";
-  bearsNearby = true;
   boat = 0;
   barrel = 0;
   crew = 0;
@@ -519,7 +518,7 @@ void Board::keep(int item)
 ** Parameters: int item
 ** Returns: int that is used to determine user message
 *********************************************************************/
-int Board::drop(int item)
+void Board::drop(int item)
 {
   int boardItem = user->getItems();
   int boardEggs = user->getEggs();
@@ -532,20 +531,18 @@ int Board::drop(int item)
       if (levelFPassed())
       {
         crew++;
+        cout << "You made a crew! " << endl;
       }
       else if (levelMPassed())
       {
         barrel++;
+        cout << "You made a barrel! " << endl;
       }
       else
       {
         boat++;
+        cout << "You made a boat! " << endl;
       }
-      return 1;
-    }
-    else 
-    {
-      return 0;
     }
   }
   else if (item == 5)
@@ -555,47 +552,36 @@ int Board::drop(int item)
       if (levelFPassed())
       {
         crew++;
+        cout << "You made a crew! " << endl;
       }
       else if (levelMPassed())
       {
         barrel++;
+        cout << "You made a barrel! " << endl;
       }
       else
       {
         boat++;
+        cout << "You made a boat! " << endl;
       }
-      return 1;
     }
     else if (boardEggs >= 2)
     {
+      cout << "A salmon has been added to your bag! " << endl;
       addToSack(7);
-      return 2;
-    }
-    else 
-    {
-      return 0;
     }
   }
   else if (item == 6)
   {
     if (boardEggs >= 2)
     {
+      cout << "A salmon has been added to your bag! " << endl;
       addToSack(7);
-      return 2;
-    }
-    else 
-    {
-      return 0;
     }
   }
-  else if (item == 7)
+  else
   {
-    bearsNearby = false;
-    return 3;
-  }
-  else 
-  {
-    return 0;
+    cout << "Item left behind." << endl;
   }
 }
 /*********************************************************************
