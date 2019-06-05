@@ -29,6 +29,13 @@ Space::Space()
   itemCount = 0;
   eggCount = 0;
   salmonCount = 0;
+  for(int x = 0; x < 11; x++)
+  {
+    for (int y = 0; y < 8; y++)
+    {
+      map[x][y] = ' ';
+    }
+  }
 }
 /*********************************************************************
 ** Function: Space destructor
