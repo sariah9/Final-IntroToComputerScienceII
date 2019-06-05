@@ -31,6 +31,8 @@ public:
   void gamePlay();
   void exitMenu();
   void callBoard();
+  void lose(int);
+  void listItems();
   void bearsMenu();
   void keepOrDropMenu();
 };
