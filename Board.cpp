@@ -99,19 +99,12 @@ bool Board::isEmpty()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void Board::moveUser()
+void Board::moveUser(int move)
 {
-  if (user->bearImmunity())
+  if (move = 0)
   {
-    bearsNearby = false;
+    ;
   }
-  else 
-  {
-    bearsNearby = true;
-  }
-  int move = 0;
-  user = user->left;
-  user->getBears();
 }
 /*********************************************************************
 ** Function:
@@ -769,6 +762,33 @@ bool Board::feedBears()
 ** Parameters:
 ** Returns: 
 *********************************************************************/
-void Board::beginPlay()
+void Board::beginPlay(int level)
 {
+  if (level == 1)
+  {
+    cout << "You have new items in your knapSack!" << endl;
+    addToSack(1);
+    addToSack(6);
+    addToSack(6);
+    addToSack(7);
+    addToSack(4);
+  }
+  else if (level == 2)
+  {
+    cout << "You have new items in your knapSack!" << endl;
+    addToSack(2);
+    addToSack(6);
+    addToSack(6);
+    addToSack(7);
+    addToSack(5);
+  }
+  else if (level == 3)
+  {
+    cout << "You have new items in your knapSack!" << endl;
+    addToSack(3);
+    addToSack(3);
+    addToSack(6);
+    addToSack(7);
+    addToSack(6);
+  }
 }
