@@ -17,6 +17,7 @@ class Menu
 private:
   Board play;
   int itemType;
+  int numMoves;
 public:
   Menu();
   int inputValidation(int, int);
