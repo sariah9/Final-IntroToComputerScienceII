@@ -42,7 +42,7 @@ public:
   Board();
   ~Board();
   bool isEmpty();
-  void moveUser();
+  void moveUser(int);
   void linkSpaces();
   void displayNine();
   void printHidden();
@@ -58,7 +58,7 @@ public:
   bool levelFPassed();
   bool levelCPassed();
   bool feedBears();
-  void beginPlay();
+  void beginPlay(int);
 };
 
 #endif
