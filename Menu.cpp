@@ -289,7 +289,6 @@ void Menu::callBoard()
 }
 void Menu::lose(int type)
 {
-  move = 11;
   if (play.levelCPassed())
   {
     cout << "Congratulations!! You've won the game!!" << endl;
@@ -310,6 +309,7 @@ void Menu::lose(int type)
   }
   else 
   {
+    numMoves = 12;
     if (type == 1)
     {
       cout << "You were eaten by bears and are now, unfortunately, dead..." << endl;
@@ -396,6 +396,6 @@ void Menu::bearsMenu()
 void Menu::keepOrDropMenu()
 {
   cout << "You may choose what to do with this item." << endl;
-  cout << "1. Keep the item in the sack." << endl;
+  cout << "1. Add the item to the sack." << endl;
   cout << "2. Drop the item. " << endl;
 }
