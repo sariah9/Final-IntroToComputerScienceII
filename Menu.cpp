@@ -189,16 +189,10 @@ void Menu::gamePlay()
   while (numMoves < 4)
   {
     callBoard();
-    beforeMove();
-    choice = inputValidation(1, 8);
-    if (choice == 8)
-    {
-      cout << "Moving along... " << endl;
-    }
-    else
-    {
-    play.drop(choice);
-    }
+    numMoves++;
+    play.moveUser(numMoves);
+    play.displayNine(numMoves);
+    play.printBoard(numMoves);
   }
   if (play.levelMPassed())
   {
@@ -216,16 +210,10 @@ void Menu::gamePlay()
         play.displayNine(light);
         play.deleteItem(4);
       }
-      beforeMove();
-      choice = inputValidation(1, 8);
-      if (choice == 8)
-      {
-        cout << "Moving along... " << endl;
-      }
-      else
-      {
-        play.drop(choice);
-      }
+      numMoves++;
+      play.moveUser(numMoves);
+      play.displayNine(numMoves);
+      play.printBoard(numMoves);
     } 
   }
   else 
@@ -240,16 +228,10 @@ void Menu::gamePlay()
     while (numMoves < 12)
     {
       callBoard();
-      beforeMove();
-      choice = inputValidation(1, 8);
-      if (choice == 8)
-      {
-        cout << "Moving along... " << endl;
-      }
-      else
-      {
-        play.drop(choice);
-      }
+      numMoves++;
+      play.moveUser(numMoves);
+      play.displayNine(numMoves);
+      play.printBoard(numMoves);
     }  
   }
   else 
@@ -300,9 +282,16 @@ void Menu::callBoard()
     {
       play.drop(itemType);
     }
-    play.moveUser(numMoves);
-    numMoves++;
-    play.displayNine(numMoves);
+    beforeMove();
+    choice = inputValidation(1, 8);
+    if (choice == 8)
+    {
+      cout << "Moving along... " << endl;
+    }
+    else
+    {
+    play.drop(choice);
+    }
   }
   else
   { 
@@ -323,9 +312,16 @@ void Menu::callBoard()
       {
         play.drop(itemType);
       }
-      play.moveUser(numMoves);
-      numMoves++;
-      play.displayNine(numMoves);
+      beforeMove();
+      choice = inputValidation(1, 8);
+      if (choice == 8)
+      {
+        cout << "Moving along... " << endl;
+      }
+      else
+      {
+        play.drop(choice);
+      }
     }
     else 
     {
@@ -362,16 +358,21 @@ void Menu::lose(int type)
   }
   else 
   {
-    numMoves = 12;
     if (type == 1)
     {
+      numMoves = 12;
       cout << "You were eaten by bears and are now, unfortunately, dead..." << endl;
       cout << "You had a brave adventurer's funeral. RIP." << endl;
     }
-    else
+    else if (type == 2)
     {
+      numMoves = 12;
       cout << "Oh no! You have been unsuccessful in your mission." << endl;
       cout << "You did not collect enough items in the time allowed. " << endl;
+    }
+    else 
+    {
+      cout << "Fortune smiles on thee... " << endl;
     }
   }
 }
