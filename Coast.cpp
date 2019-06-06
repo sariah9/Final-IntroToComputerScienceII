@@ -89,7 +89,7 @@ void Coast::boardPopulate(int move)
         { 
           if (bearImmunity())
           { 
-            gridMove[y][x] = trout;
+            gridMove[y][x] = sailor;
             itemCount++;
           }
           else 
@@ -111,7 +111,7 @@ void Coast::boardPopulate(int move)
       }
     }
   }
-  makeMap(gridMove[3][3], move);
+  makeMap(move);
 }
 /*********************************************************************
 ** Function: makeMap
@@ -120,7 +120,7 @@ void Coast::boardPopulate(int move)
 ** Parameters: 3x3 array , int set
 ** Returns: None
 *********************************************************************/
-void Coast::makeMap(char mapArr[3][3], int set)
+void Coast::makeMap(int set)
 {
   if (set == 1)
   {
@@ -128,7 +128,7 @@ void Coast::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 0; y < 2; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
@@ -139,7 +139,7 @@ void Coast::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 0; y < 2; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
@@ -150,7 +150,7 @@ void Coast::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 0; y < 2; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
@@ -161,11 +161,152 @@ void Coast::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 0; y < 2; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
   }
+}
+/*********************************************************************
+** Function: printMap
+** Description: depending on move, prints map
+** Parameters: None
+** Returns: int move
+*********************************************************************/
+void Coast::printMap(int move)
+{
+    if (move == 0)
+    {
+        for(int x = 9; x < 11; x++)
+        {
+            for (int y = 6; y < 8; y++)
+            {
+                cout << map[y][x];
+            }
+        }
+        cout << endl;
+    }
+    else if (move == 1)
+    {
+        for(int x = 6; x < 8; x++)
+        {
+            for (int y = 6; y < 8; y++)
+            {
+                cout << map[y][x];
+            }
+        }
+        cout << endl;
+    }
+    else if (move == 2)
+    {
+        for(int x = 3; x < 5; x++)
+        {
+            for (int y = 6; y < 8; y++)
+            {
+                cout << map[y][x];
+            }
+        }
+        cout << endl;
+    }
+    else if (move == 3)
+    {
+        for(int x = 0; x < 2; x++)
+        {
+            for (int y = 6; y < 8; y++)
+            {
+                cout << map[y][x];
+            }
+        }
+        cout << endl;
+    }
+    else if (move == 4)
+    {
+        for(int x = 0; x < 2; x++)
+        {
+            for (int y = 3; y < 5; y++)
+            {
+                cout << map[y][x];
+            }
+        }
+        cout << endl;
+    }
+    else if (move == 5)
+    {
+        for(int x = 3; x < 5; x++)
+        {
+            for (int y = 3; y < 5; y++)
+            {
+                cout << map[y][x];
+            }
+        }
+        cout << endl;
+    }
+    else if (move == 6)
+    {
+        for(int x = 6; x < 8; x++)
+        {
+            for (int y = 3; y < 5; y++)
+            {
+                cout << map[y][x];
+            }
+        }
+        cout << endl;
+    }
+    else if (move == 7)
+    {
+        for(int x = 9; x < 11; x++)
+        {
+            for (int y = 3; y < 5; y++)
+            {
+                cout << map[y][x];
+            }
+        }
+        cout << endl;
+    }
+    else if (move == 8)
+    {
+        for(int x = 9; x < 11; x++)
+        {
+            for (int y = 0; y < 2; y++)
+            {
+                cout << map[y][x];
+            }
+        }
+        cout << endl;
+    }
+    else if (move == 9)
+    {
+        for(int x = 6; x < 8; x++)
+        {
+            for (int y = 0; y < 2; y++)
+            {
+                cout << map[y][x];
+            }
+        }
+        cout << endl;
+    }
+    else if (move == 10)
+    {
+        for(int x = 3; x < 5; x++)
+        {
+            for (int y = 0; y < 2; y++)
+            {
+                cout << map[y][x];
+            }
+        }
+        cout << endl;
+    }
+    else if (move == 11)
+    {
+        for(int x = 0; x < 2; x++)
+        {
+            for (int y = 0; y < 2; y++)
+            {
+                cout << map[y][x];
+            }
+        }
+        cout << endl;
+    }
 }
 /*********************************************************************
 ** Function: getEggs

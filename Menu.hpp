@@ -18,6 +18,7 @@ private:
   Board play;
   int itemType;
   int numMoves;
+  int choice;
 public:
   Menu();
   int inputValidation(int, int);

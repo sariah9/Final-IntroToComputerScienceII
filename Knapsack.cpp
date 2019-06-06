@@ -11,7 +11,7 @@
 ** Parameters: int value that changes itemNum
 ** Returns: None
 *********************************************************************/
-KnapSack::Knapsack(int value)
+Knapsack::Knapsack(int value)
 {
   next = nullptr;
   itemNum = value;

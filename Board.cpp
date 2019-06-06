@@ -33,37 +33,34 @@ Board::Board()
 *********************************************************************/
 Board::~Board()
 {
-  Knapsack* garbage = front;
-  while (garbage != nullptr)
+  Knapsack* trash = front;
+  while (trash != nullptr)
   {
     front = front->next;
-    garbage->next = nullptr;
-    delete garbage;
-    garbage = front;
+    trash->next = nullptr;
+    delete trash;
+    trash = front;
   }
   Space* garbage = mtnPtr;
   for (int i = 0; i < 4; i++)
   {
     mtnPtr = mtnPtr->left;
-    garbage->left = nullptr;
     delete garbage;
     garbage = mtnPtr;
   }
-  garbage = forestPtr;
+  Space* garbageF = forestPtr;
   for (int j = 0; j < 4; j++)
   {
     forestPtr = forestPtr->right;
-    garbage->right = nullptr;
-    delete garbage;
-    garbage = forestPtr;
+    delete garbageF;
+    garbageF = forestPtr;
   }
-  garbage = coastPtr;
+  Space* garbageC = coastPtr;
   for (int k = 0; k < 4; k++)
   {
     coastPtr = coastPtr->left;
-    garbage->left = nullptr;
-    delete garbage;
-    garbage = coastPtr;
+    delete garbageC;
+    garbageC = coastPtr;
   }
   user = nullptr;
 }
@@ -171,150 +168,7 @@ void Board::linkSpaces()
 *********************************************************************/
 void Board::displayNine(int move)
 {
-  if (move == 0)
-  {
-    for(int x = 9; x < 11; x++)
-    {
-      for (int y = 6; y < 8; y++)
-      {
-        boardMap[y][x] = Space::map[y][x];
-        cout << boardMap[y][x];
-      }
-    }
-    cout << endl;
-  }
-  else if (move == 1)
-  {
-    for(int x = 6; x < 8; x++)
-    {
-      for (int y = 6; y < 8; y++)
-      {
-        boardMap[y][x] = Space::map[y][x];
-        cout << boardMap[y][x];
-      }
-    }
-    cout << endl;
-  }
-  else if (move == 2)
-  {
-    for(int x = 3; x < 5; x++)
-    {
-      for (int y = 6; y < 8; y++)
-      {
-        boardMap[y][x] = Space::map[y][x];
-        cout << boardMap[y][x];
-      }
-    }
-    cout << endl;
-  }
-  else if (move == 3)
-  {
-    for(int x = 0; x < 2; x++)
-    {
-      for (int y = 6; y < 8; y++)
-      {
-        boardMap[y][x] = Space::map[y][x];
-        cout << boardMap[y][x];
-      }
-    }
-    cout << endl;
-  }
-  else if (move == 4)
-  {
-    for(int x = 0; x < 2; x++)
-    {
-      for (int y = 3; y < 5; y++)
-      {
-        boardMap[y][x] = Space::map[y][x];
-        cout << boardMap[y][x];
-      }
-    }
-    cout << endl;
-  }
-  else if (move == 5)
-  {
-    for(int x = 3; x < 5; x++)
-    {
-      for (int y = 3; y < 5; y++)
-      {
-        boardMap[y][x] = Space::map[y][x];
-        cout << boardMap[y][x];
-      }
-    }
-    cout << endl;
-  }
-  else if (move == 6)
-  {
-    for(int x = 6; x < 8; x++)
-    {
-      for (int y = 3; y < 5; y++)
-      {
-        boardMap[y][x] = Space::map[y][x];
-        cout << boardMap[y][x];
-      }
-    }
-    cout << endl;
-  }
-  else if (move == 7)
-  {
-    for(int x = 9; x < 11; x++)
-    {
-      for (int y = 3; y < 5; y++)
-      {
-        boardMap[y][x] = Space::map[y][x];
-        cout << boardMap[y][x];
-      }
-    }
-    cout << endl;
-  }
-  else if (move == 8)
-  {
-    for(int x = 9; x < 11; x++)
-    {
-      for (int y = 0; y < 2; y++)
-      {
-        boardMap[y][x] = Space::map[y][x];
-        cout << boardMap[y][x];
-      }
-    }
-    cout << endl;
-  }
-  else if (move == 9)
-  {
-    for(int x = 6; x < 8; x++)
-    {
-      for (int y = 0; y < 2; y++)
-      {
-        boardMap[y][x] = Space::map[y][x];
-        cout << boardMap[y][x];
-      }
-    }
-    cout << endl;
-  }
-  else if (move == 10)
-  {
-    for(int x = 3; x < 5; x++)
-    {
-      for (int y = 0; y < 2; y++)
-      {
-        boardMap[y][x] = Space::map[y][x];
-        cout << boardMap[y][x];
-      }
-    }
-    cout << endl;
-  }
-  else if (move == 11)
-  {
-    for(int x = 0; x < 2; x++)
-    {
-      for (int y = 0; y < 2; y++)
-      {
-        boardMap[y][x] = Space::map[y][x];
-        cout << boardMap[y][x];
-      }
-    }
-    cout << endl;
-  }
+  user->printMap(move);
 }
 /*********************************************************************
 ** Function: printHidden
@@ -328,7 +182,7 @@ void Board::printHidden()
   {
     for (int y = 0; y < 8; y++)
     {
-      boardMap = ' ';
+      boardMap[y][x]= ' ';
       cout << boardMap[x][y];
     }
   }
@@ -342,14 +196,7 @@ void Board::printHidden()
 *********************************************************************/
 void Board::printFull()
 {
-  for(int x = 0; x < 11; x++)
-  {
-    for (int y = 0; y < 8; y++)
-    {
-      cout << boardMap[x][y];
-    }
-  }
-  cout << endl;
+    user->printMap(11);
 }
 /*********************************************************************
 ** Function: addToSack
@@ -420,31 +267,31 @@ void Board::printSack()
       }
       else if (itemPtr->itemNum == 2)
       {
-        cout "One " << w << endl;
+        cout << "One " << w << endl;
       }
       else if (itemPtr->itemNum == 3)
       {
-        cout "One " << s << endl;
+        cout << "One " << s << endl;
       }
       else if (itemPtr->itemNum == 4)
       {
-        cout "One " << f << endl;
+        cout << "One " << f << endl;
       }
       else if (itemPtr->itemNum == 5)
       {
-        cout "One " << c << endl;
+        cout << "One " << c << endl;
       }
       else if (itemPtr->itemNum == 6)
       {
-        cout "One " << e << endl;
+        cout << "One " << e << endl;
       }
       else 
       {
         cout << "One " << salm << endl;
       }
       itemPtr = itemPtr->next;
-    }
-  }  while (itemPtr != front);
+    }while (itemPtr != front);
+  }
 }
 /*********************************************************************
 ** Function: deleteItem
@@ -455,7 +302,7 @@ void Board::printSack()
 *********************************************************************/
 void Board::deleteItem(int item)
 {
-  Knapsack* nodePtr = head;
+  Knapsack* nodePtr = front;
   if (isEmpty())
   {
     cout << "Sorry. Your sack is empty. " << endl;
@@ -666,8 +513,8 @@ void Board::checkKnapsack()
         salmonNum++;
       }
       itemPtr = itemPtr->next;
-    }
-  }  while (itemPtr != front);
+    }while (itemPtr != front);
+  }
   if (troutNum >= 3)
   {
     boat++;
