@@ -220,7 +220,7 @@ void Mountain::setSalmon(int growth)
 ** Parameters: None
 ** Returns: true or false
 *********************************************************************/
-bool Forest::bearImmunity()
+bool Mountain::bearImmunity()
 {
   if (salmonCount >= 3)
   {
