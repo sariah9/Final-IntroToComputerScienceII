@@ -125,7 +125,7 @@ void Forest::boardPopulate(int move)
     }
     else
     {
-      gridMove[0][0] = sailor;
+      gridMove[0][0] = wood;
       itemCount++;
       gridMove[0][1] = egg;
       eggCount++;
@@ -176,7 +176,7 @@ void Forest::boardPopulate(int move)
     }
     else
     {
-      gridMove[0][0] = sailor;
+      gridMove[0][0] = wood;
       itemCount++;
       gridMove[0][1] = egg;
       eggCount++;
