@@ -37,7 +37,7 @@ void Coast::boardPopulate(int move)
   itemCount = 0;
   eggCount = 0;
   int random = (rand() % 3) + 1;
-  if  (move == 1)
+  if  (move == 8)
   {
     gridMove[2][1] = path;
     gridMove[1][1] = path;
@@ -150,7 +150,7 @@ void Coast::boardPopulate(int move)
 *********************************************************************/
 void Coast::makeMap(int set)
 {
-  if (set == 1)
+  if (set == 8)
   {
     for(int x = 9; x < 11; x++)
     {
@@ -161,7 +161,7 @@ void Coast::makeMap(int set)
     }
     cout << endl;
   }
-  else if (set == 2)
+  else if (set == 9)
   {
     for(int x = 6; x < 8; x++)
     {
@@ -172,7 +172,7 @@ void Coast::makeMap(int set)
     }
     cout << endl;
   }
-  else if (set == 3)
+  else if (set == 10)
   {
     for(int x = 3; x < 5; x++)
     {
@@ -183,7 +183,7 @@ void Coast::makeMap(int set)
     }
     cout << endl;
   }
-  else if (set == 4)
+  else if (set == 11)
   {
     for(int x = 0; x < 2; x++)
     {
