@@ -12,10 +12,20 @@ int main()
   Menu start;
   do {
     start.welcomeMenu();
+    cout << endl;
     start.gameRulesB();
+    cout << endl;
     start.explainKnapsack();
+    cout << endl;
     start.explainExtras();
+    cout << endl;
     start.gameRulesM();
+    cout << endl;
+    start.gameRulesF();
+    cout << endl;
+    start.gameRulesC();
+    cout << endl;
+    cout << "Let's begin... " << endl;
     start.gamePlay();
     start.exitMenu();
     choice = start.inputValidation(1, 2);
