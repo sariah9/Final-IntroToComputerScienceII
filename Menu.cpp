@@ -16,6 +16,7 @@ Menu::Menu()
 {
   itemType = 0;
   numMoves = 0;
+  choice = 0;
 }
 /*********************************************************************
 ** Function: inputValidation
@@ -25,24 +26,26 @@ Menu::Menu()
 *********************************************************************/
 int Menu::inputValidation(int min, int max)
 {
-  double input;
-  bool repeatEntry = true;
-  char errorTest;
-  string inputLine;
-  while (repeatEntry) {
-      getline(cin, inputLine);
-      std::stringstream lineStream(inputLine);
-      if (!(lineStream >> input)) {
-          cout << "Input was not a number. Please try again." << endl;
-      } else if ((input < min) || (input > max)) {
-          cout << "Input out of range. Please try again." << endl;
-      } else if (input - static_cast<int>(input) != 0) {
-          cout << "Input with decimals and not an integer. Please try again." << endl;
-      } else if (lineStream >> errorTest) {
-          cout << "Input with extra symbols and/or characters. Please try again." << endl;
-      } else {
-          repeatEntry = false;
-      }  
+    double input;
+    bool repeatEntry = true;
+    char errorTest;
+    string inputLine;
+    while (repeatEntry) {
+        getline(cin, inputLine);
+        std::stringstream lineStream(inputLine);
+        if (!(lineStream >> input)) {
+            cout << "Input was not a number. Please try again." << endl;
+        } else if ((input < min) || (input > max)) {
+            cout << "Input out of range. Please try again." << endl;
+        } else if (input - static_cast<int>(input) != 0) {
+            cout << "Input with decimals and not an integer. Please try again." << endl;
+        } else if (lineStream >> errorTest) {
+            cout << "Input with extra symbols and/or characters. Please try again." << endl;
+        } else {
+            repeatEntry = false;
+        }
+    }
+    return input;
 }
 /*********************************************************************
 ** Function: welcomeMenu
@@ -181,7 +184,7 @@ void Menu::gamePlay()
   play.displayNine(numMoves);
   play.printFull(); //testing only-- should be commented out
   play.beginPlay(1);
-  play.printKnapsack();
+  play.printSack();
   while (numMoves < 4)
   {
     callBoard();
@@ -200,7 +203,7 @@ void Menu::gamePlay()
   {
     lose(3);
     play.beginPlay(2);
-    play.printKnapsack();
+    play.printSack();
     while (numMoves < 8)
     {
       callBoard();
@@ -209,7 +212,7 @@ void Menu::gamePlay()
       if (choice == 1)
       {
         int light = numMoves++;
-        displayNine(light);
+        play.displayNine(light);
         play.deleteItem(4);
       }
       beforeMove();
@@ -232,7 +235,7 @@ void Menu::gamePlay()
   {
     lose(3);
     play.beginPlay(3);
-    play.printKnapsack();
+    play.printSack();
     while (numMoves < 12)
     {
       callBoard();
@@ -270,7 +273,7 @@ void Menu::gamePlay()
 *********************************************************************/
 void Menu::exitMenu()
 {
-  cout << Would you like to: " << endl;
+  cout << "Would you like to: " << endl;
   cout << "1. Play again? " << endl;
   cout << "2. Exit the game? " << endl;
 } 
@@ -296,7 +299,7 @@ void Menu::callBoard()
     {
       play.drop(itemType);
     }
-    moveUser(numMoves);
+    play.moveUser(numMoves);
     numMoves++;
     play.displayNine(numMoves);
   }
@@ -319,7 +322,7 @@ void Menu::callBoard()
       {
         play.drop(itemType);
       }
-      moveUser(numMoves);
+      play.moveUser(numMoves);
       numMoves++;
       play.displayNine(numMoves);
     }

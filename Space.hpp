@@ -31,6 +31,7 @@ public:
   virtual void words() = 0;
   virtual void boardPopulate(int) = 0;
   virtual void makeMap(int) = 0;
+  virtual void printMap(int move) = 0;
   virtual int getEggs() = 0;
   virtual int getItems() = 0;
   virtual int getBears() = 0;

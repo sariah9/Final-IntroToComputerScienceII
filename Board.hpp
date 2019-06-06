@@ -24,7 +24,6 @@ private:
   Space* user;
   Knapsack* front;
   Knapsack* rear;
-  bool bearsNearby;
   int boat, barrel, crew;
   int sackSize;
 public:
@@ -33,13 +32,13 @@ public:
   bool isEmpty();
   void moveUser(int);
   void linkSpaces();
-  void displayNine();
+  void displayNine(int);
   void printHidden();
   void printFull();
   void addToSack(int);
   void printSack();
   void deleteItem(int);
-  void offerItem();
+  int offerItem();
   void keep(int);
   void drop(int);
   void checkKnapsack();
