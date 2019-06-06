@@ -30,7 +30,7 @@ public:
   ~Space();
   virtual void words() = 0;
   virtual void boardPopulate(int) = 0;
-  virtual void makeMap(char mapArr[3][3], int) = 0;
+  virtual void makeMap(int) = 0;
   virtual int getEggs() = 0;
   virtual int getItems() = 0;
   virtual int getBears() = 0;
