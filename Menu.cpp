@@ -180,11 +180,12 @@ void Menu::gamePlay()
 {
   int choice = 0;
   play.linkSpaces();
-  play.printHidden();
   play.displayNine(numMoves);
   play.printFull(); //testing only-- should be commented out
+  play.moveUser(numMoves);
   play.beginPlay(1);
   play.printSack();
+  play.printBoard();
   while (numMoves < 4)
   {
     callBoard();
