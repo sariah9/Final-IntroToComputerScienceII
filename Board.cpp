@@ -85,10 +85,11 @@ bool Board::isEmpty()
   }
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: moveUser
+** Description: for each move on the board, the user pointer is 
+** changed accordingly and Space is introduced
+** Parameters: int move
+** Returns: None
 *********************************************************************/
 void Board::moveUser(int move)
 {
@@ -124,10 +125,10 @@ void Board::moveUser(int move)
   }
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: linkSpaces
+** Description: makes links of Spaces in list
+** Parameters: None
+** Returns: None
 *********************************************************************/
 void Board::linkSpaces()
 {
@@ -163,10 +164,10 @@ void Board::linkSpaces()
   mtnPtr = user;
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: displayNine
+** Description: displays each 3x3 grid at a time
+** Parameters: None
+** Returns: None
 *********************************************************************/
 void Board::displayNine(int move)
 {
@@ -316,10 +317,10 @@ void Board::displayNine(int move)
   }
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: printHidden
+** Description: initializes boardMap to empty spaces
+** Parameters: None
+** Returns: None
 *********************************************************************/
 void Board::printHidden()
 {
@@ -334,10 +335,10 @@ void Board::printHidden()
   cout << endl;
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: printFull
+** Description: displays entire boardMap
+** Parameters: None
+** Returns: None
 *********************************************************************/
 void Board::printFull()
 {
@@ -390,10 +391,10 @@ void Board::addToSack(int val)
   }
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: printSack
+** Description: prints items in Knapsack queue
+** Parameters: None
+** Returns: None
 *********************************************************************/
 void Board::printSack()
 {
@@ -446,10 +447,11 @@ void Board::printSack()
   }  while (itemPtr != front);
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: deleteItem
+** Description: searches for item by argument, then removes that item 
+** from the Knapsack queue
+** Parameters: int item
+** Returns: None
 *********************************************************************/
 void Board::deleteItem(int item)
 {
@@ -499,10 +501,25 @@ void Board::deleteItem(int item)
   nodePtr = nullptr;
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: clearSack
+** Description: deletes all items of a specific type - used to change 
+** Space levels
+** Parameters: int type
+** Returns: None
+*********************************************************************/
+void Board::clearSack(int type)
+{
+  for (int i = 0; i < sackSize; i ++)
+  {
+    deleteItem(type);
+  }
+}
+/*********************************************************************
+** Function: offerItem
+** Description: generates random number which sets random offer each 
+** move 
+** Parameters: None
+** Returns: number that represents item type
 *********************************************************************/
 int Board::offerItem()
 {
@@ -610,10 +627,11 @@ void Board::drop(int item)
   }
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: checkKnapsack
+** Description: determines if there are triples in Knapsack - if so,
+** it adds thos triples to make something new and better
+** Parameters: None
+** Returns: None
 *********************************************************************/
 void Board::checkKnapsack()
 {
@@ -747,18 +765,14 @@ bool Board::levelCPassed()
   }
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: feedBears
+** Description: determines whether there are bears nearby 
+** Parameters: None
+** Returns: true or false
 *********************************************************************/
 bool Board::feedBears()
 {
-  if (bearsNearby == false)
-  {
-    return true;
-  }
-  else if (user->getBears() == 0)
+  if (user->getBears() == 0)
   {
     return true;
   }
@@ -768,10 +782,11 @@ bool Board::feedBears()
   }
 }
 /*********************************************************************
-** Function:
-** Description: 
-** Parameters:
-** Returns: 
+** Function: beginPlay
+** Description: beginning of each Space level - deletes old items 
+** from Knapsack, then adds new ones
+** Parameters: int level 
+** Returns: None
 *********************************************************************/
 void Board::beginPlay(int level)
 {
@@ -787,19 +802,18 @@ void Board::beginPlay(int level)
   else if (level == 2)
   {
     cout << "You have new items in your knapSack!" << endl;
+    clearSack(1);
+    addToSack(5);
     addToSack(2);
     addToSack(6);
-    addToSack(6);
     addToSack(7);
-    addToSack(5);
   }
   else if (level == 3)
   {
     cout << "You have new items in your knapSack!" << endl;
+    clearSack(2);
     addToSack(3);
     addToSack(3);
-    addToSack(6);
     addToSack(7);
-    addToSack(6);
   }
 }
