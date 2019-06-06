@@ -216,11 +216,18 @@ void Mountain::setSalmon(int growth)
 }
 /*********************************************************************
 ** Function: bearImmunity
-** Description: getter for salmonCount
+** Description: returns true or false if user has collected 3+ salmon
 ** Parameters: None
-** Returns: salmonCount
+** Returns: true or false
 *********************************************************************/
-int Mountain::bearImmunity()
+bool Forest::bearImmunity()
 {
-  return salmonCount;
+  if (salmonCount >= 3)
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
 }
