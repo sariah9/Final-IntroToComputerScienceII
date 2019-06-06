@@ -27,14 +27,6 @@ private:
   Space* user;
   Knapsack* front;
   Knapsack* rear;
-  string s;
-  string t;
-  string w;
-  string f;
-  string c;
-  string e;
-  string salm;
-  string b;
   bool bearsNearby;
   int boat, barrel, crew;
   int sackSize;
