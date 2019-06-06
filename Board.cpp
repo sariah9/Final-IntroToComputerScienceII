@@ -171,20 +171,30 @@ void Board::displayNine(int move)
   user->printMap(move);
 }
 /*********************************************************************
-** Function: printHidden
-** Description: initializes boardMap to empty spaces
-** Parameters: None
+** Function: printBoard
+** Description: outputs information each turn
+** Parameters: int move to indicate where player is
 ** Returns: None
 *********************************************************************/
-void Board::printHidden()
+void Board::printBoard(int move)
 {
-  for(int x = 0; x < 11; x++)
+  int bears = user->getBears();
+  int eggs = user->getEggs();
+  int items = user->getItems();
+  cout << "Move: " << move << endl;
+  cout << "There are " << bears << "bears nearby." << endl;
+  cout << "There are " << eggs << "eggs nearby." << endl;
+  if (move >= 0 || move < 4)
   {
-    for (int y = 0; y < 8; y++)
-    {
-      boardMap[y][x]= ' ';
-      cout << boardMap[x][y];
-    }
+    cout << "There are " << items << "trout nearby." << endl;
+  }
+  else if (move >= 4 || move < 8)
+  {
+    cout << "There are " << items << "wood nearby." << endl;
+  }
+  else if (move >= 8 || move < 12)
+  {
+    cout << "There are " << items << "sailors nearby." << endl;
   }
   cout << endl;
 }
