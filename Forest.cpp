@@ -158,7 +158,7 @@ void Forest::boardPopulate(int move)
       }
     }
   }
-  makeMap(gridMove[3][3], move);
+  makeMap(move);
 }
 /*********************************************************************
 ** Function: makeMap
@@ -167,7 +167,7 @@ void Forest::boardPopulate(int move)
 ** Parameters: 3x3 array , int set
 ** Returns: None
 *********************************************************************/
-void Forest::makeMap(char mapArr[3][3], int set)
+void Forest::makeMap(int set)
 {
   if (set == 1)
   {
@@ -175,7 +175,7 @@ void Forest::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 3; y < 5; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
@@ -186,7 +186,7 @@ void Forest::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 3; y < 5; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
@@ -197,7 +197,7 @@ void Forest::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 3; y < 5; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
@@ -208,7 +208,7 @@ void Forest::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 3; y < 5; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
