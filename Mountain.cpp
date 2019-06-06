@@ -120,7 +120,13 @@ void Mountain::boardPopulate(int move)
   }
   makeMap(gridMove[3][3], move);
 }
-
+/*********************************************************************
+** Function: makeMap
+** Description: sets map equal to each gridMove 3x3 depending on set
+** number
+** Parameters: 3x3 array , int set
+** Returns: None
+*********************************************************************/
 void Mountain::makeMap(char mapArr[3][3], int set)
 {
   if (set == 1)
@@ -210,18 +216,11 @@ void Mountain::setSalmon(int growth)
 }
 /*********************************************************************
 ** Function: bearImmunity
-** Description: returns true or false if user has collected 3+ salmon
+** Description: getter for salmonCount
 ** Parameters: None
-** Returns: true or false
+** Returns: salmonCount
 *********************************************************************/
-bool Mountain::bearImmunity()
+int Mountain::bearImmunity()
 {
-  if (salmonCount >= 3)
-  {
-    return true;
-  }
-  else 
-  {
-    return false;
-  }
+  return salmonCount;
 }
