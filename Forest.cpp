@@ -160,7 +160,13 @@ void Forest::boardPopulate(int move)
   }
   makeMap(gridMove[3][3], move);
 }
-
+/*********************************************************************
+** Function: makeMap
+** Description: sets map equal to each gridMove 3x3 depending on set
+** number
+** Parameters: 3x3 array , int set
+** Returns: None
+*********************************************************************/
 void Forest::makeMap(char mapArr[3][3], int set)
 {
   if (set == 1)
