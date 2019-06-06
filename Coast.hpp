@@ -12,14 +12,14 @@ class Coast : public Space
 {
 private:
 public:
-void words(); override
-void boardPopulate(int); override
-void makeMap(char mapArr[3][3], int); override
-int getEggs(); override
-int getItems(); override
-int getBears(); override
-void setSalmon(int); override
-bool bearImmunity(); override
+void words() override;
+void boardPopulate(int) override;
+void makeMap(char mapArr[3][3], int) override;
+int getEggs() override;
+int getItems() override;
+int getBears() override;
+void setSalmon(int) override;
+bool bearImmunity() override;
 };
 
 #endif
