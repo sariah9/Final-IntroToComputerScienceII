@@ -35,7 +35,7 @@ public:
   virtual int getItems() = 0;
   virtual int getBears() = 0;
   virtual void setSalmon(int) = 0;
-  virtual bool bearImmunity(int) = 0;
+  virtual int bearImmunity() = 0;
 };
 
 #endif
