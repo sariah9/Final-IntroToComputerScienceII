@@ -33,7 +33,7 @@ public:
   void moveUser(int);
   void linkSpaces();
   void displayNine(int);
-  void printHidden();
+  void printBoard(int);
   void printFull();
   void addToSack(int);
   void printSack();
