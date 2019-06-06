@@ -37,7 +37,7 @@ void Mountain::boardPopulate(int move)
   eggCount = 0;
     
   int random = (rand() % 3) + 1;
-  if  (move == 4)
+  if  (move == 3)
   {
     gridMove[0][1] = path;
     gridMove[1][1] = path;
@@ -150,7 +150,7 @@ void Mountain::boardPopulate(int move)
 *********************************************************************/
 void Mountain::makeMap(int set)
 {
-  if (set == 1)
+  if (set == 0)
   {
     for(int x = 9; x < 11; x++)
     {
@@ -161,7 +161,7 @@ void Mountain::makeMap(int set)
     }
     cout << endl;
   }
-  else if (set == 2)
+  else if (set == 1)
   {
     for(int x = 6; x < 8; x++)
     {
@@ -172,7 +172,7 @@ void Mountain::makeMap(int set)
     }
     cout << endl;
   }
-  else if (set == 3)
+  else if (set == 2)
   {
     for(int x = 3; x < 5; x++)
     {
@@ -183,7 +183,7 @@ void Mountain::makeMap(int set)
     }
     cout << endl;
   }
-  else if (set == 4)
+  else if (set == 3)
   {
     for(int x = 0; x < 2; x++)
     {
