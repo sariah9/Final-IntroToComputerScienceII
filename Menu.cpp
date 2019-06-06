@@ -184,6 +184,9 @@ void Menu::gamePlay()
   play.printKnapsack();
   do {
     callBoard();
+    beforeMove();
+    choice = inputValidation(1, 8);
+    play.drop(choice);
     } while (numMoves < 4);
   if (play.levelMPassed())
   {
@@ -192,6 +195,11 @@ void Menu::gamePlay()
     play.printKnapsack();
     do {
       callBoard();
+      flashlightOption();
+      choice = inputValidation(1, 2);
+      beforeMove();
+      choice = inputValidation(1, 8);
+      play.drop(choice);
     } while (numMoves < 8);
   }
   else 
@@ -205,6 +213,9 @@ void Menu::gamePlay()
     play.printKnapsack();
     do {
       callBoard();
+      beforeMove();
+      choice = inputValidation(1, 8);
+      play.drop(choice);
     } while (numMoves < 11); 
   }
   else 
@@ -404,4 +415,34 @@ void Menu::keepOrDropMenu()
   cout << "You may choose what to do with this item." << endl;
   cout << "1. Add the item to the sack." << endl;
   cout << "2. Drop the item. " << endl;
+}
+/*********************************************************************
+** Function: 
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
+void Menu::flashlightOption()
+{
+  cout << "Would you like to use a flashlight? " << endl;
+  cout << "1. Yes" << endl;
+  cout << "2. No " << endl;
+}
+/*********************************************************************
+** Function: 
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
+void Menu::beforeMove()
+{
+  cout << "Would you like to drop any other items from your sack? " << endl;
+  cout << "1. trout" << endl;
+  cout << "2. wood " << endl;
+  cout << "3. sailor" << endl;
+  cout << "4. flashlight " << endl;
+  cout << "5. crystal" << endl;
+  cout << "6. egg" << endl;
+  cout << "7. salmon " << endl;
+  cout << "8. No thanks " << endl;
 }
