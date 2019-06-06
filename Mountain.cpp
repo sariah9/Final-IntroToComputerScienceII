@@ -36,12 +36,12 @@ void Mountain::boardPopulate(int move)
   itemCount = 0, 
   eggCount = 0;
     
-  gridMove[0][1] = path;
-  gridMove[1][1] = path;
-  gridMove[1][2] = path;
   int random = (rand() % 3) + 1;
-  if  (random == 1)
+  if  (move == 4)
   {
+    gridMove[0][1] = path;
+    gridMove[1][1] = path;
+    gridMove[1][2] = path;
     if (bearImmunity())
     { 
       gridMove[0][0] = trout;
@@ -57,7 +57,7 @@ void Mountain::boardPopulate(int move)
       gridMove[0][2] = egg;
       eggCount++;
     }
-    else 
+    else if (random == 2)
     {
       gridMove[0][0] = bear;
       bearCount++;
@@ -72,14 +72,32 @@ void Mountain::boardPopulate(int move)
       gridMove[0][2] = bear;
       bearCount++;
     }
+    else 
+    {
+      gridMove[0][0] = egg;
+      eggCount++;
+      gridMove[1][0] = egg;
+      eggCount++;
+      gridMove[2][0] = bear;
+      bearCount++;
+      gridMove[2][1] = trout;
+      itemCount++;
+      gridMove[2][2] = trout;
+      itemCount++;
+      gridMove[0][2] = bear;
+      bearCount++;
+    }
   }
   else 
   {
+    gridMove[1][1] = path;
+    gridMove[1][0] = path;
+    gridMove[1][2] = path;
     if (bearImmunity())
     { 
       gridMove[0][0] = trout;
       itemCount++;
-      gridMove[1][0] = trout;
+      gridMove[0][1] = trout;
       itemCount++;
       gridMove[2][0] = trout;
       itemCount++;
@@ -90,11 +108,26 @@ void Mountain::boardPopulate(int move)
       gridMove[0][2] = egg;
       eggCount++;
     }
-    else 
+    else if (random == 3)
     {
       gridMove[0][0] = egg;
       eggCount++;
-      gridMove[1][0] = egg;
+      gridMove[0][1] = egg;
+      eggCount++;
+      gridMove[2][0] = bear;
+      bearCount++;
+      gridMove[2][1] = trout;
+      itemCount++;
+      gridMove[2][2] = trout;
+      itemCount++;
+      gridMove[0][2] = bear;
+      bearCount++;
+    }
+    else
+    {
+      gridMove[0][0] = trout;
+      itemCount++;
+      gridMove[0][1] = egg;
       eggCount++;
       gridMove[2][0] = bear;
       bearCount++;
