@@ -205,7 +205,7 @@ void Menu::gamePlay()
     play.printKnapsack();
     do {
       callBoard();
-    } while (numMoves < 12); 
+    } while (numMoves < 11); 
   }
   else 
   {
@@ -287,6 +287,12 @@ void Menu::callBoard()
     }
   }
 }
+  /*********************************************************************
+** Function: 
+** Description: 
+** Parameters:
+** Returns: 
+*********************************************************************/
 void Menu::lose(int type)
 {
   if (play.levelCPassed())
