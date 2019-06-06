@@ -69,7 +69,7 @@ void Mountain::boardPopulate(int move)
     }
     if (bearImmunity())
     {
-      grivMove[0][2] = egg;
+      gridMove[0][2] = egg;
       eggCount++;
     }
     else
