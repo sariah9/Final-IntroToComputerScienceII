@@ -46,6 +46,7 @@ public:
   void keep(int);
   void drop(int);
   void checkKnapsack();
+  void clearSack(int);
   bool levelMPassed();
   bool levelFPassed();
   bool levelCPassed();
