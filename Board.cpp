@@ -102,7 +102,7 @@ void Board::moveUser(int move)
 {
   if (move == 0)
   {
-    user = user;
+    user->words();
   }
   else if (move >= 1 || move <= 3)
   {
@@ -111,6 +111,7 @@ void Board::moveUser(int move)
   else if (move == 4)
   {
     user = user->up;
+    user->words();
   }
   else if (move >= 5 || move <= 7)
   {
@@ -119,6 +120,7 @@ void Board::moveUser(int move)
   else if (move == 8)
   {
     user = user->up;
+    user->words();
   }
   else if (move == 9 || move == 10)
   {
