@@ -182,25 +182,47 @@ void Menu::gamePlay()
   play.printFull(); //testing only-- should be commented out
   play.beginPlay(1);
   play.printKnapsack();
-  do {
+  while (numMoves < 4)
+  {
     callBoard();
     beforeMove();
     choice = inputValidation(1, 8);
+    if (choice == 8)
+    {
+      cout << "Moving along... " << endl;
+    }
+    else
+    {
     play.drop(choice);
-    } while (numMoves < 4);
+    }
+  }
   if (play.levelMPassed())
   {
     lose(3);
     play.beginPlay(2);
     play.printKnapsack();
-    do {
+    while (numMoves < 8)
+    {
       callBoard();
       flashlightOption();
       choice = inputValidation(1, 2);
+      if (choice == 1)
+      {
+        int light = numMoves++;
+        displayNine(light);
+        play.deleteItem(4);
+      }
       beforeMove();
       choice = inputValidation(1, 8);
-      play.drop(choice);
-    } while (numMoves < 8);
+      if (choice == 8)
+      {
+        cout << "Moving along... " << endl;
+      }
+      else
+      {
+        play.drop(choice);
+      }
+    } 
   }
   else 
   {
@@ -211,12 +233,13 @@ void Menu::gamePlay()
     lose(3);
     play.beginPlay(3);
     play.printKnapsack();
-    do {
+    while (numMoves < 12)
+    {
       callBoard();
       beforeMove();
       choice = inputValidation(1, 8);
       play.drop(choice);
-    } while (numMoves < 11); 
+    }  
   }
   else 
   {
