@@ -111,7 +111,7 @@ void Coast::boardPopulate(int move)
       }
     }
   }
-  makeMap(gridMove[3][3], move);
+  makeMap(move);
 }
 /*********************************************************************
 ** Function: makeMap
@@ -120,7 +120,7 @@ void Coast::boardPopulate(int move)
 ** Parameters: 3x3 array , int set
 ** Returns: None
 *********************************************************************/
-void Coast::makeMap(char mapArr[3][3], int set)
+void Coast::makeMap(int set)
 {
   if (set == 1)
   {
@@ -128,7 +128,7 @@ void Coast::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 0; y < 2; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
@@ -139,7 +139,7 @@ void Coast::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 0; y < 2; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
@@ -150,7 +150,7 @@ void Coast::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 0; y < 2; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
@@ -161,7 +161,7 @@ void Coast::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 0; y < 2; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
