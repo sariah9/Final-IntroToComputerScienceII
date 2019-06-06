@@ -20,14 +20,6 @@ Board::Board()
   user = nullptr;
   front = nullptr;
   rear = nullptr;
-  s = "sailor";
-  t = "trout";
-  w = "wood";
-  f = "flashlight";
-  c = "crystal";
-  e = "egg";
-  salm = "salmon";
-  b = "bear";
   boat = 0;
   barrel = 0;
   crew = 0;
@@ -405,6 +397,13 @@ void Board::addToSack(int val)
 *********************************************************************/
 void Board::printSack()
 {
+  string s = "sailor";
+  string t = "trout";
+  string w = "wood";
+  string f = "flashlight";
+  string c = "crystal";
+  string e = "egg";
+  string salm = "salmon";
   Knapsack* itemPtr = front;
   if (isEmpty())
   {
