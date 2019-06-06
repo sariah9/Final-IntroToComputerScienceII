@@ -35,6 +35,8 @@ public:
   void listItems();
   void bearsMenu();
   void keepOrDropMenu();
+  void flashlightOption();
+  void beforeMove();
 };
 
 #endif
