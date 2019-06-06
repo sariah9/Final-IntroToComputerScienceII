@@ -19,7 +19,7 @@ int getEggs() override;
 int getItems() override;
 int getBears() override; 
 void setSalmon(int) override;
-int bearImmunity() override;
+bool bearImmunity() override;
 };
 
 #endif
