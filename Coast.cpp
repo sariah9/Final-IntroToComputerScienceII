@@ -36,79 +36,107 @@ void Coast::boardPopulate(int move)
   bearCount = 0;
   itemCount = 0;
   eggCount = 0;
-  if (move == 1)
+  int random = (rand() % 3) + 1;
+  if  (move == 1)
   {
     gridMove[2][1] = path;
     gridMove[1][1] = path;
     gridMove[1][0] = path;
-    for (int y = 0; y < 2; y++)
-    {
-      int random = (rand() % 3) + 1;
-      if (random == 1)
-      { 
-        if (bearImmunity())
-        { 
-          gridMove[y][2] = sailor;
-          itemCount++;
-        }
-        else 
-        {
-          gridMove[y][2] = bear;
-          bearCount++;
-        }
-      }
-      else if (random == 2)
-      {
-        gridMove[y][2] = egg;
-        eggCount++;
-      }
-      else 
-      {
-        gridMove[y][2] = sailor;
-        itemCount++;
-      }
+    if (bearImmunity())
+    { 
+      gridMove[0][0] = sailor;
+      itemCount++;
+      gridMove[0][1] = egg;
+      eggCount++;
+      gridMove[2][0] = sailor;
+      itemCount++;
+      gridMove[2][2] = egg;
+      eggCount++;
+      gridMove[1][2] = sailor;
+      itemCount++;
+      gridMove[0][2] = egg;
+      eggCount++;
     }
-    gridMove[0][0] = egg;
-    eggCount++;
-    gridMove[2][0] = sailor;
-    itemCount++;
-    gridMove[0][1] = sailor;
-    itemCount++;
+    else if (random == 2)
+    {
+      gridMove[0][0] = bear;
+      bearCount++;
+      gridMove[0][1] = egg;
+      eggCount++;
+      gridMove[2][0] = sailor;
+      itemCount++;
+      gridMove[2][2] = egg;
+      eggCount++;
+      gridMove[1][2] = sailor;
+      itemCount++;
+      gridMove[0][2] = bear;
+      bearCount++;
+    }
+    else 
+    {
+      gridMove[0][0] = egg;
+      eggCount++;
+      gridMove[0][1] = egg;
+      eggCount++;
+      gridMove[2][0] = bear;
+      bearCount++;
+      gridMove[1][2] = sailor;
+      itemCount++;
+      gridMove[2][2] = sailor;
+      itemCount++;
+      gridMove[0][2] = bear;
+      bearCount++;
+    }
   }
   else 
   {
-    gridMove[1][0] = path;
     gridMove[1][1] = path;
+    gridMove[1][0] = path;
     gridMove[1][2] = path;
-    for (int y = 0; y < 2; y += 2)
+    if (bearImmunity())
+    { 
+      gridMove[0][0] = sailor;
+      itemCount++;
+      gridMove[0][1] = sailor;
+      itemCount++;
+      gridMove[2][0] = sailor;
+      itemCount++;
+      gridMove[2][1] = egg;
+      eggCount++;
+      gridMove[2][2] = egg;
+      eggCount++;
+      gridMove[0][2] = egg;
+      eggCount++;
+    }
+    else if (random == 3)
     {
-      for (int x = 0; x < 2; x++)
-      {
-        int random = (rand() % 3) + 1;
-        if (random == 1)
-        { 
-          if (bearImmunity())
-          { 
-            gridMove[y][x] = sailor;
-            itemCount++;
-          }
-          else 
-          {
-            gridMove[y][x] = bear;
-            bearCount++;
-          }
-        }
-        else if (random == 2)
-        {
-          gridMove[y][x] = egg;
-          eggCount++;
-        }
-        else 
-        {
-          gridMove[y][x] = sailor;
-          itemCount++;
-        }
-      }
+      gridMove[0][0] = egg;
+      eggCount++;
+      gridMove[0][1] = egg;
+      eggCount++;
+      gridMove[2][0] = bear;
+      bearCount++;
+      gridMove[2][1] = sailor;
+      itemCount++;
+      gridMove[2][2] = sailor;
+      itemCount++;
+      gridMove[0][2] = bear;
+      bearCount++;
+    }
+    else
+    {
+      gridMove[0][0] = sailor;
+      itemCount++;
+      gridMove[0][1] = egg;
+      eggCount++;
+      gridMove[2][0] = bear;
+      bearCount++;
+      gridMove[2][1] = sailor;
+      itemCount++;
+      gridMove[2][2] = sailor;
+      itemCount++;
+      gridMove[0][2] = bear;
+      bearCount++;
     }
   }
   makeMap(move);
