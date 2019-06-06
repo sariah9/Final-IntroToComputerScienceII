@@ -118,16 +118,16 @@ void Mountain::boardPopulate(int move)
       }
     }
   }
-  makeMap(gridMove[3][3], move);
+  makeMap(move);
 }
 /*********************************************************************
 ** Function: makeMap
 ** Description: sets map equal to each gridMove 3x3 depending on set
 ** number
-** Parameters: 3x3 array , int set
+** Parameters: int set
 ** Returns: None
 *********************************************************************/
-void Mountain::makeMap(char mapArr[3][3], int set)
+void Mountain::makeMap(int set)
 {
   if (set == 1)
   {
@@ -135,7 +135,7 @@ void Mountain::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 6; y < 8; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
@@ -146,7 +146,7 @@ void Mountain::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 6; y < 8; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
@@ -157,7 +157,7 @@ void Mountain::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 6; y < 8; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
@@ -168,7 +168,7 @@ void Mountain::makeMap(char mapArr[3][3], int set)
     {
       for (int y = 6; y < 8; y++)
       {
-        map[y][x] = mapArr[3][3];
+        map[y][x] = gridMove[3][3];
       }
     }
     cout << endl;
