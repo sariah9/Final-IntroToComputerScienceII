@@ -37,7 +37,7 @@ void Forest::boardPopulate(int move)
   itemCount = 0;
   bearCount = 0;
   int random = (rand() % 3) + 1;
-  if  (move == 11)
+  if  (move == 7)
   {
     gridMove[2][1] = path;
     gridMove[1][1] = path;
@@ -88,7 +88,7 @@ void Forest::boardPopulate(int move)
       bearCount++;
     }
   }
-  else if (move == 8)
+  else if (move == 4)
   {
     gridMove[2][1] = path;
     gridMove[1][1] = path;
@@ -159,7 +159,7 @@ void Forest::boardPopulate(int move)
       gridMove[0][2] = egg;
       eggCount++;
     }
-    else if (random == 3)
+    else if (random == 1)
     {
       gridMove[0][0] = egg;
       eggCount++;
@@ -201,7 +201,7 @@ void Forest::boardPopulate(int move)
 *********************************************************************/
 void Forest::makeMap(int set)
 {
-  if (set == 8)
+  if (set == 4)
   {
     for(int x = 0; x < 2; x++)
     {
@@ -212,7 +212,7 @@ void Forest::makeMap(int set)
     }
     cout << endl;
   }
-  else if (set == 9)
+  else if (set == 5)
   {
     for(int x = 3; x < 5; x++)
     {
@@ -223,7 +223,7 @@ void Forest::makeMap(int set)
     }
     cout << endl;
   }
-  else if (set == 10)
+  else if (set == 6)
   {
     for(int x = 6; x < 8; x++)
     {
@@ -234,7 +234,7 @@ void Forest::makeMap(int set)
     }
     cout << endl;
   }
-  else if (set == 11)
+  else if (set == 7)
   {
     for(int x = 9; x < 11; x++)
     {
