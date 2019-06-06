@@ -100,9 +100,33 @@ bool Board::isEmpty()
 *********************************************************************/
 void Board::moveUser(int move)
 {
-  if (move = 0)
+  if (move == 0)
   {
-    ;
+    user = user;
+  }
+  else if (move >= 1 || move <= 3)
+  {
+    user = user->left;
+  }
+  else if (move == 4)
+  {
+    user = user->up;
+  }
+  else if (move >= 5 || move <= 7)
+  {
+    user = user->right;
+  }
+  else if (move == 8)
+  {
+    user = user->up;
+  }
+  else if (move == 9 || move == 10)
+  {
+    user = user->left;
+  }
+  else if (move == 11)
+  {
+    user = user->left;
   }
 }
 /*********************************************************************
