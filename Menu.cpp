@@ -185,7 +185,7 @@ void Menu::gamePlay()
   play.moveUser(numMoves);
   play.beginPlay(1);
   play.printSack();
-  play.printBoard();
+  play.printBoard(numMoves);
   while (numMoves < 4)
   {
     callBoard();
