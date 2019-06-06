@@ -170,8 +170,8 @@ void Menu::explainExtras()
 /*********************************************************************
 ** Function: gamePlay
 ** Description: calls Board class functions to run game
-** Parameters: 
-** Returns: 
+** Parameters: None
+** Returns: None
 *********************************************************************/
 void Menu::gamePlay()
 {
@@ -238,7 +238,14 @@ void Menu::gamePlay()
       callBoard();
       beforeMove();
       choice = inputValidation(1, 8);
-      play.drop(choice);
+      if (choice == 8)
+      {
+        cout << "Moving along... " << endl;
+      }
+      else
+      {
+        play.drop(choice);
+      }
     }  
   }
   else 
@@ -268,10 +275,11 @@ void Menu::exitMenu()
   cout << "2. Exit the game? " << endl;
 } 
 /*********************************************************************
-** Function: 
-** Description: 
-** Parameters:
-** Returns: 
+** Function: callBoard
+** Description: iterates through Board functions that are the same 
+** every move
+** Parameters: None
+** Returns: None
 *********************************************************************/
 void Menu::callBoard()
 {
@@ -322,10 +330,11 @@ void Menu::callBoard()
   }
 }
 /*********************************************************************
-** Function: 
-** Description: 
-** Parameters:
-** Returns: 
+** Function: lose
+** Description: depending on how succesful the player is, this 
+** method is called to output status
+** Parameters: int type
+** Returns: None
 *********************************************************************/
 void Menu::lose(int type)
 {
@@ -363,10 +372,11 @@ void Menu::lose(int type)
   }
 }
 /*********************************************************************
-** Function: 
-** Description: 
-** Parameters:
-** Returns: 
+** Function: listItems
+** Description: depending on random offer from Board class, this 
+** method outputs what the item is 
+** Parameters: None
+** Returns: None
 *********************************************************************/
 void Menu::listItems()
 {
@@ -440,10 +450,10 @@ void Menu::keepOrDropMenu()
   cout << "2. Drop the item. " << endl;
 }
 /*********************************************************************
-** Function: 
-** Description: 
-** Parameters:
-** Returns: 
+** Function: flashlightOption
+** Description: asks user if want to use flashlight
+** Parameters: None
+** Returns: None
 *********************************************************************/
 void Menu::flashlightOption()
 {
@@ -452,10 +462,10 @@ void Menu::flashlightOption()
   cout << "2. No " << endl;
 }
 /*********************************************************************
-** Function: 
-** Description: 
-** Parameters:
-** Returns: 
+** Function: beforeMove
+** Description: offers user the chance to drop any other items 
+** Parameters: None
+** Returns: None
 *********************************************************************/
 void Menu::beforeMove()
 {
