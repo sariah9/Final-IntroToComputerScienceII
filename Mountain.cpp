@@ -147,6 +147,7 @@ void Mountain::boardPopulate(int move)
     }
     cout << endl;
   }
+  cout << endl;
 }
 /*********************************************************************
 ** Function: getEggs
