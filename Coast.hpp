@@ -14,8 +14,6 @@ private:
 public:
 void words() override;
 void boardPopulate(int) override;
-void makeMap(int) override;
-void printMap(int move) override;
 int getEggs() override;
 int getItems() override;
 int getBears() override;
