@@ -219,7 +219,7 @@ void Board::addToSack(int val)
   if (sackSize > 8)
   {
     cout << "Sorry. There's no more space in your bag." << endl;
-    cout << "You can only carry 6 items." << endl;
+    cout << "You can only carry 8 items." << endl;
   }
   else
   {
