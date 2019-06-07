@@ -112,7 +112,7 @@ void Board::moveUser(int move)
     user = user->up;
     user->words();
   }
-  else if (move == 9 || move == 10)
+  else if (move >= 9 || move <= 10)
   {
     user = user->left;
   }
@@ -129,36 +129,51 @@ void Board::moveUser(int move)
 *********************************************************************/
 void Board::linkSpaces()
 {
-  mtnPtr = new Mountain();
-  user = mtnPtr;
-  user->boardPopulate(0);
-  for (int i = 1; i < 3; i++)
-  {
-    mtnPtr->left = new Mountain();
-    mtnPtr = mtnPtr->left;
-    mtnPtr->boardPopulate(i);
-  }
-  forestPtr = mtnPtr->up;
-  forestPtr = new Forest();
-  forestPtr->boardPopulate(4);
-  for (int j = 5; j < 7; j++)
-  {
-    forestPtr->right = new Forest();
-    forestPtr = forestPtr->right;
-    forestPtr->boardPopulate(j);
-  }
-  coastPtr = forestPtr->up;
-  coastPtr = new Coast();
-  coastPtr->boardPopulate(8);
-  for (int k = 9; k < 11; k++)
-  {
-    coastPtr->left = new Coast();
-    coastPtr = coastPtr->left;
-    coastPtr->boardPopulate(k);
-  }
-  coastPtr = forestPtr->up;
-  forestPtr = mtnPtr->up;
-  mtnPtr = user;
+  if (move == 0)
+	{
+		mtnPtr = new Mountain();
+		user = mtnPtr;
+		user->boardPopulate(0);
+	}
+	else if (move >= 1 || move <= 3)
+	{
+		mtnPtr->left = new Mountain();
+		mtnPtr = mtnPtr->left;
+		mtnPtr->boardPopulate(move);
+	}
+	else if (move == 4)
+	{
+		forestPtr = mtnPtr->up;
+		forestPtr = new Forest();
+		forestPtr->boardPopulate(4);
+	}
+	else if (move >= 5 || move <= 7)
+	{
+		forestPtr->right = new Forest();
+		forestPtr = forestPtr->right;
+		forestPtr->boardPopulate(move);
+	}
+	else if (move == 8)
+	{
+		coastPtr = forestPtr->up;
+		coastPtr = new Coast();
+		coastPtr->boardPopulate(8);
+	}
+	else if (move >= 9 || move <= 10)
+	{
+		coastPtr->left = new Coast();
+		coastPtr = coastPtr->left;
+		coastPtr->boardPopulate(move);
+	}
+	else if (move == 11)
+	{
+		coastPtr->left = new Coast();
+		coastPtr = coastPtr->left;
+		coastPtr->boardPopulate(11);
+		coastPtr = forestPtr->up;
+		forestPtr = mtnPtr->up;
+		mtnPtr = user;
+	}
 }
 /*********************************************************************
 ** Function: printBoard
