@@ -265,7 +265,7 @@ void Board::printSack()
   }
   else
   {
-    cout << "Knapsack items: ";
+    cout << "Knapsack items: " << endl;
     do {
       if (itemPtr->itemNum == 1)
       {
