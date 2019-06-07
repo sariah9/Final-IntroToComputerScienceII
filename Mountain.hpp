@@ -11,14 +11,7 @@
 class Mountain : public Space
 {
 private:
-  const char bear = '&';
-  const char path = ' ';
-  const char trout = '%';
-  const char egg = 'o';
 public:
-Mountain() : Space()
-{
-}
 void words() override;
 void boardPopulate(int) override;
 int getEggs() override;
