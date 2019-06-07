@@ -161,16 +161,6 @@ void Board::linkSpaces()
   mtnPtr = user;
 }
 /*********************************************************************
-** Function: displayNine
-** Description: displays each 3x3 grid at a time
-** Parameters: None
-** Returns: None
-*********************************************************************/
-void Board::displayNine(int move)
-{
-  user->printMap(move);
-}
-/*********************************************************************
 ** Function: printBoard
 ** Description: outputs information each turn
 ** Parameters: int move to indicate where player is
@@ -197,16 +187,6 @@ void Board::printBoard(int move)
     cout << "There are " << items << " sailors nearby." << endl;
   }
   cout << endl;
-}
-/*********************************************************************
-** Function: printFull
-** Description: displays entire boardMap
-** Parameters: None
-** Returns: None
-*********************************************************************/
-void Board::printFull()
-{
-    user->printMap(11);
 }
 /*********************************************************************
 ** Function: addToSack
