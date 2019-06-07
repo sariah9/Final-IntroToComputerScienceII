@@ -17,7 +17,6 @@ using std::string;
 class Board
 {
 private:
-  char boardMap[9][12];
   Space* mtnPtr;
   Space* forestPtr;
   Space* coastPtr;
@@ -32,9 +31,7 @@ public:
   bool isEmpty();
   void moveUser(int);
   void linkSpaces();
-  void displayNine(int);
   void printBoard(int);
-  void printFull();
   void addToSack(int);
   void printSack();
   void deleteItem(int);
