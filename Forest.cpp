@@ -36,126 +36,158 @@ void Forest::boardPopulate(int move)
   eggCount = 0;
   itemCount = 0;
   bearCount = 0;
-  if (move == 1)
+  int random = (rand() % 3) + 1;
+  if  (move == 7)
+  {
+    gridMove[2][1] = path;
+    gridMove[1][1] = path;
+    gridMove[0][1] = path;
+    if (bearImmunity())
+    { 
+      gridMove[0][0] = wood;
+      itemCount++;
+      gridMove[2][1] = egg;
+      eggCount++;
+      gridMove[2][0] = wood;
+      itemCount++;
+      gridMove[2][2] = egg;
+      eggCount++;
+      gridMove[1][2] = wood;
+      itemCount++;
+      gridMove[0][2] = egg;
+      eggCount++;
+    }
+    else if (random == 2)
+    {
+      gridMove[0][0] = bear;
+      bearCount++;
+      gridMove[2][1] = egg;
+      eggCount++;
+      gridMove[2][0] = wood;
+      itemCount++;
+      gridMove[2][2] = egg;
+      eggCount++;
+      gridMove[1][2] = wood;
+      itemCount++;
+      gridMove[0][2] = bear;
+      bearCount++;
+    }
+    else 
+    {
+      gridMove[0][0] = egg;
+      eggCount++;
+      gridMove[2][1] = egg;
+      eggCount++;
+      gridMove[2][0] = bear;
+      bearCount++;
+      gridMove[1][2] = wood;
+      itemCount++;
+      gridMove[2][2] = wood;
+      itemCount++;
+      gridMove[0][2] = bear;
+      bearCount++;
+    }
+  }
+  else if (move == 4)
   {
     gridMove[2][1] = path;
     gridMove[1][1] = path;
     gridMove[1][2] = path;
-    for (int x = 0; x < 2; x++)
-    {
-      int random = (rand() % 3) + 1;
-      if (random == 1)
-      { 
-        if (bearImmunity())
-        {
-          gridMove[0][x] = wood;
-          itemCount++;
-        }
-        else
-        {
-          gridMove[0][x] = bear;
-          bearCount++;
-        }
-      }
-      else if (random == 2)
-      {
-        gridMove[0][x] = egg;
-        eggCount++;
-      }
-      else 
-      {
-        gridMove[0][x] = wood;
-        itemCount++;
-      }
-    }
     if (bearImmunity())
-    {
-      gridMove[1][0] = egg;
+    { 
+      gridMove[0][0] = wood;
       itemCount++;
+      gridMove[0][1] = wood;
+      itemCount++;
+      gridMove[1][0] = wood;
+      itemCount++;
+      gridMove[2][0] = egg;
+      eggCount++;
+      gridMove[2][2] = egg;
+      eggCount++;
+      gridMove[0][2] = egg;
+      eggCount++;
+    }
+    else if (random == 3)
+    {
+      gridMove[0][0] = egg;
+      eggCount++;
+      gridMove[0][1] = egg;
+      eggCount++;
+      gridMove[2][0] = bear;
+      bearCount++;
+      gridMove[1][0] = wood;
+      itemCount++;
+      gridMove[2][2] = wood;
+      itemCount++;
+      gridMove[0][2] = bear;
+      bearCount++;
     }
     else
     {
-      gridMove[1][0] = bear;
+      gridMove[0][0] = wood;
+      itemCount++;
+      gridMove[0][1] = egg;
+      eggCount++;
+      gridMove[2][0] = bear;
+      bearCount++;
+      gridMove[1][0] = wood;
+      itemCount++;
+      gridMove[2][2] = wood;
+      itemCount++;
+      gridMove[0][2] = bear;
       bearCount++;
     }
-    gridMove[2][0] = wood;
-    itemCount++;
-    gridMove[2][2] = wood;
-    itemCount++;
   }
-  else if (move == 4)
+  else
   {
-    gridMove[1][0] = path;
     gridMove[1][1] = path;
-    gridMove[0][1] = path;
-    for (int y = 0; y < 2; y++)
-    {
-      int random = (rand() % 3) + 1;
-      if (random == 1)
-      { 
-       if (bearImmunity())
-        {
-          gridMove[y][2] = wood;
-          itemCount++;
-        }
-        else
-        {
-          gridMove[y][2] = bear;
-          bearCount++;
-        }
-      }
-      else if (random == 2)
-      {
-        gridMove[y][2] = egg;
-        eggCount++;
-      }
-      else 
-      {
-        gridMove[y][2] = wood;
-        itemCount++;
-      }
-    }
-    gridMove[0][0] = egg;
-    eggCount++;
-    gridMove[2][1] = wood;
-    itemCount++;
-    gridMove[2][0] = wood;
-    itemCount++;
-  }
-  else 
-  {
     gridMove[1][0] = path;
-    gridMove[1][1] = path;
     gridMove[1][2] = path;
-    for (int y = 0; y < 2; y += 2)
+    if (bearImmunity())
+    { 
+      gridMove[0][0] = wood;
+      itemCount++;
+      gridMove[0][1] = wood;
+      itemCount++;
+      gridMove[2][0] = wood;
+      itemCount++;
+      gridMove[2][1] = egg;
+      eggCount++;
+      gridMove[2][2] = egg;
+      eggCount++;
+      gridMove[0][2] = egg;
+      eggCount++;
+    }
+    else if (random == 1)
     {
-      for (int x = 0; x < 2; x++)
-      {
-        int random = (rand() % 3) + 1;
-        if (random == 1)
-        { 
-          if (bearImmunity())
-          {
-            gridMove[y][x] = wood;
-            itemCount++;
-          }
-          else
-          {
-            gridMove[y][x] = bear;
-            bearCount++;
-          }
-        }
-        else if (random == 2)
-        {
-          gridMove[y][x] = egg;
-          eggCount++;
-        }
-        else 
-        {
-          gridMove[y][x] = wood;
-          itemCount++;
-        }
-      }
+      gridMove[0][0] = egg;
+      eggCount++;
+      gridMove[0][1] = egg;
+      eggCount++;
+      gridMove[2][0] = bear;
+      bearCount++;
+      gridMove[2][1] = wood;
+      itemCount++;
+      gridMove[2][2] = wood;
+      itemCount++;
+      gridMove[0][2] = bear;
+      bearCount++;
+    }
+    else
+    {
+      gridMove[0][0] = wood;
+      itemCount++;
+      gridMove[0][1] = egg;
+      eggCount++;
+      gridMove[2][0] = bear;
+      bearCount++;
+      gridMove[2][1] = wood;
+      itemCount++;
+      gridMove[2][2] = wood;
+      itemCount++;
+      gridMove[0][2] = bear;
+      bearCount++;
     }
   }
   makeMap(move);
@@ -169,7 +201,7 @@ void Forest::boardPopulate(int move)
 *********************************************************************/
 void Forest::makeMap(int set)
 {
-  if (set == 1)
+  if (set == 4)
   {
     for(int x = 0; x < 2; x++)
     {
@@ -180,7 +212,7 @@ void Forest::makeMap(int set)
     }
     cout << endl;
   }
-  else if (set == 2)
+  else if (set == 5)
   {
     for(int x = 3; x < 5; x++)
     {
@@ -191,7 +223,7 @@ void Forest::makeMap(int set)
     }
     cout << endl;
   }
-  else if (set == 3)
+  else if (set == 6)
   {
     for(int x = 6; x < 8; x++)
     {
@@ -202,7 +234,7 @@ void Forest::makeMap(int set)
     }
     cout << endl;
   }
-  else if (set == 4)
+  else if (set == 7)
   {
     for(int x = 9; x < 11; x++)
     {

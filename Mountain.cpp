@@ -35,87 +35,108 @@ void Mountain::boardPopulate(int move)
   bearCount = 0;
   itemCount = 0, 
   eggCount = 0;
-  if (move == 4)
+    
+  int random = (rand() % 3) + 1;
+  if  (move == 3)
   {
     gridMove[0][1] = path;
     gridMove[1][1] = path;
     gridMove[1][2] = path;
-    for (int y = 0; y < 2; y++)
-    {
-      int random = (rand() % 3) + 1;
-      if (random == 1)
-      { 
-        if (bearImmunity())
-        { 
-          gridMove[y][0] = trout;
-          itemCount++;
-        }
-        else 
-        {
-          gridMove[y][0] = bear;
-          bearCount++;
-        }
-      }
-      else if (random == 2)
-      {
-        gridMove[y][0] = egg;
-        eggCount++;
-      }
-      else 
-      {
-        gridMove[y][0] = trout;
-        itemCount++;
-      }
-    }
     if (bearImmunity())
-    {
+    { 
+      gridMove[0][0] = trout;
+      itemCount++;
+      gridMove[1][0] = egg;
+      eggCount++;
+      gridMove[2][0] = trout;
+      itemCount++;
+      gridMove[2][1] = egg;
+      eggCount++;
+      gridMove[2][2] = trout;
+      itemCount++;
       gridMove[0][2] = egg;
       eggCount++;
     }
-    else
+    else if (random == 2)
     {
+      gridMove[0][0] = bear;
+      bearCount++;
+      gridMove[1][0] = egg;
+      eggCount++;
+      gridMove[2][0] = trout;
+      itemCount++;
+      gridMove[2][1] = egg;
+      eggCount++;
+      gridMove[2][2] = trout;
+      itemCount++;
       gridMove[0][2] = bear;
       bearCount++;
     }
-    gridMove[2][1] = trout;
-    itemCount++;
-    gridMove[2][2] = trout;
-    itemCount++;
+    else 
+    {
+      gridMove[0][0] = egg;
+      eggCount++;
+      gridMove[1][0] = egg;
+      eggCount++;
+      gridMove[2][0] = bear;
+      bearCount++;
+      gridMove[2][1] = trout;
+      itemCount++;
+      gridMove[2][2] = trout;
+      itemCount++;
+      gridMove[0][2] = bear;
+      bearCount++;
+    }
   }
   else 
   {
-    gridMove[1][0] = path;
     gridMove[1][1] = path;
+    gridMove[1][0] = path;
     gridMove[1][2] = path;
-    for (int y = 0; y < 2; y += 2)
+    if (bearImmunity())
+    { 
+      gridMove[0][0] = trout;
+      itemCount++;
+      gridMove[0][1] = trout;
+      itemCount++;
+      gridMove[2][0] = trout;
+      itemCount++;
+      gridMove[2][1] = egg;
+      eggCount++;
+      gridMove[2][2] = egg;
+      eggCount++;
+      gridMove[0][2] = egg;
+      eggCount++;
+    }
+    else if (random == 3)
     {
-      for (int x = 0; x < 2; x++)
-      {
-        int random = (rand() % 3) + 1;
-        if (random == 1)
-        { 
-          if (bearImmunity())
-          { 
-            gridMove[y][x] = trout;
-            itemCount++;
-          }
-          else 
-          {
-            gridMove[y][x] = bear;
-            bearCount++;
-          }
-        }
-        else if (random == 2)
-        {
-          gridMove[y][x] = egg;
-          eggCount++;
-        }
-        else 
-        {
-          gridMove[y][x] = trout;
-          itemCount++;
-        }
-      }
+      gridMove[0][0] = egg;
+      eggCount++;
+      gridMove[0][1] = egg;
+      eggCount++;
+      gridMove[2][0] = bear;
+      bearCount++;
+      gridMove[2][1] = trout;
+      itemCount++;
+      gridMove[2][2] = trout;
+      itemCount++;
+      gridMove[0][2] = bear;
+      bearCount++;
+    }
+    else
+    {
+      gridMove[0][0] = trout;
+      itemCount++;
+      gridMove[0][1] = egg;
+      eggCount++;
+      gridMove[2][0] = bear;
+      bearCount++;
+      gridMove[2][1] = trout;
+      itemCount++;
+      gridMove[2][2] = trout;
+      itemCount++;
+      gridMove[0][2] = bear;
+      bearCount++;
     }
   }
   makeMap(move);
@@ -129,7 +150,7 @@ void Mountain::boardPopulate(int move)
 *********************************************************************/
 void Mountain::makeMap(int set)
 {
-  if (set == 1)
+  if (set == 0)
   {
     for(int x = 9; x < 11; x++)
     {
@@ -140,7 +161,7 @@ void Mountain::makeMap(int set)
     }
     cout << endl;
   }
-  else if (set == 2)
+  else if (set == 1)
   {
     for(int x = 6; x < 8; x++)
     {
@@ -151,7 +172,7 @@ void Mountain::makeMap(int set)
     }
     cout << endl;
   }
-  else if (set == 3)
+  else if (set == 2)
   {
     for(int x = 3; x < 5; x++)
     {
@@ -162,7 +183,7 @@ void Mountain::makeMap(int set)
     }
     cout << endl;
   }
-  else if (set == 4)
+  else if (set == 3)
   {
     for(int x = 0; x < 2; x++)
     {
