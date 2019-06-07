@@ -180,8 +180,6 @@ void Menu::gamePlay()
 {
   int choice = 0;
   play.linkSpaces();
-  play.displayNine(numMoves);
-  play.printFull(); //testing only-- should be commented out
   play.moveUser(numMoves);
   play.beginPlay(1);
   play.printSack();
@@ -191,7 +189,6 @@ void Menu::gamePlay()
     callBoard();
     numMoves++;
     play.moveUser(numMoves);
-    play.displayNine(numMoves);
     play.printBoard(numMoves);
   }
   if (play.levelMPassed())
@@ -207,12 +204,10 @@ void Menu::gamePlay()
       if (choice == 1)
       {
         int light = numMoves++;
-        play.displayNine(light);
         play.deleteItem(4);
       }
       numMoves++;
       play.moveUser(numMoves);
-      play.displayNine(numMoves);
       play.printBoard(numMoves);
     } 
   }
@@ -230,7 +225,6 @@ void Menu::gamePlay()
       callBoard();
       numMoves++;
       play.moveUser(numMoves);
-      play.displayNine(numMoves);
       play.printBoard(numMoves);
     }  
   }
