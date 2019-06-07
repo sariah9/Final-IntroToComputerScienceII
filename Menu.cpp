@@ -139,7 +139,7 @@ void Menu::explainKnapsack()
 {
   cout << "You have a knapsack that you carry with you. " << endl;
   cout << "This knapsack has brought you much good fortune.\n"
-       << "It holds six items, which you can use to collect \n"
+       << "It holds 8 items, which you can use to collect \n"
        << "items necessary for your journey. You can either \n"
        << "collect 3 items in the knapsack to make a new item, \n"
        << "or drop an item on the ground from your knapsack. " << endl;
@@ -148,7 +148,7 @@ void Menu::explainKnapsack()
        << "make a boat. If you drop an egg and there are \n"
        << "at least two other eggs on the map, you just \n"
        << "made a salmon! And so on, and so on... " << endl;
-  cout << "Don't forget! You only have room for 6 items. " << endl;
+  cout << "Don't forget! You only have room for 8 items. " << endl;
 }
 /*********************************************************************
 ** Function: explainExtras
@@ -280,8 +280,10 @@ void Menu::callBoard()
     }
     else 
     {
+      play.addToSack(itemType);
       play.drop(itemType);
     }
+    play.printSack();
     beforeMove();
     choice = inputValidation(1, 8);
     if (choice == 8)
@@ -290,7 +292,8 @@ void Menu::callBoard()
     }
     else
     {
-    play.drop(choice);
+      play.addToSack(itemType);
+      play.drop(choice);
     }
   }
   else
@@ -310,8 +313,10 @@ void Menu::callBoard()
       }
       else 
       {
+        play.addToSack(itemType);
         play.drop(itemType);
       }
+      play.printSack();
       beforeMove();
       choice = inputValidation(1, 8);
       if (choice == 8)
@@ -320,6 +325,7 @@ void Menu::callBoard()
       }
       else
       {
+        play.addToSack(itemType);
         play.drop(choice);
       }
     }

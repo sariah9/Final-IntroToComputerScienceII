@@ -131,8 +131,8 @@ void Board::linkSpaces()
 {
   mtnPtr = new Mountain();
   user = mtnPtr;
-  user->boardPopulate(1);
-  for (int i = 2; i < 4; i++)
+  user->boardPopulate(0);
+  for (int i = 1; i < 3; i++)
   {
     mtnPtr->left = new Mountain();
     mtnPtr = mtnPtr->left;
@@ -140,8 +140,8 @@ void Board::linkSpaces()
   }
   forestPtr = mtnPtr->up;
   forestPtr = new Forest();
-  forestPtr->boardPopulate(1);
-  for (int j = 2; j < 4; j++)
+  forestPtr->boardPopulate(4);
+  for (int j = 5; j < 7; j++)
   {
     forestPtr->right = new Forest();
     forestPtr = forestPtr->right;
@@ -149,8 +149,8 @@ void Board::linkSpaces()
   }
   coastPtr = forestPtr->up;
   coastPtr = new Coast();
-  coastPtr->boardPopulate(1);
-  for (int k = 2; k < 4; k++)
+  coastPtr->boardPopulate(8);
+  for (int k = 9; k < 11; k++)
   {
     coastPtr->left = new Coast();
     coastPtr = coastPtr->left;
@@ -216,10 +216,10 @@ void Board::printFull()
 *********************************************************************/
 void Board::addToSack(int val)
 {
-  if (sackSize > 6)
+  if (sackSize > 8)
   {
     cout << "Sorry. There's no more space in your bag." << endl;
-    cout << "You can only carry 6 items." << endl;
+    cout << "You can only carry 8 items." << endl;
   }
   else
   {
@@ -650,16 +650,18 @@ void Board::beginPlay(int level)
   {
     cout << "You have new items in your knapSack!" << endl;
     addToSack(1);
+    addToSack(1);
     addToSack(6);
     addToSack(6);
     addToSack(7);
-    addToSack(4);
+    addToSack(7);
+    addToSack(5);
   }
   else if (level == 2)
   {
     cout << "You have new items in your knapSack!" << endl;
     clearSack(1);
-    addToSack(5);
+    addToSack(4);
     addToSack(2);
     addToSack(6);
     addToSack(7);
