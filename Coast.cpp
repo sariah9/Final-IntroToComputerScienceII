@@ -145,7 +145,9 @@ void Coast::boardPopulate(int move)
     {
       cout << gridMove[y][x];
     }
+    cout << endl;
   }
+  cout << endl;
 }
 /*********************************************************************
 ** Function: getEggs
