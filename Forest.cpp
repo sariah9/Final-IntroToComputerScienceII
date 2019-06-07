@@ -194,9 +194,11 @@ void Forest::boardPopulate(int move)
   {
     for (int x = 0; x < 2; x++)
     {
-      cout << gridMove[y][x];
+      cout << gridMove[y][x] << " ";
     }
+    cout << endl;
   }
+  cout << endl;
 }
 /*********************************************************************
 ** Function: getEggs
