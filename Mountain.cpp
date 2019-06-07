@@ -28,6 +28,10 @@ void Mountain::words()
 *********************************************************************/
 void Mountain::boardPopulate(int move)
 {
+  const char bear = '&';
+  const char path = ' ';
+  const char trout = '%';
+  const char egg = 'o';
   bearCount = 0;
   itemCount = 0, 
   eggCount = 0;
@@ -139,8 +143,9 @@ void Mountain::boardPopulate(int move)
   {
     for (int x = 0; x < 2; x++)
     {
-      cout << gridMove[y][x];
+      cout << gridMove[y][x] << " ";
     }
+    cout << endl;
   }
 }
 /*********************************************************************
