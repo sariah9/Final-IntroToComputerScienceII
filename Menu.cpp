@@ -280,6 +280,7 @@ void Menu::callBoard()
     }
     else 
     {
+      play.addToSack(itemType);
       play.drop(itemType);
     }
     play.printSack();
@@ -291,7 +292,8 @@ void Menu::callBoard()
     }
     else
     {
-    play.drop(choice);
+      play.addToSack(itemType);
+      play.drop(choice);
     }
   }
   else
@@ -311,6 +313,7 @@ void Menu::callBoard()
       }
       else 
       {
+        play.addToSack(itemType);
         play.drop(itemType);
       }
       play.printSack();
@@ -322,6 +325,7 @@ void Menu::callBoard()
       }
       else
       {
+        play.addToSack(itemType);
         play.drop(choice);
       }
     }
