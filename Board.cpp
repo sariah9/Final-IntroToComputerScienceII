@@ -461,6 +461,7 @@ void Board::drop(int item)
   {
     cout << "Item left behind." << endl;
   }
+  checkKnapsack();
 }
 /*********************************************************************
 ** Function: checkKnapsack
