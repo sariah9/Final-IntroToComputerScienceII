@@ -179,7 +179,6 @@ void Menu::explainExtras()
 void Menu::gamePlay()
 {
   int choice = 0;
-  play.linkSpaces();
   play.moveUser(numMoves);
   play.beginPlay(1);
   play.printSack();
