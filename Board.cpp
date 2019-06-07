@@ -90,6 +90,7 @@ bool Board::isEmpty()
 *********************************************************************/
 void Board::moveUser(int move)
 {
+  linkSpaces(move);
   if (move == 0)
   {
     user->words();
