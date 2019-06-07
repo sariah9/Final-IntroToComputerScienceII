@@ -30,7 +30,7 @@ public:
   ~Board();
   bool isEmpty();
   void moveUser(int);
-  void linkSpaces();
+  void linkSpaces(int);
   void printBoard(int);
   void addToSack(int);
   void printSack();
