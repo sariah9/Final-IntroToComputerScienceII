@@ -282,6 +282,7 @@ void Menu::callBoard()
     {
       play.drop(itemType);
     }
+    play.printSack();
     beforeMove();
     choice = inputValidation(1, 8);
     if (choice == 8)
@@ -312,6 +313,7 @@ void Menu::callBoard()
       {
         play.drop(itemType);
       }
+      play.printSack();
       beforeMove();
       choice = inputValidation(1, 8);
       if (choice == 8)
