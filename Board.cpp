@@ -421,7 +421,6 @@ void Board::drop(int item)
 {
   int boardItem = user->getItems();
   int boardEggs = user->getEggs();
-  int boardBears = user->getBears();
   deleteItem(item);
   if (item == 1 || item == 2 || item == 3)
   {
