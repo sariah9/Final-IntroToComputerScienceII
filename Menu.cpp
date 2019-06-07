@@ -235,7 +235,6 @@ void Menu::gamePlay()
   if (play.levelCPassed())
   {
     lose(3);
-    play.printFull();
   }
   else 
   {
