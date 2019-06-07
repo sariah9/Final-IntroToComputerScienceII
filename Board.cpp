@@ -127,53 +127,53 @@ void Board::moveUser(int move)
 ** Parameters: None
 ** Returns: None
 *********************************************************************/
-void Board::linkSpaces()
+void Board::linkSpaces(int move)
 {
   if (move == 0)
-	{
-		mtnPtr = new Mountain();
-		user = mtnPtr;
-		user->boardPopulate(0);
-	}
-	else if (move >= 1 || move <= 3)
-	{
-		mtnPtr->left = new Mountain();
-		mtnPtr = mtnPtr->left;
-		mtnPtr->boardPopulate(move);
-	}
-	else if (move == 4)
-	{
-		forestPtr = mtnPtr->up;
-		forestPtr = new Forest();
-		forestPtr->boardPopulate(4);
-	}
-	else if (move >= 5 || move <= 7)
-	{
-		forestPtr->right = new Forest();
-		forestPtr = forestPtr->right;
-		forestPtr->boardPopulate(move);
-	}
-	else if (move == 8)
-	{
-		coastPtr = forestPtr->up;
-		coastPtr = new Coast();
-		coastPtr->boardPopulate(8);
-	}
-	else if (move >= 9 || move <= 10)
-	{
-		coastPtr->left = new Coast();
-		coastPtr = coastPtr->left;
-		coastPtr->boardPopulate(move);
-	}
-	else if (move == 11)
-	{
-		coastPtr->left = new Coast();
-		coastPtr = coastPtr->left;
-		coastPtr->boardPopulate(11);
-		coastPtr = forestPtr->up;
-		forestPtr = mtnPtr->up;
-		mtnPtr = user;
-	}
+  {
+    mtnPtr = new Mountain();
+    user = mtnPtr;
+    user->boardPopulate(0);
+  }
+  else if (move >= 1 || move <= 3)
+  {
+    mtnPtr->left = new Mountain();
+    mtnPtr = mtnPtr->left;
+    mtnPtr->boardPopulate(move);
+  }
+  else if (move == 4)
+  {
+    forestPtr = mtnPtr->up;
+    forestPtr = new Forest();
+    forestPtr->boardPopulate(4);
+  }
+  else if (move >= 5 || move <= 7)
+  {
+    forestPtr->right = new Forest();
+    forestPtr = forestPtr->right;
+    forestPtr->boardPopulate(move);
+  }
+  else if (move == 8)
+  {
+    coastPtr = forestPtr->up;
+    coastPtr = new Coast();
+    coastPtr->boardPopulate(8);
+  }
+  else if (move >= 9 || move <= 10)
+  {
+    coastPtr->left = new Coast();
+    coastPtr = coastPtr->left;
+    coastPtr->boardPopulate(move);
+  }
+  else if (move == 11)
+  {
+    coastPtr->left = new Coast();
+    coastPtr = coastPtr->left;
+    coastPtr->boardPopulate(11);
+    coastPtr = forestPtr->up;
+    forestPtr = mtnPtr->up;
+    mtnPtr = user;
+  }
 }
 /*********************************************************************
 ** Function: printBoard
