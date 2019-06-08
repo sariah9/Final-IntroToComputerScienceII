@@ -833,13 +833,13 @@ bool Board::feedEnemies()
   }
 }
 /*********************************************************************
-** Function: beginPlay
+** Function: beginLevel
 ** Description: beginning of each Space level - deletes old items 
 ** from Knapsack, then adds new ones
 ** Parameters: int level 
 ** Returns: None
 *********************************************************************/
-void Board::beginPlay(int level)
+void Board::beginLevel(int level)
 {
   if (level == 1)
   {
@@ -871,13 +871,15 @@ void Board::beginPlay(int level)
   }
 }
 /*********************************************************************
-** Function: 
-** Description: 
-** 
-** Parameters: 
+** Function: beginPlay
+** Description: calls all functions at the start of each move
+** Parameters: int num 
 ** Returns: None
 *********************************************************************/
-void Board::()
+void Board::beginPlay(int num)
 {
-  
+  linkSpaces(num);
+  moveUser(num);
+  printBoard(num);
+  boardPopulate(num);
 }
