@@ -182,7 +182,8 @@ void Menu::gamePlay()
   //play.moveUser(numMoves);
   //play.printBoard(numMoves);
   //play.boardPopulate(numMoves);
-  play.beginPlay(1);
+  play.beginPlay(numMoves);
+  play.beginLevel(1);
   play.printSack();
   while (numMoves < 4)
   {
@@ -437,8 +438,8 @@ void Menu::listItems()
 *********************************************************************/
 void Menu::bearsMenu()
 {
-  cout << "There are bears nearby. You can either: " << endl;
-  cout << "1. Throw a salmon to the bears. " << endl;
+  cout << "There are beasts nearby. You can either: " << endl;
+  cout << "1. Throw a salmon to the beasts. " << endl;
   cout << "2. Be eaten yourself. " << endl;
 }
 /*********************************************************************
