@@ -31,8 +31,8 @@ Space::Space()
 *********************************************************************/
 Space::~Space()
 {
-up = nullptr;
-down = nullptr;
+top = nullptr;
+bottom = nullptr;
 right = nullptr;
 left = nullptr;
 }
