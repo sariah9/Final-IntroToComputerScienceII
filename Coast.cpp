@@ -21,26 +21,6 @@ void Coast::words()
        << "sky, you begin to look for sailors. " << endl;
 }
 /*********************************************************************
-** Function: setEnemy
-** Description: sets enemy type to pirates
-** Parameters: int type
-** Returns: None
-*********************************************************************/
-void Coast::setEnemy(int type)
-{
-  enemyType = type;
-}
-/*********************************************************************
-** Function: setItem
-** Description: sets item type to sailors
-** Parameters: None
-** Returns: int eggCount
-*********************************************************************/
-void Coast::setItem(int type)
-{
-  itemType = type;
-}
-/*********************************************************************
 ** Function: getEnemy
 ** Description: returns enemy type
 ** Parameters: None
