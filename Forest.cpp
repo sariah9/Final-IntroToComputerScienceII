@@ -60,7 +60,18 @@ void Forest::printTask()
 *********************************************************************/
 void Forest::setTask(int growth)
 {
-  taskCount = taskCount + growth;
+  if (growth = 1)
+  {
+    cout << "You have received an amulet for fair winds! " << endl;
+    cout << "This means your journey will always \n"
+         << "be a safe and lucrative one." << endl;
+    taskCount = taskCount + growth;
+  }
+  else
+  {
+    cout << "You may not continue your journey. " << endl;
+    cout << "You should choose a different path. " << endl;
+  }
 }
 /*********************************************************************
 ** Function: immunity
@@ -70,7 +81,7 @@ void Forest::setTask(int growth)
 *********************************************************************/
 bool Forest::immunity()
 {
-  if (taskCount >= 3)
+  if (taskCount >= 2)
   {
     return true;
   }
