@@ -13,8 +13,6 @@ class Coast : public Space
 private:
 public:
 void words() override;
-void setItem(int) override;
-void setEnemy(int) override;
 int getEnemy() override;
 int getItem() override; 
 void setTask(int) override;
