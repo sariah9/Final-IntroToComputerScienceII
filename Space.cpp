@@ -18,8 +18,6 @@ Space::Space()
   bottom = nullptr;
   right = nullptr;
   left = nullptr;
-  itemType = 0;
-  enemyType = 0;
   taskCount = 0;
 }
 /*********************************************************************
