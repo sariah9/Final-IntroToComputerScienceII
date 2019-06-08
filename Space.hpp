@@ -20,8 +20,8 @@ protected:
   int bearCount;
   int salmonCount;
 public:
-  Space* up;
-  Space* down;
+  Space* top;
+  Space* bottom;
   Space* right;
   Space* left;
   Space();
