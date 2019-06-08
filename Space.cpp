@@ -14,28 +14,11 @@
 *********************************************************************/
 Space::Space()
 {
-  up = nullptr;
-  down = nullptr;
+  top = nullptr;
+  bottom = nullptr;
   right = nullptr;
   left = nullptr;
-  for (int y = 0; y < 2; y++)
-  {
-    for (int x = 0; x < 2; x++)
-    {
-      gridMove[y][x] = ' ';
-    }
-  }
-  bearCount = 0;
-  itemCount = 0;
-  eggCount = 0;
-  salmonCount = 0;
-  for(int x = 0; x < 11; x++)
-  {
-    for (int y = 0; y < 8; y++)
-    {
-      map[x][y] = ' ';
-    }
-  }
+  taskCount = 0;
 }
 /*********************************************************************
 ** Function: Space destructor
@@ -45,8 +28,8 @@ Space::Space()
 *********************************************************************/
 Space::~Space()
 {
-up = nullptr;
-down = nullptr;
+top = nullptr;
+bottom = nullptr;
 right = nullptr;
 left = nullptr;
 }

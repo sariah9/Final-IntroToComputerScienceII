@@ -75,13 +75,12 @@ void Menu::welcomeMenu()
 void Menu::gameRulesB()
 {
   cout << "The most important thing to know about Triad Town \n"
-       << "is that there are bears living in the area. They \n"
-       << "prefer salmon, but they will happily eat you. " << endl;
+       << "is that there are wild creatures living in the area. \n"
+       << "They prefer salmon, but they will happily eat you. " << endl;
   cout << "Best to distract them with a tasty salmon. One \n"
-       << "salmon will feed many bears, and three salmon will \n"
-       << "give you bear immunity! Salmon are made by collecting \n"
-       << "three eggs. Eggs look like this on the map: o " << endl;
-  cout << "Bears look like this: & " << endl;
+       << "salmon will feed many beasts. Complete three tasks and \n"
+       << "achieve immunity to enemies! Salmon are made by collecting \n"
+       << "three eggs. Beasts look like this on the map: E " << endl;
 } 
 /*********************************************************************
 ** Function: gameRulesM
@@ -92,11 +91,11 @@ void Menu::gameRulesB()
 void Menu::gameRulesM()
 {
   cout << "The first task is to collect enough food for your voyage. " << endl;
-  cout << "This is done by collecting trout. Trout look like this on the map: % " << endl;
-  cout << "Three trout make a boat, and three boats will be enough \n"
-       << "to make a hull. You must get three boats or your men and \n"
-       << "yourself can't make a ship. The only place to find trout are \n"
-       << "in the mountains. But beware of bears..." << endl;
+  cout << "This is done by collecting trout. Three trout make a boat, " << endl;
+  cout << "and three boats will be enough to make a hull. \n"
+       << "You must get three boats or you won't be able \n"
+       << "to make a ship. The only place to find trout are \n"
+       << "in the mountains. But beware of mountain lions..." << endl;
 }
 /*********************************************************************
 ** Function: gameRulesF
@@ -108,9 +107,9 @@ void Menu::gameRulesF()
 {
   cout << "The next task is to collect enough wood for boat repairs. " << endl;
   cout << "This is accomplished by collecting enough wood for three \n"
-       << "barrels. Three wood fill one barrel. Wood looks like this: # " << endl;
-  cout << "The best place to find wood is in the forest. Remember to \n"
-       << "collect 3 barrels for a deck, and be on the lookout for bears... " << endl;
+       << "barrels. Three wood make one barrel, and three barrels  " << endl;
+  cout << "make a deck. The best place to find wood is in the forest. \n"
+       << "Remember to be on the lookout for bears... " << endl;
 }
 /*********************************************************************
 ** Function: gameRulesC
@@ -126,8 +125,7 @@ void Menu::gameRulesC()
        << "need nine sailors - three per crew of sailors. " << endl;
   cout << "Three crew make a mast, and that's very important! " << endl;
   cout << "Sailors always hang around the coast, dreaming \n"
-       << "of the sea. They look like this on the map: + " << endl;
-  cout << "Remember to keep a wary eye out for bears... " << endl;
+       << "of the sea. Keep a wary eye out for trolls..." << endl;
 }
 /*********************************************************************
 ** Function: explainKnapsack
@@ -162,13 +160,14 @@ void Menu::explainExtras()
   cout << "These tools will be amongst items randomly offered \n"
        << "to you at each move on the map. One is a crystal. " << endl;
   cout << "Alchemy crystals are very rare and can transform \n"
-       << "any other two items ON THE MAP into something \n"
-       << "greater. They must be dropped on the map in \n"
+       << "any other two items (when dropped) into something \n"
+       << "greater. They must be dropped along the way in \n"
        << "order to use them. Found only near mountains." << endl;
-  cout << "The other tool is a flashlight. This allows you \n"
-       << "to see a wider view of the landscape. Flashlights \n"
-       << "are also pretty rare, so carefully consider the \n"
-       << "best places to use them. Found in forests." << endl;
+  cout << "Another tool is a flashlight. This will help you \n"
+       << "to complete a task. So keep it handy. This is the \n"
+       << "same with the corked bottle so carefully consider \n"
+       << "the best places to use them. Remember that by \n"
+       << "completing 3 tasks, you will be safe from beasts. " << endl;
 }
 /*********************************************************************
 ** Function: gamePlay

@@ -18,186 +18,69 @@ void Mountain::words()
        << "the sounds of waterfalls and eagles!" << endl;
   cout << "A perfect day for a trout hunt. " << endl;
 }
-
 /*********************************************************************
-** Function: boardPopulate
-** Description: fills each 3 x 3 space with pathway and randomly 
-** chosen items and bears
+** Function: getEnemy
+** Description: returns enemy type
+** Parameters: None
+** Returns: enemyType
+*********************************************************************/
+string Mountain::getEnemy()
+{
+  string enemyType = "cougars";
+  return enemyType;
+}
+/*********************************************************************
+** Function: getItem 
+** Description: returns number of item
+** Parameters: None
+** Returns: 1 for trout
+*********************************************************************/
+int Mountain::getItem()
+{
+  return 1;
+}
+/*********************************************************************
+** Function: printTask
+** Description: prompts user for specific task on that level
 ** Parameters: None
 ** Returns: None
 *********************************************************************/
-void Mountain::boardPopulate(int move)
+void Mountain::printTask()
 {
-  const char bear = '&';
-  const char path = ' ';
-  const char trout = '%';
-  const char egg = 'o';
-  bearCount = 0;
-  itemCount = 0, 
-  eggCount = 0;
-    
-  int random = (rand() % 3) + 1;
-  if  (move == 3)
-  {
-    gridMove[0][1] = path;
-    gridMove[1][1] = path;
-    gridMove[1][2] = path;
-    if (bearImmunity())
-    { 
-      gridMove[0][0] = trout;
-      itemCount++;
-      gridMove[1][0] = egg;
-      eggCount++;
-      gridMove[2][0] = trout;
-      itemCount++;
-      gridMove[2][1] = egg;
-      eggCount++;
-      gridMove[2][2] = trout;
-      itemCount++;
-      gridMove[0][2] = egg;
-      eggCount++;
-    }
-    else if (random == 2)
-    {
-      gridMove[0][0] = bear;
-      bearCount++;
-      gridMove[1][0] = egg;
-      eggCount++;
-      gridMove[2][0] = trout;
-      itemCount++;
-      gridMove[2][1] = egg;
-      eggCount++;
-      gridMove[2][2] = trout;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-    else 
-    {
-      gridMove[0][0] = egg;
-      eggCount++;
-      gridMove[1][0] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[2][1] = trout;
-      itemCount++;
-      gridMove[2][2] = trout;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-  }
-  else 
-  {
-    gridMove[1][1] = path;
-    gridMove[1][0] = path;
-    gridMove[1][2] = path;
-    if (bearImmunity())
-    { 
-      gridMove[0][0] = trout;
-      itemCount++;
-      gridMove[0][1] = trout;
-      itemCount++;
-      gridMove[2][0] = trout;
-      itemCount++;
-      gridMove[2][1] = egg;
-      eggCount++;
-      gridMove[2][2] = egg;
-      eggCount++;
-      gridMove[0][2] = egg;
-      eggCount++;
-    }
-    else if (random == 3)
-    {
-      gridMove[0][0] = egg;
-      eggCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[2][1] = trout;
-      itemCount++;
-      gridMove[2][2] = trout;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-    else
-    {
-      gridMove[0][0] = trout;
-      itemCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[2][1] = trout;
-      itemCount++;
-      gridMove[2][2] = trout;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-  }
-  for (int y = 0; y < 2; y++)
-  {
-    for (int x = 0; x < 2; x++)
-    {
-      cout << gridMove[y][x] << " ";
-    }
-    cout << endl;
-  }
-  cout << endl;
+  cout << "You need to cross through a cave. " << endl;
+  cout << "If you do not use a flashlight, you cannot continue. " << endl;
 }
 /*********************************************************************
-** Function: getEggs
-** Description: returns number of eggs on board for each move
-** Parameters: None
-** Returns: int eggCount
-*********************************************************************/
-int Mountain::getEggs()
-{
-  return eggCount;
-}
-/*********************************************************************
-** Function: getItems 
-** Description: returns number of trout placed on board for each move
-** Parameters: None
-** Returns: int itemCount
-*********************************************************************/
-int Mountain::getItems()
-{
-  return itemCount;
-}
-/*********************************************************************
-** Function: getBears
-** Description: returns number of bears on board for each move
-** Parameters: None
-** Returns: int bearCount
-*********************************************************************/
-int Mountain::getBears()
-{
-  return bearCount;
-}
-/*********************************************************************
-** Function: setSalmon
-** Description: setter that allows Board class to change salmonCount
-** Parameters: int growth that is added to salmonCount
+** Function: setTask
+** Description: 
+** Parameters: int growth that is added to taskCount
 ** Returns: None
 *********************************************************************/
-void Mountain::setSalmon(int growth)
+void Mountain::setTask(int growth)
 {
-  salmonCount = salmonCount + growth;
+  if (growth = 1)
+  {
+    cout << "You found a treasure chest! " << endl;
+    cout << "This money will allow you to \n"
+         << "travel from town to town until \n"
+         << "you are ready for your voyage!" << endl;
+    taskCount = taskCount + growth;
+  }
+  else
+  {
+    cout << "You may not continue your journey. " << endl;
+    cout << "You should choose a different path. " << endl;
+  }
 }
 /*********************************************************************
-** Function: bearImmunity
-** Description: returns true or false if user has collected 3+ salmon
+** Function: immunity
+** Description: returns true or false if user has completed task
 ** Parameters: None
 ** Returns: true or false
 *********************************************************************/
-bool Mountain::bearImmunity()
+bool Mountain::immunity()
 {
-  if (salmonCount >= 3)
+  if (taskCount >= 2)
   {
     return true;
   }

@@ -8,6 +8,8 @@
 #define SPACE_HPP
 #include <iostream>
 #include <cstdlib>
+#include <string>
+using std::string;
 using std::cin;
 using std::cout;
 using std::endl;
@@ -15,26 +17,20 @@ using std::endl;
 class Space
 {
 protected:
-  char gridMove[3][3];
-  int eggCount;
-  int itemCount;
-  int bearCount;
-  int salmonCount;
+  int taskCount;
 public:
-  char map[9][12];
-  Space* up;
-  Space* down;
+  Space* top;
+  Space* bottom;
   Space* right;
   Space* left;
   Space();
   ~Space();
   virtual void words() = 0;
-  virtual void boardPopulate(int) = 0;
-  virtual int getEggs() = 0;
-  virtual int getItems() = 0;
-  virtual int getBears() = 0;
-  virtual void setSalmon(int) = 0;
-  virtual bool bearImmunity() = 0;
+  virtual string getEnemy() = 0;
+  virtual int getItem() = 0;
+  virtual void printTask() = 0;
+  virtual void setTask(int) = 0;
+  virtual bool immunity() = 0;
 };
 
 #endif

@@ -21,184 +21,67 @@ void Coast::words()
        << "sky, you begin to look for sailors. " << endl;
 }
 /*********************************************************************
-** Function: boardPopulate
-** Description: randomly fills 3 x 3 grid with pathway and items and 
-** bears
-** Parameters: int that represents which move the player is on
+** Function: getEnemy
+** Description: returns enemy type
+** Parameters: None
+** Returns: string enemyType
+*********************************************************************/
+string Coast::getEnemy()
+{
+  string enemyType = "trolls";
+  return enemyType;
+}
+/*********************************************************************
+** Function: getItem 
+** Description: returns number of item type
+** Parameters: None
+** Returns: 3 for sailors
+*********************************************************************/
+int Coast::getItem()
+{
+  return 3;
+}
+/*********************************************************************
+** Function: printTask
+** Description: prompts user to complete task
+** Parameters: None
 ** Returns: None
 *********************************************************************/
-void Coast::boardPopulate(int move)
+void Coast::printTask()
 {
-  const char bear = '&';
-  const char path = ' ';
-  const char sailor = '+';
-  const char egg = 'o';
-  bearCount = 0;
-  itemCount = 0;
-  eggCount = 0;
-  int random = (rand() % 3) + 1;
-  if  (move == 8)
-  {
-    gridMove[2][1] = path;
-    gridMove[1][1] = path;
-    gridMove[1][0] = path;
-    if (bearImmunity())
-    { 
-      gridMove[0][0] = sailor;
-      itemCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = sailor;
-      itemCount++;
-      gridMove[2][2] = egg;
-      eggCount++;
-      gridMove[1][2] = sailor;
-      itemCount++;
-      gridMove[0][2] = egg;
-      eggCount++;
-    }
-    else if (random == 2)
-    {
-      gridMove[0][0] = bear;
-      bearCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = sailor;
-      itemCount++;
-      gridMove[2][2] = egg;
-      eggCount++;
-      gridMove[1][2] = sailor;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-    else 
-    {
-      gridMove[0][0] = egg;
-      eggCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[1][2] = sailor;
-      itemCount++;
-      gridMove[2][2] = sailor;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-  }
-  else 
-  {
-    gridMove[1][1] = path;
-    gridMove[1][0] = path;
-    gridMove[1][2] = path;
-    if (bearImmunity())
-    { 
-      gridMove[0][0] = sailor;
-      itemCount++;
-      gridMove[0][1] = sailor;
-      itemCount++;
-      gridMove[2][0] = sailor;
-      itemCount++;
-      gridMove[2][1] = egg;
-      eggCount++;
-      gridMove[2][2] = egg;
-      eggCount++;
-      gridMove[0][2] = egg;
-      eggCount++;
-    }
-    else if (random == 3)
-    {
-      gridMove[0][0] = egg;
-      eggCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[2][1] = sailor;
-      itemCount++;
-      gridMove[2][2] = sailor;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-    else
-    {
-      gridMove[0][0] = sailor;
-      itemCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[2][1] = sailor;
-      itemCount++;
-      gridMove[2][2] = sailor;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-  }
-  for (int y = 0; y < 2; y++)
-  {
-    for (int x = 0; x < 2; x++)
-    {
-      cout << gridMove[y][x] << " ";
-    }
-    cout << endl;
-  }
-  cout << endl;
+  cout << "You wish to send a message out to sea. " << endl;
+  cout << "Please search for a bottle with a cork. " << endl;
 }
 /*********************************************************************
-** Function: getEggs
-** Description: returns number of eggs on board for each move
-** Parameters: None
-** Returns: int eggCount
-*********************************************************************/
-int Coast::getEggs()
-{
-  return eggCount;
-}
-/*********************************************************************
-** Function: getItems 
-** Description: returns number of sailors placed on board for each 
-** move
-** Parameters: None
-** Returns: int itemCount
-*********************************************************************/
-int Coast::getItems()
-{
-  return itemCount;
-}
-/*********************************************************************
-** Function: getBears
-** Description: returns number of bears on board for each move
-** Parameters: None
-** Returns: int bearCount
-*********************************************************************/
-int Coast::getBears()
-{
-  return bearCount;
-}
-/*********************************************************************
-** Function: setSalmon
-** Description: setter that allows Board class to change salmonCount
-** Parameters: int growth that is added to salmonCount
+** Function: setTask
+** Description: setter that allows Board class to change taskCount
+** Parameters: int growth that is added to taskCount
 ** Returns: None
 *********************************************************************/
-void Coast::setSalmon(int growth)
+void Coast::setTask(int growth)
 {
-  salmonCount = salmonCount + growth;
+  if (growth = 1)
+  {
+    cout << "You have made a friend on the beach! " << endl;
+    cout << "She is an accountant and will \n"
+         << "accompany you on your journey." << endl;
+    taskCount = taskCount + growth;
+  }
+  else
+  {
+    cout << "You may not continue your journey. " << endl;
+    cout << "You should choose a different path. " << endl;
+  }
 }
 /*********************************************************************
-** Function: bearImmunity
-** Description: returns true or false if user has collected 3+ salmon
+** Function: immunity
+** Description: returns true or false if user has completed task
 ** Parameters: None
 ** Returns: true or false
 *********************************************************************/
-bool Coast::bearImmunity()
+bool Coast::immunity()
 {
-  if (salmonCount >= 3)
+  if (taskCount >= 3)
   {
     return true;
   }
