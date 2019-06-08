@@ -26,7 +26,7 @@ void Mountain::words()
 *********************************************************************/
 string Mountain::getEnemy()
 {
-  string enemyType = "trolls";
+  string enemyType = "cougars";
   return enemyType;
 }
 /*********************************************************************
