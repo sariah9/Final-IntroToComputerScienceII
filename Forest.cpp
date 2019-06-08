@@ -21,26 +21,6 @@ void Forest::words()
        << "any wood that may be near. " << endl;
 }
 /*********************************************************************
-** Function: setEnemy
-** Description: sets enemy type to pirates
-** Parameters: int type
-** Returns: None
-*********************************************************************/
-void Forest::setEnemy(int type)
-{
-  enemyType = type;
-}
-/*********************************************************************
-** Function: setItem
-** Description: sets item type to sailors
-** Parameters: None
-** Returns: int eggCount
-*********************************************************************/
-void Forest::setItem(int type)
-{
-  itemType = type;
-}
-/*********************************************************************
 ** Function: getEnemy
 ** Description: returns enemy type
 ** Parameters: None
