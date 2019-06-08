@@ -26,8 +26,9 @@ void Coast::words()
 ** Parameters: None
 ** Returns: int enemyType
 *********************************************************************/
-int Coast::getEnemy()
+string Coast::getEnemy()
 {
+  string enemyType = "trolls";
   return enemyType;
 }
 /*********************************************************************
