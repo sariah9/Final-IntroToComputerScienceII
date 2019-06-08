@@ -27,68 +27,28 @@ void Coast::words()
 ** Parameters: int that represents which move the player is on
 ** Returns: None
 *********************************************************************/
-void Coast::boardPopulate(int move)
+void Coast::selectNum()
 {
-  const char bear = '&';
-  const char path = ' ';
-  const char sailor = '+';
-  const char egg = 'o';
   bearCount = 0;
   itemCount = 0;
   eggCount = 0;
-  int random = (rand() % 3) + 1;
-  if  (move == 8)
+  int random = (rand() % 4) + 1;
+  if  (random  == 1)
   {
-    gridMove[2][1] = path;
-    gridMove[1][1] = path;
-    gridMove[1][0] = path;
     if (bearImmunity())
     { 
-      gridMove[0][0] = sailor;
-      itemCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = sailor;
-      itemCount++;
-      gridMove[2][2] = egg;
-      eggCount++;
-      gridMove[1][2] = sailor;
-      itemCount++;
-      gridMove[0][2] = egg;
-      eggCount++;
+      bearCount = 0;
+      itemCount = 0;
+      eggCount = 0;
     }
-    else if (random == 2)
+    else
     {
-      gridMove[0][0] = bear;
-      bearCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = sailor;
-      itemCount++;
-      gridMove[2][2] = egg;
-      eggCount++;
-      gridMove[1][2] = sailor;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-    else 
-    {
-      gridMove[0][0] = egg;
-      eggCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[1][2] = sailor;
-      itemCount++;
-      gridMove[2][2] = sailor;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
+      bearCount = 0;
+      itemCount = 0;
+      eggCount = 0;
     }
   }
-  else 
+  else if (random == 2)
   {
     gridMove[1][1] = path;
     gridMove[1][0] = path;
