@@ -26,8 +26,6 @@ public:
   Space();
   ~Space();
   virtual void words() = 0;
-  virtual void setItem(int) = 0;
-  virtual void setEnemy(int) = 0;
   virtual int getEnemy() = 0;
   virtual int getItem() = 0;
   virtual void setTask(int) = 0;
