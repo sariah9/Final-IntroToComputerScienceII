@@ -24,17 +24,18 @@ void Forest::words()
 ** Function: getEnemy
 ** Description: returns enemy type
 ** Parameters: None
-** Returns: int enemyType
+** Returns: string enemyType
 *********************************************************************/
-int Forest::getEnemy()
+string Forest::getEnemy()
 {
-  return 2;
+  string enemyType = "bears";
+  return enemyType;
 }
 /*********************************************************************
 ** Function: getItem 
 ** Description: returns number of item
 ** Parameters: None
-** Returns: int itemCount
+** Returns: 2 for wood
 *********************************************************************/
 int Forest::getItem()
 {
