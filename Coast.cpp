@@ -60,7 +60,18 @@ void Coast::printTask()
 *********************************************************************/
 void Coast::setTask(int growth)
 {
-  taskCount = taskCount + growth;
+  if (growth = 1)
+  {
+    cout << "You have made a friend on the beach! " << endl;
+    cout << "She is an accountant and will \n"
+         << "accompany you on your journey." << endl;
+    taskCount = taskCount + growth;
+  }
+  else
+  {
+    cout << "You may not continue your journey. " << endl;
+    cout << "You should choose a different path. " << endl;
+  }
 }
 /*********************************************************************
 ** Function: immunity
