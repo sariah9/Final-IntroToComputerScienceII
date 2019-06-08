@@ -205,7 +205,7 @@ void Board::selectNum()
     itemCount = 2;
     eggCount = 2;
   }
-  else if (random == 3)
+  else
   {
     if (user->immunity())
     { 
@@ -220,21 +220,6 @@ void Board::selectNum()
       eggCount = 0;
     }
   }
-  else
-  {
-    if (user->immunity())
-    { 
-      enemyCount = 0;
-      itemCount = 3;
-      eggCount = 3;
-    }
-    else
-    {
-      enemyCount = 2;
-      itemCount = 3;
-      eggCount = 1;
-    }
-  }
 }
 /*********************************************************************
 ** Function: boardPopulate
@@ -243,16 +228,90 @@ void Board::selectNum()
 ** Parameters: int that represents which move the player is on
 ** Returns: None
 *********************************************************************/
-void Board::boardPopulate(int move, int random)
+void Board::boardPopulate(int move)
 {
   const char enemy = 'E';
-  const char path = '_';
+  const char path = '<';
   const char item = 'X';
   const char egg = 'o';
-  if  (move == 4)
+  const char player = "U";
+  char gridMove[3][3] = "_";
+   if  (move == 3)
+  {
+    gridMove[0][1] = path;
+    gridMove[1][1] = player;
+    gridMove[1][2] = path;
+    if (user->immunity())
+    { 
+      gridMove[0][0] = item;
+      gridMove[1][0] = egg;
+      gridMove[2][0] = item;
+      gridMove[2][1] = egg;
+      gridMove[2][2] = item;
+      gridMove[0][2] = egg;
+    }
+    else 
+    {
+      gridMove[0][0] = egg;
+      gridMove[1][0] = egg;
+      gridMove[2][0] = enemy;
+      gridMove[2][1] = item;
+      gridMove[2][2] = item;
+      gridMove[0][2] = enemy;
+    }
+  }
+  else if (move == 4)
   {
     gridMove[2][1] = path;
-    gridMove[1][1] = path;
+    gridMove[1][1] = player;
+    gridMove[1][2] = path;
+    if (user->immunity())
+    { 
+      gridMove[0][0] = item;
+      gridMove[0][1] = item;
+      gridMove[1][0] = item;
+      gridMove[2][0] = egg;
+      gridMove[2][2] = egg;
+      gridMove[0][2] = egg;
+    }
+    else
+    {
+      gridMove[0][0] = egg;
+      gridMove[0][1] = egg;
+      gridMove[2][0] = enemy;
+      gridMove[1][0] = item;
+      gridMove[2][2] = item;
+      gridMove[0][2] = enemy;
+    }
+  }
+  else if  (move == 7)
+  {
+    gridMove[2][1] = path;
+    gridMove[1][1] = player;
+    gridMove[0][1] = path;
+    if (user->immunity())
+    { 
+      gridMove[0][0] = item;
+      gridMove[2][1] = egg;
+      gridMove[2][0] = item;
+      gridMove[2][2] = egg;
+      gridMove[1][2] = item;
+      gridMove[0][2] = egg;
+    }
+    else 
+    {
+      gridMove[0][0] = egg;
+      gridMove[2][1] = egg;
+      gridMove[2][0] = enemy;
+      gridMove[1][2] = item;
+      gridMove[2][2] = item;
+      gridMove[0][2] = enemy;
+    }
+  }
+  else if  (move == 8)
+  {
+    gridMove[2][1] = path;
+    gridMove[1][1] = player;
     gridMove[1][0] = path;
     if (user->immunity())
     { 
@@ -263,86 +322,38 @@ void Board::boardPopulate(int move, int random)
       gridMove[1][2] = item;
       gridMove[0][2] = egg;
     }
-    else if (random == 2)
+    else
     {
       gridMove[0][0] = enemy;
-      bearCount++;
       gridMove[0][1] = egg;
-      eggCount++;
       gridMove[2][0] = item;
-      itemCount++;
       gridMove[2][2] = egg;
-      eggCount++;
       gridMove[1][2] = item;
-      itemCount++;
       gridMove[0][2] = enemy;
-      bearCount++;
-    }
-    else 
-    {
-      gridMove[0][0] = egg;
-      eggCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = enemy;
-      bearCount++;
-      gridMove[1][2] = item;
-      itemCount++;
-      gridMove[2][2] = item;
-      itemCount++;
-      gridMove[0][2] = enemy;
-      bearCount++;
     }
   }
   else 
   {
-    gridMove[1][1] = path;
+    gridMove[1][1] = player;
     gridMove[1][0] = path;
     gridMove[1][2] = path;
-    if (bearImmunity())
+    if (user->immunity())
     { 
       gridMove[0][0] = item;
-      itemCount++;
       gridMove[0][1] = item;
-      itemCount++;
       gridMove[2][0] = item;
-      itemCount++;
       gridMove[2][1] = egg;
-      eggCount++;
       gridMove[2][2] = egg;
-      eggCount++;
       gridMove[0][2] = egg;
-      eggCount++;
-    }
-    else if (random == 3)
-    {
-      gridMove[0][0] = egg;
-      eggCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = enemy;
-      bearCount++;
-      gridMove[2][1] = sailor;
-      itemCount++;
-      gridMove[2][2] = sailor;
-      itemCount++;
-      gridMove[0][2] = enemy;
-      bearCount++;
     }
     else
     {
-      gridMove[0][0] = sailor;
-      itemCount++;
+      gridMove[0][0] = item;
       gridMove[0][1] = egg;
-      eggCount++;
       gridMove[2][0] = enemy;
-      bearCount++;
-      gridMove[2][1] = sailor;
-      itemCount++;
-      gridMove[2][2] = sailor;
-      itemCount++;
+      gridMove[2][1] = item;
+      gridMove[2][2] = item;
       gridMove[0][2] = enemy;
-      bearCount++;
     }
   }
   for (int y = 0; y < 3; y++)
@@ -364,23 +375,20 @@ void Board::boardPopulate(int move, int random)
 *********************************************************************/
 void Board::printBoard(int move)
 {
-  int bears = user->getBears();
-  int eggs = user->getEggs();
-  int items = user->getItems();
   cout << "Move: " << move << endl;
-  cout << "There are " << bears << " bears nearby." << endl;
-  cout << "There are " << eggs << " eggs nearby." << endl;
+  cout << "There are " << enemyCount << user->getEnemy() << " nearby." << endl;
+  cout << "There are " << eggCount << " eggs nearby." << endl;
   if (move >= 0 || move < 4)
   {
-    cout << "There are " << items << " trout nearby." << endl;
+    cout << "There are " << itemCount << " trout nearby." << endl;
   }
   else if (move >= 4 || move < 8)
   {
-    cout << "There are " << items << " wood nearby." << endl;
+    cout << "There are " << itemCount << " wood nearby." << endl;
   }
   else if (move >= 8 || move < 12)
   {
-    cout << "There are " << items << " sailors nearby." << endl;
+    cout << "There are " << itemCount << " sailors nearby." << endl;
   }
   cout << endl;
 }
