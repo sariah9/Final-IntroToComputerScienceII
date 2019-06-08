@@ -13,7 +13,7 @@ class Mountain : public Space
 private:
 public:
 void words() override;
-int getEnemy() override;
+string getEnemy() override;
 int getItem() override; 
 void printTask() override;
 void setTask(int) override;
