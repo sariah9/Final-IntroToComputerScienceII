@@ -26,7 +26,7 @@ void Mountain::words()
 *********************************************************************/
 int Mountain::getEnemy()
 {
-  return enemyType;
+  return 1;
 }
 /*********************************************************************
 ** Function: getItem 
@@ -36,27 +36,29 @@ int Mountain::getEnemy()
 *********************************************************************/
 int Mountain::getItem()
 {
-  return itemType;
+  return 1;
 }
 /*********************************************************************
 ** Function: setTask
-** Description: setter that allows Board class to change taskCount
-** Parameters: int growth that is added to taskCount
+** Description: prompts user for specific task on that level
+** Parameters: None
 ** Returns: None
 *********************************************************************/
-void Mountain::setTask(int growth)
+void Mountain::setTask()
 {
-  taskCount = taskCount + growth;
+  cout << "You need to cross through a cave. " << endl;
+  cout << "If you do not use a flashlight, you cannot continue. " << endl;
 }
 /*********************************************************************
 ** Function: immunity
 ** Description: returns true or false if user has completed task
-** Parameters: None
+** Parameters: int growth that is added to taskCount
 ** Returns: true or false
 *********************************************************************/
-bool Mountain::immunity()
+bool Mountain::immunity(int growth)
 {
-  if (taskCount >= 3)
+  taskCount = taskCount + growth;
+  if (taskCount >= 2)
   {
     return true;
   }
