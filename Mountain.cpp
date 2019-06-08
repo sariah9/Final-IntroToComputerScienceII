@@ -18,186 +18,65 @@ void Mountain::words()
        << "the sounds of waterfalls and eagles!" << endl;
   cout << "A perfect day for a trout hunt. " << endl;
 }
-
 /*********************************************************************
-** Function: boardPopulate
-** Description: fills each 3 x 3 space with pathway and randomly 
-** chosen items and bears
-** Parameters: None
+** Function: setEnemy
+** Description: sets enemy type to bears
+** Parameters: int type
 ** Returns: None
 *********************************************************************/
-void Mountain::boardPopulate(int move)
+void Mountain::setEnemy(int type)
 {
-  const char bear = '&';
-  const char path = ' ';
-  const char trout = '%';
-  const char egg = 'o';
-  bearCount = 0;
-  itemCount = 0, 
-  eggCount = 0;
-    
-  int random = (rand() % 3) + 1;
-  if  (move == 3)
-  {
-    gridMove[0][1] = path;
-    gridMove[1][1] = path;
-    gridMove[1][2] = path;
-    if (bearImmunity())
-    { 
-      gridMove[0][0] = trout;
-      itemCount++;
-      gridMove[1][0] = egg;
-      eggCount++;
-      gridMove[2][0] = trout;
-      itemCount++;
-      gridMove[2][1] = egg;
-      eggCount++;
-      gridMove[2][2] = trout;
-      itemCount++;
-      gridMove[0][2] = egg;
-      eggCount++;
-    }
-    else if (random == 2)
-    {
-      gridMove[0][0] = bear;
-      bearCount++;
-      gridMove[1][0] = egg;
-      eggCount++;
-      gridMove[2][0] = trout;
-      itemCount++;
-      gridMove[2][1] = egg;
-      eggCount++;
-      gridMove[2][2] = trout;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-    else 
-    {
-      gridMove[0][0] = egg;
-      eggCount++;
-      gridMove[1][0] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[2][1] = trout;
-      itemCount++;
-      gridMove[2][2] = trout;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-  }
-  else 
-  {
-    gridMove[1][1] = path;
-    gridMove[1][0] = path;
-    gridMove[1][2] = path;
-    if (bearImmunity())
-    { 
-      gridMove[0][0] = trout;
-      itemCount++;
-      gridMove[0][1] = trout;
-      itemCount++;
-      gridMove[2][0] = trout;
-      itemCount++;
-      gridMove[2][1] = egg;
-      eggCount++;
-      gridMove[2][2] = egg;
-      eggCount++;
-      gridMove[0][2] = egg;
-      eggCount++;
-    }
-    else if (random == 3)
-    {
-      gridMove[0][0] = egg;
-      eggCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[2][1] = trout;
-      itemCount++;
-      gridMove[2][2] = trout;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-    else
-    {
-      gridMove[0][0] = trout;
-      itemCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[2][1] = trout;
-      itemCount++;
-      gridMove[2][2] = trout;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-  }
-  for (int y = 0; y < 2; y++)
-  {
-    for (int x = 0; x < 2; x++)
-    {
-      cout << gridMove[y][x] << " ";
-    }
-    cout << endl;
-  }
-  cout << endl;
+  enemyType = type;
 }
 /*********************************************************************
-** Function: getEggs
-** Description: returns number of eggs on board for each move
+** Function: setItem
+** Description: sets item type to trout
 ** Parameters: None
 ** Returns: int eggCount
 *********************************************************************/
-int Mountain::getEggs()
+void Mountain::setItem(int type)
 {
-  return eggCount;
+  itemType = type;
 }
 /*********************************************************************
-** Function: getItems 
-** Description: returns number of trout placed on board for each move
+** Function: getEnemy
+** Description: returns enemy type
+** Parameters: None
+** Returns: int enemyType
+*********************************************************************/
+int Mountain::getEnemy()
+{
+  return enemyType;
+}
+/*********************************************************************
+** Function: getItem 
+** Description: returns number of item
 ** Parameters: None
 ** Returns: int itemCount
 *********************************************************************/
-int Mountain::getItems()
+int Mountain::getItem()
 {
-  return itemCount;
+  return itemType;
 }
 /*********************************************************************
-** Function: getBears
-** Description: returns number of bears on board for each move
-** Parameters: None
-** Returns: int bearCount
-*********************************************************************/
-int Mountain::getBears()
-{
-  return bearCount;
-}
-/*********************************************************************
-** Function: setSalmon
-** Description: setter that allows Board class to change salmonCount
-** Parameters: int growth that is added to salmonCount
+** Function: setTask
+** Description: setter that allows Board class to change taskCount
+** Parameters: int growth that is added to taskCount
 ** Returns: None
 *********************************************************************/
-void Mountain::setSalmon(int growth)
+void Mountain::setTask(int growth)
 {
-  salmonCount = salmonCount + growth;
+  taskCount = taskCount + growth;
 }
 /*********************************************************************
-** Function: bearImmunity
-** Description: returns true or false if user has collected 3+ salmon
+** Function: immunity
+** Description: returns true or false if user has completed task
 ** Parameters: None
 ** Returns: true or false
 *********************************************************************/
-bool Mountain::bearImmunity()
+bool Mountain::immunity()
 {
-  if (salmonCount >= 3)
+  if (taskCount >= 3)
   {
     return true;
   }
