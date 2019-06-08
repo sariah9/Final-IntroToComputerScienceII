@@ -178,10 +178,12 @@ void Menu::explainExtras()
 void Menu::gamePlay()
 {
   int choice = 0;
-  play.moveUser(numMoves);
+  //play.linkSpaces(numMoves);
+  //play.moveUser(numMoves);
+  //play.printBoard(numMoves);
+  //play.boardPopulate(numMoves);
   play.beginPlay(1);
   play.printSack();
-  play.printBoard(numMoves);
   while (numMoves < 4)
   {
     callBoard();
