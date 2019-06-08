@@ -23,6 +23,9 @@ Board::Board()
   boat = 0;
   barrel = 0;
   crew = 0;
+  enemyCount = 0;
+  itemCount = 0;
+  eggCount = 0;
   sackSize = 0;
 }
 /*********************************************************************
@@ -94,19 +97,27 @@ void Board::moveUser(int move)
   if (move == 0)
   {
     user->words();
-    user->printTask();
   }
-  else if (move >= 1 || move <= 3)
+  else if (move == 1 || move == 2)
   {
     user = user->left;
+  }
+  else if (move == 3)
+  {
+    user = user->left;
+    user->printTask();
   }
   else if (move == 4)
   {
     user = user->top;
     user->words();
+  }
+  else if (move == 5)
+  {
+    user = user->right;
     user->printTask();
   }
-  else if (move >= 5 || move <= 7)
+  else if (move >= 6 || move <= 7)
   {
     user = user->right;
   }
@@ -114,9 +125,13 @@ void Board::moveUser(int move)
   {
     user = user->top;
     user->words();
+  }
+  else if (move == 9)
+  {
+    user = user->left;
     user->printTask();
   }
-  else if (move >= 9 || move <= 10)
+  else if (move == 10)
   {
     user = user->left;
   }
@@ -127,8 +142,8 @@ void Board::moveUser(int move)
 }
 /*********************************************************************
 ** Function: linkSpaces
-** Description: makes links of Spaces in list
-** Parameters: None
+** Description: makes creates new Spaces depending on move number
+** Parameters: int move
 ** Returns: None
 *********************************************************************/
 void Board::linkSpaces(int move)
@@ -235,7 +250,9 @@ void Board::boardPopulate(int move)
   const char item = 'X';
   const char egg = 'o';
   const char player = "U";
-  char gridMove[3][3] = "_";
+  char gridMove[3][3] = {{"_", "_", "_"},
+                         {"_", "_", "_"},
+                         {"_", "_", "_"}};
    if  (move == 3)
   {
     gridMove[0][1] = path;
@@ -739,14 +756,9 @@ void Board::checkKnapsack()
     deleteItem(6);
     deleteItem(6);
   }
-  else if (salmonNum >= 3)
+  else 
   {
-    user->setTask(1); //?
-    cout << "You gained immunity! " << endl;
-    cout << "Enemies will not harm you next move. " << endl;
-    deleteItem(7);
-    deleteItem(7);
-    deleteItem(7);
+    continue;
   }
 }
 /*********************************************************************
