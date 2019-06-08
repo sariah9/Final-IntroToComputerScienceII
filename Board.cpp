@@ -581,22 +581,23 @@ void Board::clearSack(int type)
 *********************************************************************/
 int Board::offerItem()
 {
+  int item = user->getItem();
   int random = (rand() % 4) + 1;
   if (random == 1)
   {
-    return 1;//item
+    return item;//item
   }
   else if (random == 2)
   {
-    return 2;//egg
+    return 4;//egg
   }
   else if (random == 3)
   {
-    return 3;//extra 
+    return 5;//extra 
   }
   else 
   {
-     return 1;//item
+     return item;//item
   }
 }
 /*********************************************************************
