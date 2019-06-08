@@ -21,144 +21,65 @@ void Coast::words()
        << "sky, you begin to look for sailors. " << endl;
 }
 /*********************************************************************
-** Function: boardPopulate
-** Description: randomly fills 3 x 3 grid with pathway and items and 
-** bears
-** Parameters: int that represents which move the player is on
+** Function: setEnemy
+** Description: sets enemy type to pirates
+** Parameters: int type
 ** Returns: None
 *********************************************************************/
-void Coast::selectNum()
+void Coast::setEnemy(int type)
 {
-  bearCount = 0;
-  itemCount = 0;
-  eggCount = 0;
-  int random = (rand() % 4) + 1;
-  if  (random  == 1)
-  {
-    if (bearImmunity())
-    { 
-      bearCount = 0;
-      itemCount = 0;
-      eggCount = 0;
-    }
-    else
-    {
-      bearCount = 0;
-      itemCount = 0;
-      eggCount = 0;
-    }
-  }
-  else if (random == 2)
-  {
-    gridMove[1][1] = path;
-    gridMove[1][0] = path;
-    gridMove[1][2] = path;
-    if (bearImmunity())
-    { 
-      gridMove[0][0] = sailor;
-      itemCount++;
-      gridMove[0][1] = sailor;
-      itemCount++;
-      gridMove[2][0] = sailor;
-      itemCount++;
-      gridMove[2][1] = egg;
-      eggCount++;
-      gridMove[2][2] = egg;
-      eggCount++;
-      gridMove[0][2] = egg;
-      eggCount++;
-    }
-    else if (random == 3)
-    {
-      gridMove[0][0] = egg;
-      eggCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[2][1] = sailor;
-      itemCount++;
-      gridMove[2][2] = sailor;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-    else
-    {
-      gridMove[0][0] = sailor;
-      itemCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[2][1] = sailor;
-      itemCount++;
-      gridMove[2][2] = sailor;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-  }
-  for (int y = 0; y < 2; y++)
-  {
-    for (int x = 0; x < 2; x++)
-    {
-      cout << gridMove[y][x] << " ";
-    }
-    cout << endl;
-  }
-  cout << endl;
+  enemyType = type;
 }
 /*********************************************************************
-** Function: getEggs
-** Description: returns number of eggs on board for each move
+** Function: setItem
+** Description: sets item type to sailors
 ** Parameters: None
 ** Returns: int eggCount
 *********************************************************************/
-int Coast::getEggs()
+void Coast::setItem(int type)
 {
-  return eggCount;
+  itemType = type;
 }
 /*********************************************************************
-** Function: getItems 
+** Function: getEnemy
+** Description: returns enemy type
+** Parameters: None
+** Returns: int enemyType
+*********************************************************************/
+int Coast::getEnemy()
+{
+  return enemyType;
+}
+/*********************************************************************
+** Function: getItem 
 ** Description: returns number of sailors placed on board for each 
 ** move
 ** Parameters: None
 ** Returns: int itemCount
 *********************************************************************/
-int Coast::getItems()
+int Coast::getItem()
 {
-  return itemCount;
+  return itemType;
 }
 /*********************************************************************
-** Function: getBears
-** Description: returns number of bears on board for each move
-** Parameters: None
-** Returns: int bearCount
-*********************************************************************/
-int Coast::getBears()
-{
-  return bearCount;
-}
-/*********************************************************************
-** Function: setSalmon
-** Description: setter that allows Board class to change salmonCount
-** Parameters: int growth that is added to salmonCount
+** Function: setTask
+** Description: setter that allows Board class to change taskCount
+** Parameters: int growth that is added to taskCount
 ** Returns: None
 *********************************************************************/
-void Coast::setSalmon(int growth)
+void Coast::setTask(int growth)
 {
-  salmonCount = salmonCount + growth;
+  taskCount = taskCount + growth;
 }
 /*********************************************************************
-** Function: bearImmunity
-** Description: returns true or false if user has collected 3+ salmon
+** Function: immunity
+** Description: returns true or false if user has completed task
 ** Parameters: None
 ** Returns: true or false
 *********************************************************************/
-bool Coast::bearImmunity()
+bool Coast::immunity()
 {
-  if (salmonCount >= 3)
+  if (taskCount >= 3)
   {
     return true;
   }
