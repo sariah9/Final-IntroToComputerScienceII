@@ -22,17 +22,18 @@ void Mountain::words()
 ** Function: getEnemy
 ** Description: returns enemy type
 ** Parameters: None
-** Returns: int enemyType
+** Returns: enemyType
 *********************************************************************/
-int Mountain::getEnemy()
+string Mountain::getEnemy()
 {
-  return 1;
+  string enemyType = "trolls";
+  return enemyType;
 }
 /*********************************************************************
 ** Function: getItem 
 ** Description: returns number of item
 ** Parameters: None
-** Returns: int itemCount
+** Returns: 1 for trout
 *********************************************************************/
 int Mountain::getItem()
 {
