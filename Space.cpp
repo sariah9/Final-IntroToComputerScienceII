@@ -12,16 +12,15 @@
 ** Parameters: None
 ** Returns: None
 *********************************************************************/
-Space::Space()
+Space::Space(int a, int b, int c)
 {
   top = nullptr;
   bottom = nullptr;
   right = nullptr;
   left = nullptr;
-  bearCount = 0;
-  itemCount = 0;
-  eggCount = 0;
-  salmonCount = 0;
+  itemType = a;
+  enemyType = b;
+  taskCount = c;
 }
 /*********************************************************************
 ** Function: Space destructor
