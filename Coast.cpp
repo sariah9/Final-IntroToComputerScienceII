@@ -42,6 +42,17 @@ int Coast::getItem()
   return itemType;
 }
 /*********************************************************************
+** Function: printTask
+** Description: prompts user to complete task
+** Parameters: None
+** Returns: None
+*********************************************************************/
+void Coast::printTask()
+{
+  cout << "You wish to send a message out to sea. " << endl;
+  cout << "Please search for a bottle with a cork. " << endl;
+}
+/*********************************************************************
 ** Function: setTask
 ** Description: setter that allows Board class to change taskCount
 ** Parameters: int growth that is added to taskCount
