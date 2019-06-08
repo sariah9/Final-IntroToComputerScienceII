@@ -15,8 +15,8 @@ public:
 void words() override;
 int getEnemy() override;
 int getItem() override; 
-void setTask(int) override;
-bool immunity() override;
+void setTask() override;
+bool immunity(int) override;
 };
 
 #endif
