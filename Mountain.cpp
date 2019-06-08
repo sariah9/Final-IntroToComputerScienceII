@@ -19,26 +19,6 @@ void Mountain::words()
   cout << "A perfect day for a trout hunt. " << endl;
 }
 /*********************************************************************
-** Function: setEnemy
-** Description: sets enemy type to bears
-** Parameters: int type
-** Returns: None
-*********************************************************************/
-void Mountain::setEnemy(int type)
-{
-  enemyType = type;
-}
-/*********************************************************************
-** Function: setItem
-** Description: sets item type to trout
-** Parameters: None
-** Returns: int eggCount
-*********************************************************************/
-void Mountain::setItem(int type)
-{
-  itemType = type;
-}
-/*********************************************************************
 ** Function: getEnemy
 ** Description: returns enemy type
 ** Parameters: None
