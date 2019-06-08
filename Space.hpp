@@ -8,6 +8,8 @@
 #define SPACE_HPP
 #include <iostream>
 #include <cstdlib>
+#include <string>
+using std::string;
 using std::cin;
 using std::cout;
 using std::endl;
@@ -24,7 +26,7 @@ public:
   Space();
   ~Space();
   virtual void words() = 0;
-  virtual int getEnemy() = 0;
+  virtual string getEnemy() = 0;
   virtual int getItem() = 0;
   virtual void printTask() = 0;
   virtual void setTask(int) = 0;
