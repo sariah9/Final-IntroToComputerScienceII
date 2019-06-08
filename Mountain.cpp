@@ -57,7 +57,19 @@ void Mountain::printTask()
 *********************************************************************/
 void Mountain::setTask(int growth)
 {
-  taskCount = taskCount + growth;
+  if (growth = 1)
+  {
+    cout << "You found a treasure chest! " << endl;
+    cout << "This money will allow you to \n"
+         << "travel from town to town until \n"
+         << "you are ready for your voyage!" << endl;
+    taskCount = taskCount + growth;
+  }
+  else
+  {
+    cout << "You may not continue your journey. " << endl;
+    cout << "You should choose a different path. " << endl;
+  }
 }
 /*********************************************************************
 ** Function: immunity
