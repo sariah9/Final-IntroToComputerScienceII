@@ -15,13 +15,11 @@ using std::endl;
 class Space
 {
 protected:
-  char gridMove[3][3];
   int eggCount;
   int itemCount;
   int bearCount;
   int salmonCount;
 public:
-  char map[9][12];
   Space* up;
   Space* down;
   Space* right;
@@ -29,7 +27,7 @@ public:
   Space();
   ~Space();
   virtual void words() = 0;
-  virtual void boardPopulate(int) = 0;
+  virtual void selectNum() = 0;
   virtual int getEggs() = 0;
   virtual int getItems() = 0;
   virtual int getBears() = 0;
