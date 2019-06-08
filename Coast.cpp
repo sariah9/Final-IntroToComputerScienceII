@@ -24,7 +24,7 @@ void Coast::words()
 ** Function: getEnemy
 ** Description: returns enemy type
 ** Parameters: None
-** Returns: int enemyType
+** Returns: string enemyType
 *********************************************************************/
 string Coast::getEnemy()
 {
@@ -33,14 +33,13 @@ string Coast::getEnemy()
 }
 /*********************************************************************
 ** Function: getItem 
-** Description: returns number of sailors placed on board for each 
-** move
+** Description: returns number of item type
 ** Parameters: None
-** Returns: int itemCount
+** Returns: 3 for sailors
 *********************************************************************/
 int Coast::getItem()
 {
-  return itemType;
+  return 3;
 }
 /*********************************************************************
 ** Function: printTask
