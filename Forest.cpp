@@ -28,7 +28,7 @@ void Forest::words()
 *********************************************************************/
 int Forest::getEnemy()
 {
-  return enemyType;
+  return 2;
 }
 /*********************************************************************
 ** Function: getItem 
@@ -38,12 +38,24 @@ int Forest::getEnemy()
 *********************************************************************/
 int Forest::getItem()
 {
-  return itemType;
+  return 2;
+}
+/*********************************************************************
+** Function: printTask
+** Description: prompts user to perform task
+** Parameters: None
+** Returns: None
+*********************************************************************/
+void Forest::printTask()
+{
+  cout << "You come across a blind beggar in the woods. " << endl;
+  cout << "She offers to give you something you need in \n"
+       << "exchange for a crystal. " << endl;
 }
 /*********************************************************************
 ** Function: setTask
-** Description: setter that allows Board class to change taskCount
-** Parameters: int growth that is added to taskCount
+** Description: 
+** Parameters: None
 ** Returns: None
 *********************************************************************/
 void Forest::setTask(int growth)
@@ -53,7 +65,7 @@ void Forest::setTask(int growth)
 /*********************************************************************
 ** Function: immunity
 ** Description: returns true or false if user has completed task
-** Parameters: None
+** Parameters: int growth that is added to taskCount
 ** Returns: true or false
 *********************************************************************/
 bool Forest::immunity()
