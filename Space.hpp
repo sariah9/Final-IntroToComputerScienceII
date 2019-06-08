@@ -26,8 +26,9 @@ public:
   virtual void words() = 0;
   virtual int getEnemy() = 0;
   virtual int getItem() = 0;
-  virtual void setTask() = 0;
-  virtual bool immunity(int) = 0;
+  virtual void printTask() = 0;
+  virtual void setTask(int) = 0;
+  virtual bool immunity() = 0;
 };
 
 #endif
