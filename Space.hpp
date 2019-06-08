@@ -15,8 +15,6 @@ using std::endl;
 class Space
 {
 protected:
-  int itemType;
-  int enemyType;
   int taskCount;
 public:
   Space* top;
