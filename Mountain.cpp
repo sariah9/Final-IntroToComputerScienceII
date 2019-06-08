@@ -39,25 +39,34 @@ int Mountain::getItem()
   return 1;
 }
 /*********************************************************************
-** Function: setTask
+** Function: printTask
 ** Description: prompts user for specific task on that level
 ** Parameters: None
 ** Returns: None
 *********************************************************************/
-void Mountain::setTask()
+void Mountain::printTask()
 {
   cout << "You need to cross through a cave. " << endl;
   cout << "If you do not use a flashlight, you cannot continue. " << endl;
 }
 /*********************************************************************
-** Function: immunity
-** Description: returns true or false if user has completed task
+** Function: setTask
+** Description: 
 ** Parameters: int growth that is added to taskCount
-** Returns: true or false
+** Returns: None
 *********************************************************************/
-bool Mountain::immunity(int growth)
+void Mountain::setTask(int growth)
 {
   taskCount = taskCount + growth;
+}
+/*********************************************************************
+** Function: immunity
+** Description: returns true or false if user has completed task
+** Parameters: None
+** Returns: true or false
+*********************************************************************/
+bool Mountain::immunity()
+{
   if (taskCount >= 2)
   {
     return true;
