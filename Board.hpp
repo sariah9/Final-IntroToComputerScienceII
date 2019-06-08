@@ -47,6 +47,7 @@ public:
   bool levelFPassed();
   bool levelCPassed();
   bool feedEnemies();
+  void beginLevel(int);
   void beginPlay(int);
 };
 
