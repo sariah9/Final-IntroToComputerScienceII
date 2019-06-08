@@ -12,15 +12,15 @@
 ** Parameters: None
 ** Returns: None
 *********************************************************************/
-Space::Space(int a, int b, int c)
+Space::Space()
 {
   top = nullptr;
   bottom = nullptr;
   right = nullptr;
   left = nullptr;
-  itemType = a;
-  enemyType = b;
-  taskCount = c;
+  itemType = 0;
+  enemyType = 0;
+  taskCount = 0;
 }
 /*********************************************************************
 ** Function: Space destructor
