@@ -15,10 +15,9 @@ using std::endl;
 class Space
 {
 protected:
-  int eggCount;
-  int itemCount;
-  int bearCount;
-  int salmonCount;
+  int itemType;
+  int enemyType;
+  int taskCount;
 public:
   Space* top;
   Space* bottom;
@@ -27,12 +26,12 @@ public:
   Space();
   ~Space();
   virtual void words() = 0;
-  virtual void selectNum() = 0;
-  virtual int getEggs() = 0;
-  virtual int getItems() = 0;
-  virtual int getBears() = 0;
-  virtual void setSalmon(int) = 0;
-  virtual bool bearImmunity() = 0;
+  virtual void setItem(int) = 0;
+  virtual void setEnemy(int) = 0;
+  virtual int getEnemy() = 0;
+  virtual int getItem() = 0;
+  virtual void setTask(int) = 0;
+  virtual bool immunity() = 0;
 };
 
 #endif
