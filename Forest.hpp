@@ -13,7 +13,7 @@ class Forest : public Space
 private:
 public:
 void words() override;
-void boardPopulate(int) override;
+void selectNum() override;
 int getEggs() override;
 int getItems() override;
 int getBears() override; 
