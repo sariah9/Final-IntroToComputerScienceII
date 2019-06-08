@@ -13,12 +13,12 @@ class Coast : public Space
 private:
 public:
 void words() override;
-void selectNum() override;
-int getEggs() override;
-int getItems() override;
-int getBears() override;
-void setSalmon(int) override;
-bool bearImmunity() override;
+void setItem(int) override;
+void setEnemy(int) override;
+int getEnemy() override;
+int getItem() override; 
+void setTask(int) override;
+bool immunity() override;
 };
 
 #endif
