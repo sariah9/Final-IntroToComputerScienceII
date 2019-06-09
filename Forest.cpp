@@ -70,8 +70,7 @@ void Forest::setTask(int growth)
   }
   else
   {
-    cout << "You may not continue your journey. " << endl;
-    cout << "You should choose a different path. " << endl;
+    cout << "You will never gain immunity that way. " << endl;
   }
 }
 /*********************************************************************
@@ -82,7 +81,7 @@ void Forest::setTask(int growth)
 *********************************************************************/
 bool Forest::immunity()
 {
-  if (taskCount >= 2)
+  if (taskCount >= 3)
   {
     return true;
   }
