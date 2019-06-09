@@ -178,20 +178,20 @@ void Menu::explainExtras()
 void Menu::gamePlay()
 {
   int choice = 0;
-  //play.linkSpaces(numMoves);
-  //play.moveUser(numMoves);
-  //play.printBoard(numMoves);
-  //play.boardPopulate(numMoves);
+  int count = 0;
   play.beginPlay(numMoves);
   play.beginLevel(1);
   play.printSack();
-  while (numMoves < 4)
+  while (count < 2)
   {
+    count++;
     callBoard();
     numMoves++;
-    play.moveUser(numMoves);
-    play.printBoard(numMoves);
+    play.beginPlay(numMoves);
   }
+  //callBoard();
+  numMoves++;
+  play.beginPlay(numMoves);
   if (play.levelMPassed())
   {
     lose(3);
@@ -200,16 +200,8 @@ void Menu::gamePlay()
     while (numMoves < 8)
     {
       callBoard();
-      flashlightOption();
-      choice = inputValidation(1, 2);
-      if (choice == 1)
-      {
-        int light = numMoves++;
-        play.deleteItem(4);
-      }
       numMoves++;
-      play.moveUser(numMoves);
-      play.printBoard(numMoves);
+      play.beginPlay(numMoves);
     } 
   }
   else 
@@ -225,8 +217,7 @@ void Menu::gamePlay()
     {
       callBoard();
       numMoves++;
-      play.moveUser(numMoves);
-      play.printBoard(numMoves);
+      play.beginPlay(numMoves);
     }  
   }
   else 
@@ -263,7 +254,7 @@ void Menu::exitMenu()
 *********************************************************************/
 void Menu::callBoard()
 {
-  if (play.feedBears())
+  if (play.feedEnemies())
   {
     listItems();
     keepOrDropMenu();
@@ -286,13 +277,12 @@ void Menu::callBoard()
     }
     else
     {
-      play.addToSack(itemType);
       play.drop(choice);
     }
   }
   else
   { 
-    bearsMenu();
+    beastMenu();
     choice = inputValidation(1, 2);
     if (choice == 1)
     {
@@ -319,7 +309,6 @@ void Menu::callBoard()
       }
       else
       {
-        play.addToSack(itemType);
         play.drop(choice);
       }
     }
@@ -338,7 +327,19 @@ void Menu::callBoard()
 *********************************************************************/
 void Menu::lose(int type)
 {
-  if (play.levelCPassed())
+  if (type == 1)
+  {
+    numMoves = 12;
+    cout << "You were eaten by bears and are now, unfortunately, dead..." << endl;
+    cout << "You had a brave adventurer's funeral. RIP." << endl;
+  }
+  else if (type == 2)
+  {
+    numMoves = 12;
+    cout << "Oh no! You have been unsuccessful in your mission." << endl;
+    cout << "You did not collect enough items in the time allowed. " << endl;
+  }
+  else if (type == 6)
   {
     cout << "Congratulations!! You've won the game!!" << endl;
     cout << "You have a ship with a hull, deck, and mast!" << endl;
@@ -346,34 +347,19 @@ void Menu::lose(int type)
          << "trout to eat, and enough wood for repairs! " << endl;
     cout << "Now, get ready... Your dream adventure awaits... " << endl;
   }
-  else if (play.levelFPassed())
+  else if (type == 5)
   {
     cout << "Congratulations! You collected enough wood for three barrels!" << endl;
     cout << "That's enough for a deck..." << endl;
   }
-  else if (play.levelMPassed())
+  else if (type == 4)
   {
     cout << "Congratulations! You collected enough trout for three boats!" << endl;
     cout << "That's enough for a hull..." << endl;
   }
   else 
   {
-    if (type == 1)
-    {
-      numMoves = 12;
-      cout << "You were eaten by bears and are now, unfortunately, dead..." << endl;
-      cout << "You had a brave adventurer's funeral. RIP." << endl;
-    }
-    else if (type == 2)
-    {
-      numMoves = 12;
-      cout << "Oh no! You have been unsuccessful in your mission." << endl;
-      cout << "You did not collect enough items in the time allowed. " << endl;
-    }
-    else 
-    {
-      cout << "Fortune smiles on thee... " << endl;
-    }
+    cout << "Fortune smiles on thee... " << endl;
   }
 }
 /*********************************************************************
@@ -438,7 +424,7 @@ void Menu::listItems()
 ** Parameters: None
 ** Returns: None
 *********************************************************************/
-void Menu::bearsMenu()
+void Menu::beastMenu()
 {
   cout << "There are beasts nearby. You can either: " << endl;
   cout << "1. Throw a salmon to the beasts. " << endl;
