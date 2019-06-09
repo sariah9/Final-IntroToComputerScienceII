@@ -582,7 +582,7 @@ void Board::clearSack(int type)
 int Board::offerItem()
 {
   int item = user->getItem();
-  int random = (rand() % 4) + 1;
+  int random = (rand() % 5) + 1;
   if (random == 1)
   {
     return item;//item
@@ -594,6 +594,10 @@ int Board::offerItem()
   else if (random == 3)
   {
     return 5;//extra 
+  }
+  else if (random == 4)
+  {
+    return 6;//extra 
   }
   else 
   {
