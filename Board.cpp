@@ -391,8 +391,9 @@ void Board::boardPopulate(int move)
 *********************************************************************/
 void Board::printBoard(int move)
 {
+  selectNum();
   cout << "Move: " << move << endl;
-  cout << "There are " << enemyCount << user->getEnemy() << " nearby." << endl;
+  cout << "There are " << enemyCount << " " << user->getEnemy() << " nearby." << endl;
   cout << "There are " << eggCount << " eggs nearby." << endl;
   if (move >= 0 || move < 4)
   {
