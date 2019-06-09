@@ -18,369 +18,68 @@ void Mountain::words()
        << "the sounds of waterfalls and eagles!" << endl;
   cout << "A perfect day for a trout hunt. " << endl;
 }
-
 /*********************************************************************
-** Function: boardPopulate
-** Description: fills each 3 x 3 space with pathway and randomly 
-** chosen items and bears
+** Function: getEnemy
+** Description: returns enemy type
+** Parameters: None
+** Returns: enemyType
+*********************************************************************/
+string Mountain::getEnemy()
+{
+  string enemyType = "cougars";
+  return enemyType;
+}
+/*********************************************************************
+** Function: getItem 
+** Description: returns number of item
+** Parameters: None
+** Returns: 1 for trout
+*********************************************************************/
+int Mountain::getItem()
+{
+  return 1;
+}
+/*********************************************************************
+** Function: printTask
+** Description: prompts user for specific task on that level
 ** Parameters: None
 ** Returns: None
 *********************************************************************/
-void Mountain::boardPopulate(int move)
+void Mountain::printTask()
 {
-  bearCount = 0;
-  itemCount = 0, 
-  eggCount = 0;
-    
-  int random = (rand() % 3) + 1;
-  if  (move == 3)
-  {
-    gridMove[0][1] = path;
-    gridMove[1][1] = path;
-    gridMove[1][2] = path;
-    if (bearImmunity())
-    { 
-      gridMove[0][0] = trout;
-      itemCount++;
-      gridMove[1][0] = egg;
-      eggCount++;
-      gridMove[2][0] = trout;
-      itemCount++;
-      gridMove[2][1] = egg;
-      eggCount++;
-      gridMove[2][2] = trout;
-      itemCount++;
-      gridMove[0][2] = egg;
-      eggCount++;
-    }
-    else if (random == 2)
-    {
-      gridMove[0][0] = bear;
-      bearCount++;
-      gridMove[1][0] = egg;
-      eggCount++;
-      gridMove[2][0] = trout;
-      itemCount++;
-      gridMove[2][1] = egg;
-      eggCount++;
-      gridMove[2][2] = trout;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-    else 
-    {
-      gridMove[0][0] = egg;
-      eggCount++;
-      gridMove[1][0] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[2][1] = trout;
-      itemCount++;
-      gridMove[2][2] = trout;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-  }
-  else 
-  {
-    gridMove[1][1] = path;
-    gridMove[1][0] = path;
-    gridMove[1][2] = path;
-    if (bearImmunity())
-    { 
-      gridMove[0][0] = trout;
-      itemCount++;
-      gridMove[0][1] = trout;
-      itemCount++;
-      gridMove[2][0] = trout;
-      itemCount++;
-      gridMove[2][1] = egg;
-      eggCount++;
-      gridMove[2][2] = egg;
-      eggCount++;
-      gridMove[0][2] = egg;
-      eggCount++;
-    }
-    else if (random == 3)
-    {
-      gridMove[0][0] = egg;
-      eggCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[2][1] = trout;
-      itemCount++;
-      gridMove[2][2] = trout;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-    else
-    {
-      gridMove[0][0] = trout;
-      itemCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[2][1] = trout;
-      itemCount++;
-      gridMove[2][2] = trout;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-  }
-  makeMap(move);
+  cout << "You need to cross through a cave. " << endl;
+  cout << "You can use a flashlight to light your way. " << endl;
 }
 /*********************************************************************
-** Function: makeMap
-** Description: sets map equal to each gridMove 3x3 depending on set
-** number
-** Parameters: int set
+** Function: setTask
+** Description: 
+** Parameters: int growth that is added to taskCount
 ** Returns: None
 *********************************************************************/
-void Mountain::makeMap(int set)
+void Mountain::setTask(int growth)
 {
-  if (set == 0)
+  if (growth = 1)
   {
-    for(int x = 9; x < 11; x++)
-    {
-      for (int y = 6; y < 8; y++)
-      {
-        map[y][x] = gridMove[3][3];
-      }
-    }
-    cout << endl;
+    cout << "You found a treasure chest! " << endl;
+    cout << "This money will allow you to \n"
+         << "travel from town to town until \n"
+         << "you are ready for your voyage!" << endl;
+    taskCount = taskCount + growth;
   }
-  else if (set == 1)
+  else
   {
-    for(int x = 6; x < 8; x++)
-    {
-      for (int y = 6; y < 8; y++)
-      {
-        map[y][x] = gridMove[3][3];
-      }
-    }
-    cout << endl;
-  }
-  else if (set == 2)
-  {
-    for(int x = 3; x < 5; x++)
-    {
-      for (int y = 6; y < 8; y++)
-      {
-        map[y][x] = gridMove[3][3];
-      }
-    }
-    cout << endl;
-  }
-  else if (set == 3)
-  {
-    for(int x = 0; x < 2; x++)
-    {
-      for (int y = 6; y < 8; y++)
-      {
-        map[y][x] = gridMove[3][3];
-      }
-    }
-    cout << endl;
+    cout << "You will never gain immunity that way. " << endl;
   }
 }
 /*********************************************************************
-** Function: printMap
-** Description: depending on move, prints map
-** Parameters: None
-** Returns: int move
-*********************************************************************/
-void Mountain::printMap(int move)
-{
-    if (move == 0)
-    {
-        for(int x = 9; x < 11; x++)
-        {
-            for (int y = 6; y < 8; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 1)
-    {
-        for(int x = 6; x < 8; x++)
-        {
-            for (int y = 6; y < 8; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 2)
-    {
-        for(int x = 3; x < 5; x++)
-        {
-            for (int y = 6; y < 8; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 3)
-    {
-        for(int x = 0; x < 2; x++)
-        {
-            for (int y = 6; y < 8; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 4)
-    {
-        for(int x = 0; x < 2; x++)
-        {
-            for (int y = 3; y < 5; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 5)
-    {
-        for(int x = 3; x < 5; x++)
-        {
-            for (int y = 3; y < 5; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 6)
-    {
-        for(int x = 6; x < 8; x++)
-        {
-            for (int y = 3; y < 5; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 7)
-    {
-        for(int x = 9; x < 11; x++)
-        {
-            for (int y = 3; y < 5; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 8)
-    {
-        for(int x = 9; x < 11; x++)
-        {
-            for (int y = 0; y < 2; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 9)
-    {
-        for(int x = 6; x < 8; x++)
-        {
-            for (int y = 0; y < 2; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 10)
-    {
-        for(int x = 3; x < 5; x++)
-        {
-            for (int y = 0; y < 2; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 11)
-    {
-        for(int x = 0; x < 2; x++)
-        {
-            for (int y = 0; y < 2; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-}
-/*********************************************************************
-** Function: getEggs
-** Description: returns number of eggs on board for each move
-** Parameters: None
-** Returns: int eggCount
-*********************************************************************/
-int Mountain::getEggs()
-{
-  return eggCount;
-}
-/*********************************************************************
-** Function: getItems 
-** Description: returns number of trout placed on board for each move
-** Parameters: None
-** Returns: int itemCount
-*********************************************************************/
-int Mountain::getItems()
-{
-  return itemCount;
-}
-/*********************************************************************
-** Function: getBears
-** Description: returns number of bears on board for each move
-** Parameters: None
-** Returns: int bearCount
-*********************************************************************/
-int Mountain::getBears()
-{
-  return bearCount;
-}
-/*********************************************************************
-** Function: setSalmon
-** Description: setter that allows Board class to change salmonCount
-** Parameters: int growth that is added to salmonCount
-** Returns: None
-*********************************************************************/
-void Mountain::setSalmon(int growth)
-{
-  salmonCount = salmonCount + growth;
-}
-/*********************************************************************
-** Function: bearImmunity
-** Description: returns true or false if user has collected 3+ salmon
+** Function: immunity
+** Description: returns true or false if user has completed task
 ** Parameters: None
 ** Returns: true or false
 *********************************************************************/
-bool Mountain::bearImmunity()
+bool Mountain::immunity()
 {
-  if (salmonCount >= 3)
+  if (taskCount >= 2)
   {
     return true;
   }

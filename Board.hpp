@@ -17,7 +17,6 @@ using std::string;
 class Board
 {
 private:
-  char boardMap[9][12];
   Space* mtnPtr;
   Space* forestPtr;
   Space* coastPtr;
@@ -25,29 +24,32 @@ private:
   Knapsack* front;
   Knapsack* rear;
   int boat, barrel, crew;
-  int sackSize;
+  int sackSize, eggCount;
+  int enemyCount, itemCount;
 public:
   Board();
   ~Board();
   bool isEmpty();
   void moveUser(int);
-  void linkSpaces();
-  void displayNine(int);
+  void linkSpaces(int);
+  void selectNum();
+  void boardPopulate(int);
   void printBoard(int);
-  void printFull();
   void addToSack(int);
   void printSack();
   void deleteItem(int);
+  void clearSack(int);
   int offerItem();
   void keep(int);
   void drop(int);
   void checkKnapsack();
-  void clearSack(int);
   bool levelMPassed();
   bool levelFPassed();
   bool levelCPassed();
-  bool feedBears();
+  bool feedEnemies();
+  void beginLevel(int);
   void beginPlay(int);
+  void callTask(int);
 };
 
 #endif

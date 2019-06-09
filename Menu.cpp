@@ -75,13 +75,12 @@ void Menu::welcomeMenu()
 void Menu::gameRulesB()
 {
   cout << "The most important thing to know about Triad Town \n"
-       << "is that there are bears living in the area. They \n"
-       << "prefer salmon, but they will happily eat you. " << endl;
+       << "is that there are wild creatures living in the area. \n"
+       << "They prefer salmon, but they will happily eat you. " << endl;
   cout << "Best to distract them with a tasty salmon. One \n"
-       << "salmon will feed many bears, and three salmon will \n"
-       << "give you bear immunity! Salmon are made by collecting \n"
-       << "three eggs. Eggs look like this on the map: o " << endl;
-  cout << "Bears look like this: & " << endl;
+       << "salmon will feed many beasts. Complete three tasks and \n"
+       << "achieve immunity to enemies! Salmon are made by collecting \n"
+       << "three eggs. Beasts look like this on the map: E " << endl;
 } 
 /*********************************************************************
 ** Function: gameRulesM
@@ -92,11 +91,11 @@ void Menu::gameRulesB()
 void Menu::gameRulesM()
 {
   cout << "The first task is to collect enough food for your voyage. " << endl;
-  cout << "This is done by collecting trout. Trout look like this on the map: % " << endl;
-  cout << "Three trout make a boat, and three boats will be enough \n"
-       << "to make a hull. You must get three boats or your men and \n"
-       << "yourself can't make a ship. The only place to find trout are \n"
-       << "in the mountains. But beware of bears..." << endl;
+  cout << "This is done by collecting trout. Three trout make a boat, " << endl;
+  cout << "and three boats will be enough to make a hull. \n"
+       << "You must get three boats or you won't be able \n"
+       << "to make a ship. The only place to find trout are \n"
+       << "in the mountains. But beware of mountain lions..." << endl;
 }
 /*********************************************************************
 ** Function: gameRulesF
@@ -108,9 +107,9 @@ void Menu::gameRulesF()
 {
   cout << "The next task is to collect enough wood for boat repairs. " << endl;
   cout << "This is accomplished by collecting enough wood for three \n"
-       << "barrels. Three wood fill one barrel. Wood looks like this: # " << endl;
-  cout << "The best place to find wood is in the forest. Remember to \n"
-       << "collect 3 barrels for a deck, and be on the lookout for bears... " << endl;
+       << "barrels. Three wood make one barrel, and three barrels  " << endl;
+  cout << "make a deck. The best place to find wood is in the forest. \n"
+       << "Remember to be on the lookout for bears... " << endl;
 }
 /*********************************************************************
 ** Function: gameRulesC
@@ -126,8 +125,7 @@ void Menu::gameRulesC()
        << "need nine sailors - three per crew of sailors. " << endl;
   cout << "Three crew make a mast, and that's very important! " << endl;
   cout << "Sailors always hang around the coast, dreaming \n"
-       << "of the sea. They look like this on the map: + " << endl;
-  cout << "Remember to keep a wary eye out for bears... " << endl;
+       << "of the sea. Keep a wary eye out for trolls..." << endl;
 }
 /*********************************************************************
 ** Function: explainKnapsack
@@ -162,13 +160,14 @@ void Menu::explainExtras()
   cout << "These tools will be amongst items randomly offered \n"
        << "to you at each move on the map. One is a crystal. " << endl;
   cout << "Alchemy crystals are very rare and can transform \n"
-       << "any other two items ON THE MAP into something \n"
-       << "greater. They must be dropped on the map in \n"
+       << "any other two items (when dropped) into something \n"
+       << "greater. They must be dropped along the way in \n"
        << "order to use them. Found only near mountains." << endl;
-  cout << "The other tool is a flashlight. This allows you \n"
-       << "to see a wider view of the landscape. Flashlights \n"
-       << "are also pretty rare, so carefully consider the \n"
-       << "best places to use them. Found in forests." << endl;
+  cout << "Another tool is a flashlight. This will help you \n"
+       << "to complete a task. So keep it handy. This is the \n"
+       << "same with the corked bottle so carefully consider \n"
+       << "the best places to use them. Remember that by \n"
+       << "completing 3 tasks, you will be safe from beasts. " << endl;
 }
 /*********************************************************************
 ** Function: gamePlay
@@ -178,43 +177,56 @@ void Menu::explainExtras()
 *********************************************************************/
 void Menu::gamePlay()
 {
-  int choice = 0;
-  play.linkSpaces();
-  play.displayNine(numMoves);
-  play.printFull(); //testing only-- should be commented out
-  play.moveUser(numMoves);
-  play.beginPlay(1);
+  choice = 0;
+  int count = 0;
+  play.beginPlay(numMoves);
+  play.beginLevel(1);
   play.printSack();
-  play.printBoard(numMoves);
-  while (numMoves < 4)
+  while (count < 2)
   {
+    count++;
     callBoard();
     numMoves++;
-    play.moveUser(numMoves);
-    play.displayNine(numMoves);
-    play.printBoard(numMoves);
+    play.beginPlay(numMoves);
   }
+  callBoard();
+  numMoves++;
+  play.linkSpaces(numMoves);
+  play.moveUser(numMoves);
+  cout << "1. Use the flashlight?" << endl;
+  cout << "2. Bumble around until you find an exit? " << endl;
+  choice = inputValidation(1, 2);
+  play.callTask(choice);
+  play.printBoard(numMoves);
+  play.boardPopulate(numMoves);
+  callBoard();
+  numMoves++;
+  play.beginPlay(numMoves);
+  callBoard();
   if (play.levelMPassed())
   {
-    lose(3);
-    play.beginPlay(2);
+    lose(4);
+    play.beginPlay(numMoves);
+    play.beginLevel(2);
     play.printSack();
+    callBoard();
+    numMoves++;
+    play.linkSpaces(numMoves);
+    play.moveUser(numMoves);
+    cout << "1. Give a crystal?" << endl;
+    cout << "2. Tell her you can't help? " << endl;
+    choice = inputValidation(1, 2);
+    play.callTask(choice);
+    play.printBoard(numMoves);
+    play.boardPopulate(numMoves);
+    callBoard();
+    numMoves++;
     while (numMoves < 8)
     {
+      play.beginPlay(numMoves);
       callBoard();
-      flashlightOption();
-      choice = inputValidation(1, 2);
-      if (choice == 1)
-      {
-        int light = numMoves++;
-        play.displayNine(light);
-        play.deleteItem(4);
-      }
       numMoves++;
-      play.moveUser(numMoves);
-      play.displayNine(numMoves);
-      play.printBoard(numMoves);
-    } 
+    }
   }
   else 
   {
@@ -222,17 +234,28 @@ void Menu::gamePlay()
   }
   if (play.levelFPassed())
   {
-    lose(3);
-    play.beginPlay(3);
+    lose(5);
+    play.beginPlay(numMoves);
+    play.beginLevel(2);
     play.printSack();
+    callBoard();
+    numMoves++;
+    play.linkSpaces(numMoves);
+    play.moveUser(numMoves);
+    cout << "1. Use a bottle from your sack?" << endl;
+    cout << "2. Not bother? " << endl;
+    choice = inputValidation(1, 2);
+    play.callTask(choice);
+    play.printBoard(numMoves);
+    play.boardPopulate(numMoves);
+    callBoard();
+    numMoves++;
     while (numMoves < 12)
     {
+      play.beginPlay(numMoves);
       callBoard();
       numMoves++;
-      play.moveUser(numMoves);
-      play.displayNine(numMoves);
-      play.printBoard(numMoves);
-    }  
+    }
   }
   else 
   {
@@ -240,8 +263,7 @@ void Menu::gamePlay()
   }  
   if (play.levelCPassed())
   {
-    lose(3);
-    play.printFull();
+    lose(6);
   }
   else 
   {
@@ -269,7 +291,7 @@ void Menu::exitMenu()
 *********************************************************************/
 void Menu::callBoard()
 {
-  if (play.feedBears())
+  if (play.feedEnemies())
   {
     listItems();
     keepOrDropMenu();
@@ -292,13 +314,12 @@ void Menu::callBoard()
     }
     else
     {
-      play.addToSack(itemType);
       play.drop(choice);
     }
   }
   else
   { 
-    bearsMenu();
+    beastMenu();
     choice = inputValidation(1, 2);
     if (choice == 1)
     {
@@ -325,7 +346,6 @@ void Menu::callBoard()
       }
       else
       {
-        play.addToSack(itemType);
         play.drop(choice);
       }
     }
@@ -344,7 +364,19 @@ void Menu::callBoard()
 *********************************************************************/
 void Menu::lose(int type)
 {
-  if (play.levelCPassed())
+  if (type == 1)
+  {
+    numMoves = 12;
+    cout << "You were eaten by bears and are now, unfortunately, dead..." << endl;
+    cout << "You had a brave adventurer's funeral. RIP." << endl;
+  }
+  else if (type == 2)
+  {
+    numMoves = 12;
+    cout << "Oh no! You have been unsuccessful in your mission." << endl;
+    cout << "You did not collect enough items in the time allowed. " << endl;
+  }
+  else if (type == 6)
   {
     cout << "Congratulations!! You've won the game!!" << endl;
     cout << "You have a ship with a hull, deck, and mast!" << endl;
@@ -352,34 +384,19 @@ void Menu::lose(int type)
          << "trout to eat, and enough wood for repairs! " << endl;
     cout << "Now, get ready... Your dream adventure awaits... " << endl;
   }
-  else if (play.levelFPassed())
+  else if (type == 5)
   {
     cout << "Congratulations! You collected enough wood for three barrels!" << endl;
     cout << "That's enough for a deck..." << endl;
   }
-  else if (play.levelMPassed())
+  else if (type == 4)
   {
     cout << "Congratulations! You collected enough trout for three boats!" << endl;
     cout << "That's enough for a hull..." << endl;
   }
   else 
   {
-    if (type == 1)
-    {
-      numMoves = 12;
-      cout << "You were eaten by bears and are now, unfortunately, dead..." << endl;
-      cout << "You had a brave adventurer's funeral. RIP." << endl;
-    }
-    else if (type == 2)
-    {
-      numMoves = 12;
-      cout << "Oh no! You have been unsuccessful in your mission." << endl;
-      cout << "You did not collect enough items in the time allowed. " << endl;
-    }
-    else 
-    {
-      cout << "Fortune smiles on thee... " << endl;
-    }
+    cout << "Fortune smiles on thee... " << endl;
   }
 }
 /*********************************************************************
@@ -395,28 +412,30 @@ void Menu::listItems()
   cout << "You found an item! " << endl;
   if (item == 1)
   {
-    if (play.levelFPassed())
-    {
-      cout << "It's a sailor!" << endl;
-      itemType = 3;
-    }
-    else if (play.levelMPassed())
-    {
-      cout << "It's some wood!" << endl;
-      itemType = 2;
-    }
-    else 
-    {
-      cout << "It's a trout!" << endl;
-      itemType = 1;
-    }
+    cout << "It's a trout!" << endl;
+    itemType = 1;
+  }
+  else if (item == 2)
+  {
+    cout << "It's some wood!" << endl;
+    itemType = 2;
   }
   else if (item == 3)
   {
+    cout << "It's a sailor!" << endl;
+    itemType = 3;
+  }
+  else if (item == 4)
+  {
+    cout << "It's an egg!" << endl;
+    itemType = 6;
+  }
+  else if (item == 5)
+  {
     if (play.levelFPassed())
     {
-      cout << "It's a salmon!" << endl;
-      itemType = 7;
+      cout << "It's a glass bottle with a cork!" << endl;
+      itemType = 8;
     }
     else if (play.levelMPassed())
     {
@@ -429,10 +448,10 @@ void Menu::listItems()
       itemType = 5;
     }
   }
-  else if (item == 2)
+  else if (item == 6)
   {
-    cout << "It's an egg!" << endl;
-    itemType = 6;
+    cout << "It's a salmon!" << endl;
+    itemType = 7;
   }
 }
 /*********************************************************************
@@ -442,10 +461,10 @@ void Menu::listItems()
 ** Parameters: None
 ** Returns: None
 *********************************************************************/
-void Menu::bearsMenu()
+void Menu::beastMenu()
 {
-  cout << "There are bears nearby. You can either: " << endl;
-  cout << "1. Throw a salmon to the bears. " << endl;
+  cout << "There are beasts nearby. You can either: " << endl;
+  cout << "1. Throw a salmon to the beasts. " << endl;
   cout << "2. Be eaten yourself. " << endl;
 }
 /*********************************************************************

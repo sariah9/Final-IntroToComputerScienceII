@@ -21,421 +21,67 @@ void Forest::words()
        << "any wood that may be near. " << endl;
 }
 /*********************************************************************
-** Function: boardPopulate
-** Description: randomly fills 3 x 3 grid with pathway and items and 
-** bears
-** Parameters: int that represents which move the player is on
+** Function: getEnemy
+** Description: returns enemy type
+** Parameters: None
+** Returns: string enemyType
+*********************************************************************/
+string Forest::getEnemy()
+{
+  string enemyType = "bears";
+  return enemyType;
+}
+/*********************************************************************
+** Function: getItem 
+** Description: returns number of item
+** Parameters: None
+** Returns: 2 for wood
+*********************************************************************/
+int Forest::getItem()
+{
+  return 2;
+}
+/*********************************************************************
+** Function: printTask
+** Description: prompts user to perform task
+** Parameters: None
 ** Returns: None
 *********************************************************************/
-void Forest::boardPopulate(int move)
+void Forest::printTask()
 {
-  const char bear = '&';
-  const char path = ' ';
-  const char wood = '#';
-  const char egg = 'o';
-  eggCount = 0;
-  itemCount = 0;
-  bearCount = 0;
-  int random = (rand() % 3) + 1;
-  if  (move == 7)
+  cout << "You come across a blind beggar in the woods. " << endl;
+  cout << "She offers to give you something you need in \n"
+       << "exchange for a crystal. " << endl;
+}
+/*********************************************************************
+** Function: setTask
+** Description: 
+** Parameters: None
+** Returns: None
+*********************************************************************/
+void Forest::setTask(int growth)
+{
+  if (growth = 1)
   {
-    gridMove[2][1] = path;
-    gridMove[1][1] = path;
-    gridMove[0][1] = path;
-    if (bearImmunity())
-    { 
-      gridMove[0][0] = wood;
-      itemCount++;
-      gridMove[2][1] = egg;
-      eggCount++;
-      gridMove[2][0] = wood;
-      itemCount++;
-      gridMove[2][2] = egg;
-      eggCount++;
-      gridMove[1][2] = wood;
-      itemCount++;
-      gridMove[0][2] = egg;
-      eggCount++;
-    }
-    else if (random == 2)
-    {
-      gridMove[0][0] = bear;
-      bearCount++;
-      gridMove[2][1] = egg;
-      eggCount++;
-      gridMove[2][0] = wood;
-      itemCount++;
-      gridMove[2][2] = egg;
-      eggCount++;
-      gridMove[1][2] = wood;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-    else 
-    {
-      gridMove[0][0] = egg;
-      eggCount++;
-      gridMove[2][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[1][2] = wood;
-      itemCount++;
-      gridMove[2][2] = wood;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-  }
-  else if (move == 4)
-  {
-    gridMove[2][1] = path;
-    gridMove[1][1] = path;
-    gridMove[1][2] = path;
-    if (bearImmunity())
-    { 
-      gridMove[0][0] = wood;
-      itemCount++;
-      gridMove[0][1] = wood;
-      itemCount++;
-      gridMove[1][0] = wood;
-      itemCount++;
-      gridMove[2][0] = egg;
-      eggCount++;
-      gridMove[2][2] = egg;
-      eggCount++;
-      gridMove[0][2] = egg;
-      eggCount++;
-    }
-    else if (random == 3)
-    {
-      gridMove[0][0] = egg;
-      eggCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[1][0] = wood;
-      itemCount++;
-      gridMove[2][2] = wood;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-    else
-    {
-      gridMove[0][0] = wood;
-      itemCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[1][0] = wood;
-      itemCount++;
-      gridMove[2][2] = wood;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
+    cout << "You have received an amulet for fair winds! " << endl;
+    cout << "This means your journey will always \n"
+         << "be a safe and lucrative one." << endl;
+    taskCount = taskCount + growth;
   }
   else
   {
-    gridMove[1][1] = path;
-    gridMove[1][0] = path;
-    gridMove[1][2] = path;
-    if (bearImmunity())
-    { 
-      gridMove[0][0] = wood;
-      itemCount++;
-      gridMove[0][1] = wood;
-      itemCount++;
-      gridMove[2][0] = wood;
-      itemCount++;
-      gridMove[2][1] = egg;
-      eggCount++;
-      gridMove[2][2] = egg;
-      eggCount++;
-      gridMove[0][2] = egg;
-      eggCount++;
-    }
-    else if (random == 1)
-    {
-      gridMove[0][0] = egg;
-      eggCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[2][1] = wood;
-      itemCount++;
-      gridMove[2][2] = wood;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-    else
-    {
-      gridMove[0][0] = wood;
-      itemCount++;
-      gridMove[0][1] = egg;
-      eggCount++;
-      gridMove[2][0] = bear;
-      bearCount++;
-      gridMove[2][1] = wood;
-      itemCount++;
-      gridMove[2][2] = wood;
-      itemCount++;
-      gridMove[0][2] = bear;
-      bearCount++;
-    }
-  }
-  makeMap(move);
-}
-/*********************************************************************
-** Function: makeMap
-** Description: sets map equal to each gridMove 3x3 depending on set
-** number
-** Parameters: 3x3 array , int set
-** Returns: None
-*********************************************************************/
-void Forest::makeMap(int set)
-{
-  if (set == 4)
-  {
-    for(int x = 0; x < 2; x++)
-    {
-      for (int y = 3; y < 5; y++)
-      {
-        map[y][x] = gridMove[3][3];
-      }
-    }
-    cout << endl;
-  }
-  else if (set == 5)
-  {
-    for(int x = 3; x < 5; x++)
-    {
-      for (int y = 3; y < 5; y++)
-      {
-        map[y][x] = gridMove[3][3];
-      }
-    }
-    cout << endl;
-  }
-  else if (set == 6)
-  {
-    for(int x = 6; x < 8; x++)
-    {
-      for (int y = 3; y < 5; y++)
-      {
-        map[y][x] = gridMove[3][3];
-      }
-    }
-    cout << endl;
-  }
-  else if (set == 7)
-  {
-    for(int x = 9; x < 11; x++)
-    {
-      for (int y = 3; y < 5; y++)
-      {
-        map[y][x] = gridMove[3][3];
-      }
-    }
-    cout << endl;
+    cout << "You will never gain immunity that way. " << endl;
   }
 }
 /*********************************************************************
-** Function: printMap
-** Description: depending on move, prints map
-** Parameters: None
-** Returns: int move
-*********************************************************************/
-void Forest::printMap(int move)
-{
-    if (move == 0)
-    {
-        for(int x = 9; x < 11; x++)
-        {
-            for (int y = 6; y < 8; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 1)
-    {
-        for(int x = 6; x < 8; x++)
-        {
-            for (int y = 6; y < 8; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 2)
-    {
-        for(int x = 3; x < 5; x++)
-        {
-            for (int y = 6; y < 8; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 3)
-    {
-        for(int x = 0; x < 2; x++)
-        {
-            for (int y = 6; y < 8; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 4)
-    {
-        for(int x = 0; x < 2; x++)
-        {
-            for (int y = 3; y < 5; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 5)
-    {
-        for(int x = 3; x < 5; x++)
-        {
-            for (int y = 3; y < 5; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 6)
-    {
-        for(int x = 6; x < 8; x++)
-        {
-            for (int y = 3; y < 5; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 7)
-    {
-        for(int x = 9; x < 11; x++)
-        {
-            for (int y = 3; y < 5; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 8)
-    {
-        for(int x = 9; x < 11; x++)
-        {
-            for (int y = 0; y < 2; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 9)
-    {
-        for(int x = 6; x < 8; x++)
-        {
-            for (int y = 0; y < 2; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 10)
-    {
-        for(int x = 3; x < 5; x++)
-        {
-            for (int y = 0; y < 2; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-    else if (move == 11)
-    {
-        for(int x = 0; x < 2; x++)
-        {
-            for (int y = 0; y < 2; y++)
-            {
-                cout << map[y][x];
-            }
-        }
-        cout << endl;
-    }
-}
-/*********************************************************************
-** Function: getEggs
-** Description: returns number of eggs on board for each move
-** Parameters: None
-** Returns: int eggCount
-*********************************************************************/
-int Forest::getEggs()
-{
-  return eggCount;
-}
-/*********************************************************************
-** Function: getItems 
-** Description: returns number of wood placed on board for each move
-** Parameters: None
-** Returns: int itemCount
-*********************************************************************/
-int Forest::getItems()
-{
-  return itemCount;
-}
-/*********************************************************************
-** Function: getBears
-** Description: returns number of bears on board for each move
-** Parameters: None
-** Returns: int bearCount
-*********************************************************************/
-int Forest::getBears()
-{
-  return bearCount;
-}
-/*********************************************************************
-** Function: setSalmon
-** Description: setter that allows Board class to change salmonCount
-** Parameters: int growth that is added to salmonCount
-** Returns: None
-*********************************************************************/
-void Forest::setSalmon(int growth)
-{
-  salmonCount = salmonCount + growth;
-}
-/*********************************************************************
-** Function: bearImmunity
-** Description: returns true or false if user has collected 3+ salmon
-** Parameters: None
+** Function: immunity
+** Description: returns true or false if user has completed task
+** Parameters: int growth that is added to taskCount
 ** Returns: true or false
 *********************************************************************/
-bool Forest::bearImmunity()
+bool Forest::immunity()
 {
-  if (salmonCount >= 3)
+  if (taskCount >= 3)
   {
     return true;
   }
@@ -444,3 +90,4 @@ bool Forest::bearImmunity()
     return false;
   }
 }
+

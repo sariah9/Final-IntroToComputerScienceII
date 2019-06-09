@@ -34,7 +34,7 @@ public:
   void callBoard();
   void lose(int);
   void listItems();
-  void bearsMenu();
+  void beastMenu();
   void keepOrDropMenu();
   void flashlightOption();
   void beforeMove();
