@@ -648,6 +648,7 @@ void Board::drop(int item)
         boat++;
         cout << "You made a boat! " << endl;
       }
+      itemCount = itemCount - 2;
     }
   }
   else if (item == 5)
@@ -669,11 +670,13 @@ void Board::drop(int item)
         boat++;
         cout << "You made a boat! " << endl;
       }
+      itemCount = itemCount - 2;
     }
     else if (boardEggs >= 2)
     {
       cout << "A salmon has been added to your bag! " << endl;
       addToSack(7);
+      eggCount = eggCount - 2;
     }
   }
   else if (item == 6)
@@ -682,6 +685,7 @@ void Board::drop(int item)
     {
       cout << "A salmon has been added to your bag! " << endl;
       addToSack(7);
+      eggCount = eggCount - 2;
     }
   }
   else
@@ -873,7 +877,7 @@ void Board::beginLevel(int level)
   {
     cout << "You have new items in your knapSack!" << endl;
     clearSack(2);
-    addToSack(3);
+    addToSack(8);
     addToSack(3);
     addToSack(7);
   }
