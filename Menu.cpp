@@ -177,7 +177,7 @@ void Menu::explainExtras()
 *********************************************************************/
 void Menu::gamePlay()
 {
-  int choice = 0;
+  choice = 0;
   int count = 0;
   play.beginPlay(numMoves);
   play.beginLevel(1);
@@ -189,7 +189,15 @@ void Menu::gamePlay()
     numMoves++;
     play.beginPlay(numMoves);
   }
-  //callBoard();
+  play.linkSpaces(numMoves);
+  play.moveUser(numMoves);
+  cout << "1. Use the flashlight?" << endl;
+  cout << "2. Bumble around until you find an exit? " << endl;
+  choice = inputValidation(1, 2);
+  play.callTask(choice);
+  play.printBoard(numMoves);
+  play.boardPopulate(numMoves);
+  callBoard();
   numMoves++;
   play.beginPlay(numMoves);
   if (play.levelMPassed())
