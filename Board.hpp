@@ -49,6 +49,7 @@ public:
   bool feedEnemies();
   void beginLevel(int);
   void beginPlay(int);
+  void callTask(int);
 };
 
 #endif
