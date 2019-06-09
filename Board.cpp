@@ -887,3 +887,20 @@ void Board::beginPlay(int num)
   printBoard(num);
   boardPopulate(num);
 }
+/*********************************************************************
+** Function: setTask
+** Description: informs setTask if task was completed or not
+** Parameters: int selection 
+** Returns: None
+*********************************************************************/
+void Board::callTask(int selection)
+{
+  if (selection == 1)
+  {
+    user->setTask(1);
+  }
+  else
+  {
+    user->setTask(0);
+  }
+}
