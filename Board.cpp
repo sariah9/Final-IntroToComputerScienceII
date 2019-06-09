@@ -901,17 +901,19 @@ void Board::callTask(int selection)
 {
   if (selection == 1)
   {
-    user->setTask(1);
     if (levelFPassed())
     {
+      user->setTask(3);
       deleteItem(8);
     }
     else if (levelMPassed())
     {
+      user->setTask(1);
       deleteItem(4);
     }
     else
     {
+      user->setTask(1);
       deleteItem(5);
     }
   }
