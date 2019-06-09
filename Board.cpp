@@ -108,7 +108,6 @@ void Board::moveUser(int move)
   }
   else if (move == 4)
   {
-    user = user->top;
     user->words();
   }
   else if (move == 5)
@@ -122,7 +121,6 @@ void Board::moveUser(int move)
   }
   else if (move == 8)
   {
-    user = user->top;
     user->words();
   }
   else if (move == 9)
@@ -147,9 +145,12 @@ void Board::moveUser(int move)
 *********************************************************************/
 void Board::linkSpaces(int move)
 {
+  Space* levelOne = new Mountain();
+  Space* levelTwo = new Forest();
+  Space* levelThree = new Coast;
   if (move == 0)
   {
-    mtnPtr = new Mountain();
+    mtnPtr = levelOne;
     user = mtnPtr;
   }
   else if (move >= 1 || move <= 3)
@@ -159,8 +160,8 @@ void Board::linkSpaces(int move)
   }
   else if (move == 4)
   {
-    forestPtr = mtnPtr->top;
     forestPtr = new Forest();
+    user = forestPtr;
   }
   else if (move >= 5 || move <= 7)
   {
@@ -169,8 +170,8 @@ void Board::linkSpaces(int move)
   }
   else if (move == 8)
   {
-    coastPtr = forestPtr->top;
     coastPtr = new Coast();
+    user = coastPtr;
   }
   else if (move >= 9 || move <= 10)
   {
@@ -181,9 +182,10 @@ void Board::linkSpaces(int move)
   {
     coastPtr->left = new Coast();
     coastPtr = coastPtr->left;
-    coastPtr = forestPtr->top;
-    forestPtr = mtnPtr->top;
-    mtnPtr = user;
+    user = coastPtr;
+    coastPtr = levelThree;
+    forestPtr = levelTwo;
+    mtnPtr = levelOne;
   }
 }
 /*********************************************************************
@@ -249,7 +251,7 @@ void Board::boardPopulate(int move)
   const char item = 'X';
   const char egg = 'o';
   const char player = 'U';
-  char gridMove[3][3] = {{'_', '_', '_'},
+  char gridMove[3][3] = {{'_','_', '_'},
                          {'_', '_', '_'},
                          {'_', '_', '_'}};
    if  (move == 3)
@@ -393,7 +395,8 @@ void Board::printBoard(int move)
 {
   selectNum();
   cout << "Move: " << move << endl;
-  cout << "There are " << enemyCount << " " << user->getEnemy() << " nearby." << endl;
+  string type = user->getEnemy();
+  cout << "There are " << enemyCount << " " << type << " nearby." << endl;
   cout << "There are " << eggCount << " eggs nearby." << endl;
   if (move >= 0 || move < 4)
   {
@@ -707,6 +710,7 @@ void Board::checkKnapsack()
   int troutNum = 0, woodNum = 0, sailorNum = 0;
   int eggNum = 0, salmonNum = 0;
   Knapsack* itemPtr = front;
+  int number = itemPtr->itemNum;
   if (isEmpty())
   {
     cout << "No values yet. " << endl;
@@ -714,27 +718,28 @@ void Board::checkKnapsack()
   else
   {
     do {
-      if (itemPtr->itemNum == 1)
+      if (number == 1)
       {
         troutNum++;
       }
-      else if (itemPtr->itemNum == 2)
+      else if (number == 2)
       {
         woodNum++;
       }
-      else if (itemPtr->itemNum == 3)
+      else if (number == 3)
       {
         sailorNum++;
       }
-      else if (itemPtr->itemNum == 6)
+      else if (number == 6)
       {
         eggNum++;
       }
-      else if (itemPtr->itemNum == 7)
+      else if (number == 7)
       {
         salmonNum++;
       }
       itemPtr = itemPtr->next;
+      number = itemPtr->itemNum;
     }while (itemPtr != front);
   }
   if (troutNum >= 3)
