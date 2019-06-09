@@ -48,7 +48,7 @@ int Mountain::getItem()
 void Mountain::printTask()
 {
   cout << "You need to cross through a cave. " << endl;
-  cout << "If you do not use a flashlight, you cannot continue. " << endl;
+  cout << "You can use a flashlight to light your way. " << endl;
 }
 /*********************************************************************
 ** Function: setTask
@@ -68,8 +68,7 @@ void Mountain::setTask(int growth)
   }
   else
   {
-    cout << "You may not continue your journey. " << endl;
-    cout << "You should choose a different path. " << endl;
+    cout << "You will never gain immunity that way. " << endl;
   }
 }
 /*********************************************************************
