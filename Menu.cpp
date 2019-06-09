@@ -389,28 +389,30 @@ void Menu::listItems()
   cout << "You found an item! " << endl;
   if (item == 1)
   {
-    if (play.levelFPassed())
-    {
-      cout << "It's a sailor!" << endl;
-      itemType = 3;
-    }
-    else if (play.levelMPassed())
-    {
-      cout << "It's some wood!" << endl;
-      itemType = 2;
-    }
-    else 
-    {
-      cout << "It's a trout!" << endl;
-      itemType = 1;
-    }
+    cout << "It's a trout!" << endl;
+    itemType = 1;
+  }
+  else if (item == 2)
+  {
+    cout << "It's some wood!" << endl;
+    itemType = 2;
   }
   else if (item == 3)
   {
+    cout << "It's a sailor!" << endl;
+    itemType = 3;
+  }
+  else if (item == 4)
+  {
+    cout << "It's an egg!" << endl;
+    itemType = 6;
+  }
+  else if (item == 5)
+  {
     if (play.levelFPassed())
     {
-      cout << "It's a salmon!" << endl;
-      itemType = 7;
+      cout << "It's a glass bottle with a cork!" << endl;
+      itemType = 8;
     }
     else if (play.levelMPassed())
     {
@@ -423,10 +425,10 @@ void Menu::listItems()
       itemType = 5;
     }
   }
-  else if (item == 2)
+  else if (item == 6)
   {
-    cout << "It's an egg!" << endl;
-    itemType = 6;
+    cout << "It's a salmon!" << endl;
+    itemType = 7;
   }
 }
 /*********************************************************************
