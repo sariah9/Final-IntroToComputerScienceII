@@ -248,10 +248,10 @@ void Board::boardPopulate(int move)
   const char path = '<';
   const char item = 'X';
   const char egg = 'o';
-  const char player = "U";
-  char gridMove[3][3] = {{"_", "_", "_"},
-                         {"_", "_", "_"},
-                         {"_", "_", "_"}};
+  const char player = 'U';
+  char gridMove[3][3] = {{'_', '_', '_'},
+                         {'_', '_', '_'},
+                         {'_', '_', '_'}};
    if  (move == 3)
   {
     gridMove[0][1] = path;
@@ -672,7 +672,7 @@ void Board::drop(int item)
       }
       itemCount = itemCount - 2;
     }
-    else if (boardEggs >= 2)
+    else if (eggCount >= 2)
     {
       cout << "A salmon has been added to your bag! " << endl;
       addToSack(7);
@@ -681,7 +681,7 @@ void Board::drop(int item)
   }
   else if (item == 6)
   {
-    if (boardEggs >= 2)
+    if (eggCount >= 2)
     {
       cout << "A salmon has been added to your bag! " << endl;
       addToSack(7);
@@ -767,10 +767,6 @@ void Board::checkKnapsack()
     deleteItem(6);
     deleteItem(6);
     deleteItem(6);
-  }
-  else 
-  {
-    continue;
   }
 }
 /*********************************************************************
