@@ -495,9 +495,13 @@ void Board::printSack()
       {
         cout << "One " << e << endl;
       }
-      else 
+       else if (itemPtr->itemNum == 7)
       {
         cout << "One " << salm << endl;
+      }
+      else 
+      {
+        cout << "One corked glass bottle. " << endl;
       }
       itemPtr = itemPtr->next;
     }while (itemPtr != front);
@@ -898,6 +902,18 @@ void Board::callTask(int selection)
   if (selection == 1)
   {
     user->setTask(1);
+    if (levelFPassed())
+    {
+      deleteItem(8);
+    }
+    else if (levelMPassed())
+    {
+      deleteItem(4);
+    }
+    else
+    {
+      deleteItem(5);
+    }
   }
   else
   {
