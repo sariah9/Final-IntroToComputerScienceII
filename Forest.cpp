@@ -61,7 +61,7 @@ void Forest::printTask()
 *********************************************************************/
 void Forest::setTask(int growth)
 {
-  if (growth = 1)
+  if (growth == 1)
   {
     cout << "You have received an amulet for fair winds! " << endl;
     cout << "This means your journey will always \n"

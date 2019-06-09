@@ -60,7 +60,7 @@ void Coast::printTask()
 *********************************************************************/
 void Coast::setTask(int growth)
 {
-  if (growth = 3)
+  if (growth == 3)
   {
     cout << "You have made a friend on the beach! " << endl;
     cout << "She is an accountant and will \n"

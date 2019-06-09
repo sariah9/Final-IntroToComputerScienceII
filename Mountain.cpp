@@ -58,7 +58,7 @@ void Mountain::printTask()
 *********************************************************************/
 void Mountain::setTask(int growth)
 {
-  if (growth = 1)
+  if (growth == 1)
   {
     cout << "You found a treasure chest! " << endl;
     cout << "This money will allow you to \n"

@@ -140,7 +140,7 @@ void Board::linkSpaces(int move)
     mtnPtr = levelOne;
     user = mtnPtr;
   }
-  else if (move >= 1 || move <= 3)
+  else if (move >= 1 && move <= 3)
   {
     mtnPtr->left = new Mountain();
     mtnPtr = mtnPtr->left;
@@ -150,7 +150,7 @@ void Board::linkSpaces(int move)
     forestPtr = new Forest();
     user = forestPtr;
   }
-  else if (move >= 5 || move <= 7)
+  else if (move >= 5 && move <= 7)
   {
     forestPtr->right = new Forest();
     forestPtr = forestPtr->right;
@@ -160,7 +160,7 @@ void Board::linkSpaces(int move)
     coastPtr = new Coast();
     user = coastPtr;
   }
-  else if (move >= 9 || move <= 10)
+  else if (move == 9 || move == 10)
   {
     coastPtr->left = new Coast();
     coastPtr = coastPtr->left;
