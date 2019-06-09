@@ -189,6 +189,8 @@ void Menu::gamePlay()
     numMoves++;
     play.beginPlay(numMoves);
   }
+  callBoard();
+  numMoves++;
   play.linkSpaces(numMoves);
   play.moveUser(numMoves);
   cout << "1. Use the flashlight?" << endl;
@@ -200,17 +202,31 @@ void Menu::gamePlay()
   callBoard();
   numMoves++;
   play.beginPlay(numMoves);
+  callBoard();
   if (play.levelMPassed())
   {
-    lose(3);
-    play.beginPlay(2);
+    lose(4);
+    play.beginPlay(numMoves);
+    play.beginLevel(2);
     play.printSack();
+    callBoard();
+    numMoves++;
+    play.linkSpaces(numMoves);
+    play.moveUser(numMoves);
+    cout << "1. Give a crystal?" << endl;
+    cout << "2. Tell her you can't help? " << endl;
+    choice = inputValidation(1, 2);
+    play.callTask(choice);
+    play.printBoard(numMoves);
+    play.boardPopulate(numMoves);
+    callBoard();
+    numMoves++;
     while (numMoves < 8)
     {
+      play.beginPlay(numMoves);
       callBoard();
       numMoves++;
-      play.beginPlay(numMoves);
-    } 
+    }
   }
   else 
   {
@@ -218,15 +234,28 @@ void Menu::gamePlay()
   }
   if (play.levelFPassed())
   {
-    lose(3);
-    play.beginPlay(3);
+    lose(5);
+    play.beginPlay(numMoves);
+    play.beginLevel(2);
     play.printSack();
+    callBoard();
+    numMoves++;
+    play.linkSpaces(numMoves);
+    play.moveUser(numMoves);
+    cout << "1. Use a bottle from your sack?" << endl;
+    cout << "2. Not bother? " << endl;
+    choice = inputValidation(1, 2);
+    play.callTask(choice);
+    play.printBoard(numMoves);
+    play.boardPopulate(numMoves);
+    callBoard();
+    numMoves++;
     while (numMoves < 12)
     {
+      play.beginPlay(numMoves);
       callBoard();
       numMoves++;
-      play.beginPlay(numMoves);
-    }  
+    }
   }
   else 
   {
@@ -234,7 +263,7 @@ void Menu::gamePlay()
   }  
   if (play.levelCPassed())
   {
-    lose(3);
+    lose(6);
   }
   else 
   {
