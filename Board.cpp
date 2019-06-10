@@ -385,15 +385,15 @@ void Board::printBoard(int move)
   string type = user->getEnemy();
   cout << "There are " << enemyCount << " " << type << " nearby." << endl;
   cout << "There are " << eggCount << " eggs nearby." << endl;
-  if (move >= 0 || move < 4)
+  if (move >= 0 && move < 4)
   {
     cout << "There are " << itemCount << " trout nearby." << endl;
   }
-  else if (move >= 4 || move < 8)
+  else if (move >= 4 && move < 8)
   {
     cout << "There are " << itemCount << " wood nearby." << endl;
   }
-  else if (move >= 8 || move < 12)
+  else if (move >= 8 && move < 12)
   {
     cout << "There are " << itemCount << " sailors nearby." << endl;
   }
@@ -546,6 +546,11 @@ void Board::deleteItem(int item)
           prevPtr->next = nodePtr->next;
           delete nodePtr;
           sackSize--;
+        }
+        else
+        {
+          prevPtr = nodePtr;
+          prevPtr = nullptr;
         }
       }
     }
