@@ -193,8 +193,8 @@ void Menu::gamePlay()
   numMoves++;
   play.linkSpaces(numMoves);
   play.moveUser(numMoves);
-  cout << "1. Use the flashlight?" << endl;
-  cout << "2. Bumble around until you find an exit? " << endl;
+  cout << "1. Give a crystal?" << endl;
+  cout << "2. Tell her you can't help? " << endl;
   choice = inputValidation(1, 2);
   play.callTask(choice);
   play.printBoard(numMoves);
@@ -213,8 +213,8 @@ void Menu::gamePlay()
     numMoves++;
     play.linkSpaces(numMoves);
     play.moveUser(numMoves);
-    cout << "1. Give a crystal?" << endl;
-    cout << "2. Tell her you can't help? " << endl;
+    cout << "1. Use the flashlight?" << endl;
+    cout << "2. Bumble around until you find an exit? " << endl;
     choice = inputValidation(1, 2);
     play.callTask(choice);
     play.printBoard(numMoves);

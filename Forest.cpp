@@ -49,9 +49,8 @@ int Forest::getItem()
 *********************************************************************/
 void Forest::printTask()
 {
-  cout << "You come across a blind beggar in the woods. " << endl;
-  cout << "She offers to give you something you need in \n"
-       << "exchange for a crystal. " << endl;
+  cout << "You need to cross through a cave. " << endl;
+  cout << "You can use a flashlight to light your way. " << endl;
 }
 /*********************************************************************
 ** Function: setTask
@@ -61,11 +60,12 @@ void Forest::printTask()
 *********************************************************************/
 void Forest::setTask(int growth)
 {
-  if (growth = 1)
+  if (growth == 1)
   {
-    cout << "You have received an amulet for fair winds! " << endl;
-    cout << "This means your journey will always \n"
-         << "be a safe and lucrative one." << endl;
+    cout << "You found a treasure chest! " << endl;
+    cout << "This money will allow you to \n"
+         << "travel from town to town until \n"
+         << "you are ready for your voyage!" << endl;
     taskCount = taskCount + growth;
   }
   else

@@ -93,48 +93,35 @@ bool Board::isEmpty()
 *********************************************************************/
 void Board::moveUser(int move)
 {
-  if (move == 0)
+  switch(move)
   {
-    user->words();
-  }
-  else if (move == 1 || move == 2)
-  {
-    user = user->left;
-  }
-  else if (move == 3)
-  {
-    user = user->left;
-    user->printTask();
-  }
-  else if (move == 4)
-  {
-    user->words();
-  }
-  else if (move == 5)
-  {
-    user = user->right;
-    user->printTask();
-  }
-  else if (move >= 6 || move <= 7)
-  {
-    user = user->right;
-  }
-  else if (move == 8)
-  {
-    user->words();
-  }
-  else if (move == 9)
-  {
-    user = user->left;
-    user->printTask();
-  }
-  else if (move == 10)
-  {
-    user = user->left;
-  }
-  else if (move == 11)
-  {
-    user = user->left;
+    case 0:
+    case 4:
+    case 8:
+      user->words();
+      break;
+    case 1:
+    case 2:
+    case 10:
+    case 11:
+      user = user->left;
+      break;
+    case 3:
+    case 9:
+      user = user->left;
+      user->printTask();
+      break;
+    case 5:
+      user = user->right;
+      user->printTask();
+      break;
+    case 6:
+    case 7:
+      user = user->right;
+      break;
+    default:
+      std::cout << "invalid input for moving user: " << move << std::endl;
+      break;
   }
 }
 /*********************************************************************
@@ -153,7 +140,7 @@ void Board::linkSpaces(int move)
     mtnPtr = levelOne;
     user = mtnPtr;
   }
-  else if (move >= 1 || move <= 3)
+  else if (move >= 1 && move <= 3)
   {
     mtnPtr->left = new Mountain();
     mtnPtr = mtnPtr->left;
@@ -163,7 +150,7 @@ void Board::linkSpaces(int move)
     forestPtr = new Forest();
     user = forestPtr;
   }
-  else if (move >= 5 || move <= 7)
+  else if (move >= 5 && move <= 7)
   {
     forestPtr->right = new Forest();
     forestPtr = forestPtr->right;
@@ -173,7 +160,7 @@ void Board::linkSpaces(int move)
     coastPtr = new Coast();
     user = coastPtr;
   }
-  else if (move >= 9 || move <= 10)
+  else if (move == 9 || move == 10)
   {
     coastPtr->left = new Coast();
     coastPtr = coastPtr->left;
@@ -499,7 +486,7 @@ void Board::printSack()
       {
         cout << "One " << e << endl;
       }
-       else if (itemPtr->itemNum == 7)
+      else if (itemPtr->itemNum == 7)
       {
         cout << "One " << salm << endl;
       }
@@ -792,7 +779,7 @@ bool Board::levelMPassed()
   {
     return true;
   }
-  else 
+  else
   {
     return false;
   }
