@@ -738,6 +738,10 @@ void Board::checkKnapsack()
       {
         salmonNum++;
       }
+      else
+      {
+        troutNum = 0;
+      }
       itemPtr = itemPtr->next;
       number = itemPtr->itemNum;
     }while (itemPtr != front);
