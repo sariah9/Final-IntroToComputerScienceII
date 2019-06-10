@@ -47,8 +47,9 @@ int Mountain::getItem()
 *********************************************************************/
 void Mountain::printTask()
 {
-  cout << "You need to cross through a cave. " << endl;
-  cout << "You can use a flashlight to light your way. " << endl;
+  cout << "You come across a blind beggar in the woods. " << endl;
+  cout << "She offers to give you something you need in \n"
+       << "exchange for a crystal. " << endl;
 }
 /*********************************************************************
 ** Function: setTask
