@@ -62,9 +62,10 @@ void Forest::setTask(int growth)
 {
   if (growth == 1)
   {
-    cout << "You have received an amulet for fair winds! " << endl;
-    cout << "This means your journey will always \n"
-         << "be a safe and lucrative one." << endl;
+    cout << "You found a treasure chest! " << endl;
+    cout << "This money will allow you to \n"
+         << "travel from town to town until \n"
+         << "you are ready for your voyage!" << endl;
     taskCount = taskCount + growth;
   }
   else
